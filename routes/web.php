@@ -1,15 +1,18 @@
 <?php
 
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Laravel\Fortify\Features;
 
-Route::get('/', function () {
-    return Inertia::render('welcome', [
-        'canRegister' => Features::enabled(Features::registration()),
-    ]);
-})->name('home');
+// Public marketing routes
+Route::get('/', [PublicController::class, 'home'])->name('home');
+Route::get('/products', [PublicController::class, 'products'])->name('products');
+Route::get('/services', [PublicController::class, 'services'])->name('services');
+Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
+Route::get('/legal/privacy-policy', [PublicController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/legal/terms-conditions', [PublicController::class, 'termsConditions'])->name('terms-conditions');
 
+// Authenticated app routes
 Route::get('dashboard', function () {
     return Inertia::render('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
