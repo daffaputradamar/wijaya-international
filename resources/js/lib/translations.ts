@@ -5,6 +5,7 @@ export const translations = {
         'nav.products': 'Produk',
         'nav.services': 'Layanan',
         'nav.contact': 'Kontak',
+        'nav.getInTouch': 'Hubungi Kami',
 
         // Hero Section
         'hero.word1': 'EMPOWERING',
@@ -19,11 +20,11 @@ export const translations = {
             'Berawal di tahun 2004 dengan keyakinan sederhana akan pentingnya distribusi yang efisien, PT Wijaya International kini telah bertransformasi menjadi perusahaan multisegmen yang dinamis.',
         'about.body2':
             'Kami tidak hanya mengirimkan produk; kami menghubungkan produsen dengan konsumen, serta inovasi dengan kebutuhan pasar. Dengan fondasi integritas dan orientasi pada hasil, kami hadir sebagai mitra strategis yang memegang teguh janji dan realisasi.',
-        'about.stat1.value': '21',
+        'about.stat1.value': '20+',
         'about.stat1.label': 'Tahun Pengalaman',
-        'about.stat2.value': '125',
+        'about.stat2.value': '300+',
         'about.stat2.label': 'Dealer Network',
-        'about.stat3.value': '50',
+        'about.stat3.value': '100+',
         'about.stat3.label': 'Integritas & Profesionalisme',
 
         // What We Do Section
@@ -139,6 +140,7 @@ export const translations = {
         'nav.products': 'Products',
         'nav.services': 'Services',
         'nav.contact': 'Contact',
+        'nav.getInTouch': 'Get In Touch',
 
         // Hero Section
         'hero.word1': 'EMPOWERING',
@@ -153,11 +155,11 @@ export const translations = {
             'Starting in 2004 with a simple belief in the importance of efficient distribution, PT Wijaya International has transformed into a dynamic multi-segment company.',
         'about.body2':
             'We don\'t just deliver products; we connect manufacturers with consumers, and innovation with market needs. With a foundation of integrity and results-oriented approach, we serve as a strategic partner that upholds promises and delivery.',
-        'about.stat1.value': '21',
+        'about.stat1.value': '20+',
         'about.stat1.label': 'Years of Experience',
-        'about.stat2.value': '125',
+        'about.stat2.value': '300+',
         'about.stat2.label': 'Dealer Network',
-        'about.stat3.value': '50',
+        'about.stat3.value': '100+',
         'about.stat3.label': 'Integrity & Professionalism',
 
         // What We Do Section

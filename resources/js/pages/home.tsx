@@ -10,6 +10,7 @@ import {
     useMotionValueEvent,
     type Variants,
 } from 'framer-motion';
+import { LuPackage, LuCamera, LuChartBar, LuSmartphone } from 'react-icons/lu';
 import GuestLayout from '@/layouts/guest-layout';
 import Footer from '@/components/public/footer';
 import { useLanguage } from '@/lib/language-context';
@@ -156,9 +157,9 @@ function HeroSection() {
                     transition={{ duration: 1, ease: EASE, delay: 0.1 }}
                     className="text-white/50 text-xs tracking-[0.4em] uppercase font-medium mb-6"
                 >
-                    PT. Wijaya International
+                    Welcome to Wijaya International
                 </motion.p>
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-none tracking-tight text-left uppercase">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-none tracking-tighter text-left uppercase">
                     {heroWords.map((word, i) => (
                         <span key={word} className="inline-block overflow-hidden mr-[0.2em]">
                             <motion.span
@@ -204,77 +205,104 @@ function AboutSection() {
 
     return (
         <section id="about" className="bg-background py-32 px-6 lg:px-12 relative z-20 overflow-hidden">
-            <div className="max-w-7xl mx-auto">
+            <div>
+                {/* Top Section - Centered Header */}
                 <motion.div
                     variants={staggerSlow}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
+                    className="text-center mb-16 max-w-5xl mx-auto"
                 >
-                    <motion.p variants={clipReveal} className="text-muted-foreground/60 text-xs tracking-[0.4em] uppercase font-medium mb-10">
+                    <motion.p variants={clipReveal} className="text-red-500 text-xs tracking-[0.4em] uppercase font-semibold mb-6">
                         {t('about.label')}
                     </motion.p>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                        {/* Left: Title */}
-                        <motion.div variants={fadeLeft}>
-                            <SplitHeading
-                                text={t('about.title')}
-                                className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight"
-                            />
-                        </motion.div>
-                        {/* Right: Body + Stats */}
-                        <div className="flex flex-col gap-8">
-                            <motion.p variants={fadeRight} className="text-muted-foreground text-base leading-relaxed">
-                                {t('about.body')}
-                            </motion.p>
-                            <motion.p variants={fadeRight} className="text-muted-foreground text-base leading-relaxed">
-                                {t('about.body2')}
-                            </motion.p>
+                    <motion.h2
+                        variants={fadeUp}
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#000168] leading-tight mb-8"
+                    >
+                        {t('about.title')}
+                    </motion.h2>
+                    <motion.p
+                        variants={fadeUp}
+                        className="text-base leading-relaxed max-w-2xl mx-auto"
+                    >
+                        {t('about.body')}
+                    </motion.p>
+                </motion.div>
 
-                            {/* Stats Container with Background Image & Gradient */}
-                            <motion.div
-                                variants={scaleIn}
-                                whileHover={{ scale: 1.02, transition: { duration: 0.4, ease: EASE } }}
-                                className="relative mt-8 rounded-2xl overflow-hidden shadow-2xl cursor-default"
-                            >
-                             {/* Background Image */}
-                             <div className="absolute inset-0 z-0 h-full w-full">
-                                <img
-                                    src="/images/wijaya/about.avif"
-                                    alt="About background"
-                                    className="w-full h-full object-cover"
-                                />
-                                {/* Gradient Overlay: #000168 to #e5000f */}
-                                <div className="absolute inset-0 bg-linear-to-r from-[#000168] to-[#e5000f] opacity-80 mix-blend-multiply" />
-                            </div>
+                {/* Main Highlight Section - Statistics Block */}
+                <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.02, transition: { duration: 0.4, ease: EASE } }}
+                    className="relative rounded-3xl overflow-hidden shadow-2xl mb-16 cursor-default min-h-[400px]"
+                >
+                    {/* Background Image with Gradient Overlay */}
+                    <div className="absolute inset-0 z-0 h-full w-full">
+                        <img
+                            src="/images/wijaya/about.avif"
+                            alt="About background"
+                            className="w-full h-full object-cover"
+                        />
+                        {/* Gradient Overlay: Red to Purple/Blue */}
+                        <div className="absolute inset-0 bg-linear-to-b from-red-600/70 via-red-500/60 to-[#000168]/80 mix-blend-multiply" />
+                    </div>
 
-                            {/* Content */}
+                    {/* Statistics Grid */}
+                    <div
+                        className="relative z-10 p-16 lg:p-24 grid grid-cols-1 sm:grid-cols-3 gap-12 min-h-[400px]"
+                    >
+                        {[
+                            { value: t('about.stat1.value'), label: t('about.stat1.label') },
+                            { value: t('about.stat2.value'), label: t('about.stat2.label') },
+                            { value: t('about.stat3.value'), label: t('about.stat3.label') },
+                        ].map((stat, index) => (
                             <motion.div
-                                className="relative z-10 p-10 grid grid-cols-1 sm:grid-cols-3 gap-8"
-                                variants={staggerFast}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, margin: '-40px' }}
+                                key={stat.label}
+                                variants={popIn}
+                                className={`flex flex-col gap-4 items-center text-center justify-end relative ${
+                                    index < 2 ? 'sm:border-r-2 border-white' : ''
+                                }`}
                             >
-                                {[
-                                    { value: parseInt(t('about.stat1.value')), label: t('about.stat1.label') },
-                                    { value: parseInt(t('about.stat2.value')), label: t('about.stat2.label') },
-                                    { value: parseInt(t('about.stat3.value')), label: t('about.stat3.label') },
-                                ].map((stat) => (
-                                    <motion.div key={stat.label} variants={popIn} className="flex flex-col gap-2 items-center sm:items-start text-center sm:text-left">
-                                        <p className="text-4xl md:text-5xl font-bold text-white">
-                                            <AnimatedCounter target={stat.value} />
-                                        </p>
-                                        <p className="text-white/80 text-xs leading-snug font-medium uppercase tracking-widest">{stat.label}</p>
-                                    </motion.div>
-                                ))}
+                                <p className="text-7xl lg:text-8xl font-medium text-white tracking-tight shrink-0 whitespace-nowrap">
+                                    {stat.value}
+                                </p>
+                                <p className="text-white/90 text-sm lg:text-base leading-snug font-bold uppercase tracking-widest shrink-0">
+                                    {stat.label}
+                                </p>
                             </motion.div>
-                        </motion.div>
-                        </div>
+                        ))}
                     </div>
                 </motion.div>
+
+                {/* Bottom Paragraph */}
+                <motion.p
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-40px' }}
+                    className="text-center text-base leading-relaxed max-w-3xl mx-auto"
+                >
+                    {t('about.body2')}
+                </motion.p>
             </div>
         </section>
+    );
+}
+
+// ─── Service Icon Component ───────────────────────────────────────────────────
+function ServiceIcon({ iconKey }: { iconKey: string }) {
+    const iconMap: Record<string, React.ReactNode> = {
+        distribution: <LuPackage className="w-16 h-16" />,
+        imaging: <LuCamera className="w-16 h-16" />,
+        marketing: <LuChartBar className="w-16 h-16" />,
+        accessories: <LuSmartphone className="w-16 h-16" />,
+    };
+
+    return (
+        <div className="w-20 h-20 flex items-center justify-center text-red-500 transition-colors duration-300">
+            {iconMap[iconKey]}
+        </div>
     );
 }
 
@@ -287,25 +315,21 @@ function WhatWeDoSection() {
             key: 'distribution',
             title: t('service.distribution.title'),
             body: t('service.distribution.body'),
-            image: '/images/wijaya/hero-bg.jpg',
         },
         {
             key: 'imaging',
             title: t('service.imaging.title'),
             body: t('service.imaging.body'),
-            image: '/images/wijaya/consumer-electronics.jpg',
         },
         {
             key: 'marketing',
             title: t('service.marketing.title'),
             body: t('service.marketing.body'),
-            image: '/images/wijaya/hero-bg.jpg',
         },
         {
             key: 'accessories',
             title: t('service.accessories.title'),
             body: t('service.accessories.body'),
-            image: '/images/wijaya/consumer-electronics.jpg',
         },
     ];
 
@@ -318,24 +342,24 @@ function WhatWeDoSection() {
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
                 >
-                    <motion.p variants={clipReveal} className="text-muted-foreground/60 text-xs tracking-[0.4em] uppercase font-medium mb-4">
+                    <motion.p variants={clipReveal} className="60 text-xs tracking-[0.4em] uppercase font-medium mb-4 text-red-500">
                         {t('whatwedo.label')}
                     </motion.p>
-                    <motion.p variants={fadeLeft} className="text-muted-foreground text-sm mb-12">{t('whatwedo.subtitle')}</motion.p>
+                    <motion.p variants={fadeLeft} className="text-sm mb-12">{t('whatwedo.subtitle')}</motion.p>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
                         <SplitHeading
                             text={t('whatwedo.headline')}
-                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight"
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#000168] leading-tight"
                         />
-                        <motion.p variants={fadeRight} className="text-muted-foreground text-base leading-relaxed self-end">
+                        <motion.p variants={fadeRight} className="text-base leading-relaxed self-end">
                             {t('whatwedo.body')}
                         </motion.p>
                     </div>
                 </motion.div>
 
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-6"
                     variants={staggerFast}
                     initial="hidden"
                     whileInView="visible"
@@ -349,22 +373,13 @@ function WhatWeDoSection() {
                                 visible: { opacity: 1, y: 0, rotate: 0, scale: 1, transition: { duration: 1, ease: EASE } },
                             }}
                             whileHover={{ y: -14, scale: 1.04, rotate: 0.5, transition: { duration: 0.35, ease: EASE } }}
-                            className="group relative rounded-2xl overflow-hidden bg-card border border-border/50 shadow-md cursor-pointer"
+                            className="group relative rounded-2xl overflow-hidden bg-gray-500/5 border border-border/50 cursor-pointer flex flex-col h-full p-8"
                         >
-                            <div className="aspect-4/3 overflow-hidden">
-                                <motion.img
-                                    src={card.image}
-                                    alt={card.title}
-                                    className="w-full h-full object-cover"
-                                    whileHover={{ scale: 1.12 }}
-                                    transition={{ duration: 0.6, ease: EASE }}
-                                />
-                                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                            <div className="flex justify-center mb-6 shrink-0">
+                                <ServiceIcon iconKey={card.key} />
                             </div>
-                            <div className="p-5">
-                                <h3 className="text-card-foreground font-semibold text-sm mb-2 group-hover:translate-x-1 transition-transform duration-300">{card.title}</h3>
-                                <p className="text-muted-foreground text-xs leading-relaxed line-clamp-4">{card.body}</p>
-                            </div>
+                            <h3 className="font-medium text-xl mb-3 group-hover:translate-y-0.5 transition-transform duration-300 text-[#000168]">{card.title}</h3>
+                            <p className="leading-relaxed grow">{card.body}</p>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -399,65 +414,91 @@ function ProductsTeaserSection() {
     ];
 
     return (
-        <section className="bg-background py-24 px-6 lg:px-12 relative z-20">
+        <section className="bg-[#000168] text-white py-24 px-6 lg:px-12 relative z-20">
             <div className="max-w-7xl mx-auto">
                 <motion.p
                     variants={clipReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
-                    className="text-muted-foreground/60 text-xs tracking-[0.4em] uppercase font-medium mb-12"
+                    className="text-red-400 text-xs tracking-[0.4em] uppercase font-semibold mb-12"
                 >
                     {t('products.label')}
                 </motion.p>
 
-                <motion.div
-                    className="flex flex-col gap-0 border border-border rounded-2xl overflow-hidden"
-                    variants={stagger}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: '-60px' }}
-                >
-                    {productCategories.map((cat, index) => (
-                        <motion.div
-                            variants={index % 2 === 0 ? fadeLeft : fadeRight}
-                            key={cat.key}
-                            whileHover={{ x: index % 2 === 0 ? 8 : -8, transition: { duration: 0.4, ease: EASE } }}
-                            className={`group relative flex flex-col md:flex-row items-stretch border-border ${index < productCategories.length - 1 ? 'border-b' : ''}`}
-                        >
-                            <div className="md:w-1/2 aspect-video md:aspect-auto overflow-hidden">
-                                <motion.img
-                                    src={cat.image}
-                                    alt={cat.title}
-                                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={{ duration: 0.7, ease: EASE }}
-                                />
-                            </div>
-                            <div className="md:w-1/2 flex flex-col justify-center p-8 lg:p-12 bg-card">
-                                <motion.h3
-                                    className="text-2xl md:text-3xl font-bold text-card-foreground mb-4"
-                                    whileHover={{ x: 6, transition: { duration: 0.3 } }}
-                                >
-                                    {cat.title}
-                                </motion.h3>
-                                <p className="text-muted-foreground text-sm leading-relaxed">{cat.body}</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start min-h-screen">
+                    {/* Left: Sticky Text */}
+                    <motion.div
+                        variants={fadeLeft}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-60px' }}
+                        className="lg:sticky lg:top-24"
+                    >
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                            {t('service.services.title')}
+                        </h2>
+                        <p className="text-base leading-relaxed text-white/90">
+                            {t('service.services.body')}
+                        </p>
+                    </motion.div>
+
+                    {/* Right: Product Grid */}
+                    <motion.div
+                        className="grid grid-cols-1 gap-6 h-full"
+                        style={{ gridAutoRows: '1fr' }}
+                        variants={staggerFast}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-60px' }}
+                    >
+                        {productCategories.map((cat, index) => (
+                            <motion.div
+                                key={cat.key}
+                                variants={{
+                                    hidden: { opacity: 0, y: 60, scale: 0.9 },
+                                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: EASE } },
+                                }}
+                                whileHover={{ y: -8, transition: { duration: 0.3, ease: EASE } }}
+                                className="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer aspect-video"
+                            >
+                                <div className="w-full h-full">
+                                    <motion.img
+                                        src={cat.image}
+                                        alt={cat.title}
+                                        className="w-full h-full object-cover"
+                                        whileHover={{ scale: 1.08 }}
+                                        transition={{ duration: 0.6, ease: EASE }}
+                                    />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/20" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#000168]/70 via-[#000168]/40 to-[#000168]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </div>
                                 <motion.div
-                                    initial={{ scaleX: 0, originX: 0 }}
-                                    whileInView={{ scaleX: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, ease: EASE, delay: 0.2 + index * 0.1 }}
-                                    className="h-px bg-foreground/20 mt-6"
-                                />
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                                    className="absolute inset-0 flex flex-col justify-end p-6"
+                                    initial={{ opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <motion.h3
+                                        className="text-white font-bold text-4xl md:text-5xl leading-tight group-hover:text-red-500"
+                                        initial={{ y: 0 }}
+                                    >
+                                        {cat.title}
+                                    </motion.h3>
+                                    <motion.p
+                                        className="text-white/90 text-sm leading-relaxed line-clamp-3 hidden group-hover:block transition-all duration-400 mt-4"
+                                    >
+                                        {cat.body}
+                                    </motion.p>
+                                </motion.div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
 
                 <div className="mt-10 flex justify-end">
                     <Link
                         href={products().url}
-                        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+                        className="text-sm font-medium text-white hover:text-red-400 transition-colors flex items-center gap-2"
                     >
                         {t('nav.products')}
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -484,15 +525,15 @@ function BrandsSection() {
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
                 >
-                    <motion.p variants={clipReveal} className="text-muted-foreground/60 text-xs tracking-[0.4em] uppercase font-medium mb-10">
+                    <motion.p variants={clipReveal} className="60 text-xs tracking-[0.4em] uppercase font-medium mb-10">
                         {t('brands.label')}
                     </motion.p>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                         <SplitHeading
                             text={t('brands.title')}
-                            className="text-3xl md:text-4xl font-bold text-foreground leading-tight"
+                            className="text-3xl md:text-4xl font-bold text-[#000168] leading-tight"
                         />
-                        <motion.p variants={fadeRight} className="text-muted-foreground text-sm leading-relaxed">
+                        <motion.p variants={fadeRight} className="text-sm leading-relaxed">
                             {t('brands.body')}
                         </motion.p>
                     </div>
@@ -514,7 +555,7 @@ function BrandsSection() {
                             className="aspect-square bg-background flex items-center justify-center cursor-pointer relative"
                         >
                             <motion.span
-                                className="text-muted-foreground/60 text-xs font-bold tracking-wide"
+                                className="60 text-xs font-bold tracking-wide"
                                 whileHover={{ color: 'hsl(var(--foreground))', letterSpacing: '0.12em' }}
                                 transition={{ duration: 0.2 }}
                             >
@@ -554,14 +595,14 @@ function ProjectsShowcaseSection() {
                     whileInView="visible"
                     viewport={{ once: true, margin: '-60px' }}
                 >
-                    <motion.p variants={clipReveal} className="text-muted-foreground/60 text-xs tracking-[0.4em] uppercase font-medium mb-10">
+                    <motion.p variants={clipReveal} className="60 text-xs tracking-[0.4em] uppercase font-medium mb-10">
                         {t('projects.label')}
                     </motion.p>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
                         <SplitHeading
                             text={t('projects.title')}
-                            className="text-3xl md:text-4xl font-bold text-foreground leading-tight"
+                            className="text-3xl md:text-4xl font-bold text-[#000168] leading-tight"
                         />
                         <motion.div variants={staggerFast} className="grid grid-cols-3 gap-6">
                             {stats.map((stat) => (
@@ -573,7 +614,7 @@ function ProjectsShowcaseSection() {
                                     <p className="text-3xl font-bold text-foreground">
                                         <AnimatedCounter target={stat.value} />
                                     </p>
-                                    <p className="text-muted-foreground/80 text-xs leading-snug">{stat.label}</p>
+                                    <p className="80 text-xs leading-snug">{stat.label}</p>
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -623,7 +664,7 @@ function ProjectsShowcaseSection() {
                     </motion.div>
 
                     <motion.div variants={fadeUp} className="mt-10 flex justify-center">
-                        <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors border border-border hover:border-foreground/50 rounded-full px-8 py-3">
+                        <button className="text-sm font-medium hover:text-foreground transition-colors border border-border hover:border-foreground/50 rounded-full px-8 py-3">
                             {t('projects.view_all')}
                         </button>
                     </motion.div>
@@ -637,7 +678,7 @@ function ProjectsShowcaseSection() {
 export default function Home() {
     return (
         <GuestLayout hideFooter>
-            <Head title="PT Wijaya International — Empowering Imaging Innovation Across Indonesia" />
+            <Head title="Wijaya International — Perusahaan Distribusi Nasional" />
             <HeroSection />
             <AboutSection />
             <WhatWeDoSection />

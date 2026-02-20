@@ -50,8 +50,8 @@ export default function Navbar() {
         { label: t('nav.contact'), href: contact() },
     ];
 
-    const isActive = (href: any) => {
-        const path = typeof href === 'string' ? href : href.url;
+    const isActive = (href: unknown) => {
+        const path = typeof href === 'string' ? href : (href as { url: string }).url;
         return url === path || (path !== '/' && url.startsWith(path));
     };
 
@@ -63,7 +63,7 @@ export default function Navbar() {
     const containerBase = "fixed z-50 transition-all duration-500 ease-in-out left-0 right-0";
     const containerPosition = isHeroState
         ? "top-0 px-6 py-6 lg:px-12"
-        : "top-4 px-4 lg:px-8 w-full max-w-7xl mx-auto";
+        : "top-4 px-4 lg:px-8 w-full";
     const containerTransform = isVisible ? "translate-y-0 opacity-100" : "-translate-y-[150%] opacity-0";
 
     // Inner Pill/Bar classes
@@ -80,25 +80,25 @@ export default function Navbar() {
         <header className={`${containerBase} ${containerPosition} ${containerTransform}`}>
             <div className={innerStyle}>
                 {/* Logo */}
-                <Link href={home().url} className="flex items-center gap-3">
+                <Link href={home().url} className="flex items-center gap-3 group">
                     <img
                         src={logoSrc}
                         alt="Wijaya International"
-                        className="h-8 w-auto object-contain transition-all duration-300"
+                        className="h-12 w-auto object-contain transition-all duration-300"
                     />
-                    <div className={`${textColor} font-semibold tracking-wide hidden sm:flex flex-col leading-tight transition-colors duration-300`}>
+                    <div className={`${textColor} font-bold tracking-wide ${isHeroState ? 'opacity-0 translate-y-2 sm:group-hover:opacity-100 sm:group-hover:translate-y-0' : 'opacity-100 translate-y-0'} flex flex-col leading-tight transition-all duration-300`}>
                         <span className="text-xs">PT. WIJAYA</span>
                         <span className="text-xs">INTERNATIONAL</span>
                     </div>
                 </Link>
 
                 {/* Desktop nav */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-16">
                     {navLinks.map((link) => (
                         <Link
                             key={link.label}
                             href={typeof link.href === 'string' ? link.href : link.href.url}
-                            className={`text-sm font-medium transition-colors duration-200 ${
+                            className={`text-base font-medium transition-colors duration-200 ${
                                 isActive(link.href)
                                     ? (isHeroState ? 'text-white' : 'text-black font-semibold')
                                     : subTextColor
@@ -109,8 +109,20 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                {/* Right side: language toggle + mobile menu button */}
+                {/* Right side: CTA + language toggle + mobile menu button */}
                 <div className="flex items-center gap-4">
+                    {/* Get In Touch Button */}
+                    <Link
+                        href={typeof contact() === 'string' ? contact() : contact().url}
+                        className={`hidden sm:inline-flex px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
+                            isHeroState
+                                ? 'bg-white text-black hover:bg-white/90 shadow-lg'
+                                : 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90'
+                        }`}
+                    >
+                        {t('nav.getInTouch')}
+                    </Link>
+
                     {/* Language toggle */}
                     <button
                         onClick={() => setLang(lang === 'id' ? 'en' : 'id')}

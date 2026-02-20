@@ -69,13 +69,13 @@ export default function Footer() {
                              </div>
                         </Link>
                         <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-                            {t('footer.about')}
+                            {t('footer.description')}
                         </p>
                     </div>
 
                     {/* Navigation */}
                     <div className="flex flex-col gap-6">
-                        <h4 className="text-foreground font-semibold text-sm uppercase tracking-wider">{t('footer.nav_title')}</h4>
+                        <h4 className="text-foreground font-semibold text-sm uppercase tracking-wider">Links</h4>
                         <nav className="flex flex-col gap-4">
                             {links.map((link) => (
                                 <Link
@@ -91,7 +91,7 @@ export default function Footer() {
 
                     {/* Social */}
                     <div className="flex flex-col gap-6">
-                        <h4 className="text-foreground font-semibold text-sm uppercase tracking-wider">Social Media</h4>
+                        <h4 className="text-foreground font-semibold text-sm uppercase tracking-wider">{t('contact.social.label')}</h4>
                         <div className="flex gap-4">
                             {['Instagram', 'LinkedIn', 'Facebook'].map((social) => (
                                 <a key={social} href="#" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-all hover:bg-secondary/50">
@@ -107,14 +107,14 @@ export default function Footer() {
             {/* Bottom Section */}
             <div className="max-w-7xl mx-auto w-full border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-muted-foreground/60 text-xs">
-                    &copy; {new Date().getFullYear()} PT Wijaya International. All rights reserved.
+                    {t('footer.copyright')}
                 </p>
                 <div className="flex gap-6">
                     <Link href={privacyPolicy().url} className="text-muted-foreground/60 hover:text-foreground text-xs transition-colors">
-                        Privacy Policy
+                        {t('footer.privacy')}
                     </Link>
                     <Link href={termsConditions().url} className="text-muted-foreground/60 hover:text-foreground text-xs transition-colors">
-                        Terms of Service
+                        {t('footer.terms')}
                     </Link>
                 </div>
             </div>
