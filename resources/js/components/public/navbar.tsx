@@ -63,17 +63,17 @@ export default function Navbar() {
     const containerBase = "fixed z-50 transition-all duration-500 ease-in-out left-0 right-0";
     const containerPosition = isHeroState
         ? "top-0 px-6 py-6 lg:px-12"
-        : "top-4 px-4 max-w-2xl mx-auto";
+        : "top-4 px-4 lg:px-8 w-full max-w-7xl mx-auto";
     const containerTransform = isVisible ? "translate-y-0 opacity-100" : "-translate-y-[150%] opacity-0";
 
     // Inner Pill/Bar classes
     const innerStyle = isHeroState
         ? "w-full bg-transparent border-transparent flex items-center justify-between transition-all duration-300"
-        : "w-full rounded-full bg-white/80 backdrop-blur-md px-6 py-3 shadow-lg border border-white/20 flex items-center justify-between transition-all duration-300";
+        : "w-full rounded-full bg-background/90 backdrop-blur-md px-6 py-2.5 shadow-lg border border-border/40 flex items-center justify-between transition-all duration-300";
 
     // Text colors
-    const textColor = isHeroState ? "text-white" : "text-black";
-    const subTextColor = isHeroState ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black";
+    const textColor = isHeroState ? "text-white" : "text-foreground";
+    const subTextColor = isHeroState ? "text-white/60 hover:text-white" : "text-muted-foreground hover:text-foreground";
     const logoSrc = isHeroState ? "/images/wijaya/logobw.avif" : "/images/wijaya/logo.avif";
 
     return (
@@ -86,9 +86,10 @@ export default function Navbar() {
                         alt="Wijaya International"
                         className="h-8 w-auto object-contain transition-all duration-300"
                     />
-                    <span className={`${textColor} font-semibold text-sm tracking-wide hidden sm:block transition-colors duration-300`}>
-                        PT Wijaya International
-                    </span>
+                    <div className={`${textColor} font-semibold tracking-wide hidden sm:flex flex-col leading-tight transition-colors duration-300`}>
+                        <span className="text-xs">PT. WIJAYA</span>
+                        <span className="text-xs">INTERNATIONAL</span>
+                    </div>
                 </Link>
 
                 {/* Desktop nav */}
