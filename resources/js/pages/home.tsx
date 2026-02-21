@@ -12,6 +12,11 @@ import {
 } from 'framer-motion';
 import { LuPackage, LuCamera, LuChartBar, LuSmartphone } from 'react-icons/lu';
 import GuestLayout from '@/layouts/guest-layout';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from '@/components/ui/carousel';
 import Footer from '@/components/public/footer';
 import { useLanguage } from '@/lib/language-context';
 import { products } from '@/routes';
@@ -460,18 +465,30 @@ function ProductsTeaserSection() {
                                     visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: EASE } },
                                 }}
                                 whileHover={{ y: -8, transition: { duration: 0.3, ease: EASE } }}
-                                className="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer aspect-video"
+                                className="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer h-100"
                             >
                                 <div className="w-full h-full">
-                                    <motion.img
-                                        src={cat.image}
-                                        alt={cat.title}
-                                        className="w-full h-full object-cover"
-                                        whileHover={{ scale: 1.08 }}
-                                        transition={{ duration: 0.6, ease: EASE }}
-                                    />
+                                    {cat.key === 'photography' ? (
+                                        <video
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            className="w-full h-full object-cover"
+                                        >
+                                            <source src="/videos/wijaya/camera-lens.mp4" type="video/mp4" />
+                                        </video>
+                                    ) : (
+                                        <motion.img
+                                            src={cat.image}
+                                            alt={cat.title}
+                                            className="w-full h-full object-cover"
+                                            whileHover={{ scale: 1.08 }}
+                                            transition={{ duration: 0.6, ease: EASE }}
+                                        />
+                                    )}
                                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/20" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#000168]/70 via-[#000168]/40 to-[#000168]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-[#000168]/70 via-[#000168]/40 to-[#000168]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </div>
                                 <motion.div
                                     className="absolute inset-0 flex flex-col justify-end p-6"
@@ -479,7 +496,7 @@ function ProductsTeaserSection() {
                                     transition={{ duration: 0.3 }}
                                 >
                                     <motion.h3
-                                        className="text-white font-bold text-4xl md:text-5xl leading-tight group-hover:text-red-500"
+                                        className="text-white font-extrabold text-4xl md:text-5xl tracking-tight group-hover:text-red-500"
                                         initial={{ y: 0 }}
                                     >
                                         {cat.title}
@@ -514,58 +531,236 @@ function ProductsTeaserSection() {
 // ─── Brands Section ───────────────────────────────────────────────────────────
 function BrandsSection() {
     const { t } = useLanguage();
-    const brandNames = ['Canon', 'Sony', 'Nikon', 'Fujifilm', 'Panasonic', 'Olympus', 'Sigma', 'Tamron'];
+
+    const brands = [
+        { name: 'SBOX', image: '/images/wijaya/brands/sbox.avif' },
+        { name: 'Kodak', image: '/images/wijaya/brands/kodak.avif' },
+        { name: 'Canon', image: '/images/wijaya/brands/canon.avif' },
+        { name: 'Sony', image: '/images/wijaya/brands/sony.avif' },
+        { name: 'DJI', image: '/images/wijaya/brands/dji.avif' },
+        { name: 'Feiyutech', image: '/images/wijaya/brands/feiyutech.avif' },
+        { name: '7artisan', image: '/images/wijaya/brands/7artisan.avif' },
+    ];
 
     return (
-        <section className="bg-muted/10 py-24 px-6 lg:px-12 border-t border-border relative z-20">
+        <section className="bg-muted/10 pt-24 px-6 lg:px-12 border-t border-border relative z-20">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     variants={staggerSlow}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
+                    className="text-center mb-16"
                 >
-                    <motion.p variants={clipReveal} className="60 text-xs tracking-[0.4em] uppercase font-medium mb-10">
+                    <motion.p variants={clipReveal} className="text-red-500 text-xs tracking-[0.4em] uppercase font-medium mb-6">
                         {t('brands.label')}
                     </motion.p>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                        <SplitHeading
-                            text={t('brands.title')}
-                            className="text-3xl md:text-4xl font-bold text-[#000168] leading-tight"
-                        />
-                        <motion.p variants={fadeRight} className="text-sm leading-relaxed">
-                            {t('brands.body')}
-                        </motion.p>
-                    </div>
+                    <motion.h2
+                        variants={fadeUp}
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#000168] leading-tight mb-6"
+                    >
+                        {t('brands.title')}
+                    </motion.h2>
+                    <motion.p variants={fadeUp} className="text-sm leading-relaxed max-w-2xl mx-auto">
+                        {t('brands.body')}
+                    </motion.p>
                 </motion.div>
 
-                <motion.div
-                    className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-px bg-border rounded-xl overflow-hidden border border-border"
-                    variants={staggerFast}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: '-40px' }}
-                >
-                    {brandNames.map((brand) => (
-                        <motion.div
-                            variants={popIn}
-                            key={brand}
-                            whileHover={{ scale: 1.15, backgroundColor: 'hsl(var(--secondary))', zIndex: 10, transition: { duration: 0.25 } }}
-                            whileTap={{ scale: 0.92 }}
-                            className="aspect-square bg-background flex items-center justify-center cursor-pointer relative"
-                        >
-                            <motion.span
-                                className="60 text-xs font-bold tracking-wide"
-                                whileHover={{ color: 'hsl(var(--foreground))', letterSpacing: '0.12em' }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                {brand}
-                            </motion.span>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                {/* Carousel */}
+                <Carousel className="w-full">
+                    <CarouselContent className="gap-8">
+                        {brands.map((brand) => (
+                            <CarouselItem key={brand.name} className="basis-auto pl-0">
+                                <motion.img
+                                    src={brand.image}
+                                    alt={brand.name}
+                                    whileHover={{ scale: 1.15, transition: { duration: 0.3, ease: EASE } }}
+                                    className="w-40 h-40 object-contain cursor-grab active:cursor-grabbing"
+                                />
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                </Carousel>
             </div>
         </section>
+    );
+}
+
+// ─── Dealer Network Section ───────────────────────────────────────────────────
+function DealerNetworkSection() {
+    const { t } = useLanguage();
+
+    return (
+        <section className="bg-background pb-24 px-6 lg:px-12 relative z-20">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 gap-12 lg:gap-16 items-center">
+                    <motion.div
+                        variants={fadeLeft}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-60px' }}
+                        className="object-cover min-h-75"
+                    >
+                        <img
+                            src="/images/wijaya/wijayalocations.avif"
+                            alt="Dealer Network"
+                            className="w-full h-full object-cover"
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        variants={fadeRight}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-60px' }}
+                        className='flex flex-col items-center max-w-3xl mx-auto'
+                    >
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#000168] tracking-tight mb-4">
+                            {t('dealer.title')}
+                        </h2>
+                        <p className="text-base mb-8 text-center">
+                            {t('dealer.body')}
+                        </p>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="px-8 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300"
+                        >
+                            {t('dealer.cta')}
+                        </motion.button>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+// ─── Projects Showcase ────────────────────────────────────────────────────────
+// ─── Contact Section ─────────────────────────────────────────────────────────
+function ContactSection() {
+    const { t } = useLanguage();
+    const [formData, setFormData] = useState({ name: '', email: '', needs: '' });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // Handle form submission
+        console.log('Form submitted:', formData);
+    };
+
+    return (
+        <div className="relative h-[200vh] bg-background">
+            <div className="sticky top-0 h-screen z-0 flex items-center justify-center overflow-hidden">
+                {/* Background Video */}
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                >
+                    <source src="/videos/wijaya/containerport.mp4" type="video/mp4" />
+                </video>
+
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-[#000168]/75" />
+
+                {/* Content */}
+                <motion.section
+                    className="w-full max-w-7xl mx-auto px-6 lg:px-12 relative z-10"
+                    variants={staggerSlow}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-80px' }}
+                >
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                        {/* Left Column: Content */}
+                        <motion.div
+                            variants={staggerSlow}
+                            className="flex flex-col justify-center"
+                        >
+                            {/* Section Label */}
+                            <motion.p
+                                variants={clipReveal}
+                                className="text-red-500 text-xs tracking-[0.4em] uppercase font-medium mb-6"
+                            >
+                                {t('contact.label')}
+                            </motion.p>
+
+                            {/* Main Heading */}
+                            <motion.h2
+                                variants={fadeUp}
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8 whitespace-pre-line"
+                            >
+                                {t('contact.title')}
+                            </motion.h2>
+
+                            {/* Supporting Text */}
+                            <motion.p
+                                variants={fadeUp}
+                                className="text-base text-white/80 leading-relaxed max-w-md"
+                            >
+                                {t('contact.body')}
+                            </motion.p>
+                        </motion.div>
+
+                        {/* Right Column: Contact Form */}
+                        <motion.form
+                            onSubmit={handleSubmit}
+                            variants={fadeRight}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-60px' }}
+                            className="flex flex-col justify-center gap-6"
+                        >
+                            {/* Name Input */}
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder={t('contact.form.name')}
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                className="w-full px-6 py-4 rounded-full bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
+                            />
+
+                            {/* Email Input */}
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder={t('contact.form.email')}
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className="w-full px-6 py-4 rounded-full bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
+                            />
+
+                            {/* Needs Textarea */}
+                            <textarea
+                                name="needs"
+                                placeholder={t('contact.form.needs')}
+                                value={formData.needs}
+                                onChange={handleInputChange}
+                                rows={5}
+                                className="w-full px-6 py-4 rounded-3xl bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all resize-none"
+                            />
+
+                            {/* CTA Button */}
+                            <motion.button
+                                type="submit"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="w-full px-8 py-4 bg-red-500 hover:bg-red-600 text-white font-bold text-center rounded-full transition-colors duration-300 shadow-lg mt-4"
+                            >
+                                {t('contact.cta')}
+                            </motion.button>
+                        </motion.form>
+                    </div>
+                </motion.section>
+            </div>
+        </div>
     );
 }
 
@@ -574,103 +769,122 @@ function ProjectsShowcaseSection() {
     const { t } = useLanguage();
 
     const stats = [
-        { value: parseInt(t('projects.stat1.value')), label: t('projects.stat1.label') },
-        { value: parseInt(t('projects.stat2.value')), label: t('projects.stat2.label') },
-        { value: parseInt(t('projects.stat3.value')), label: t('projects.stat3.label') },
+        { value: 127, label: t('projects.stat1.label') },
+        { value: 45, label: t('projects.stat2.label') },
+        { value: 88, label: t('projects.stat3.label') },
     ];
 
     const projectsData = [
-        { title: t('projects.1.title'), image: '/images/wijaya/hero-bg.jpg' },
-        { title: t('projects.2.title'), image: '/images/wijaya/consumer-electronics.jpg' },
-        { title: t('projects.3.title'), image: '/images/wijaya/road-landscape.jpg' },
+        { image: '/images/wijaya/hero-bg.jpg' },
+        { image: '/images/wijaya/consumer-electronics.jpg' },
+        { image: '/images/wijaya/road-landscape.jpg' },
+        { image: '/images/wijaya/about.avif' },
     ];
 
     return (
-        <div className="relative h-[200vh] bg-background">
-            <div className="sticky top-0 h-screen z-0 flex items-center justify-center border-t border-border overflow-hidden">
-                <motion.section
-                    className="w-full max-w-7xl mx-auto px-6 lg:px-12"
-                    variants={stagger}
+        <section className="bg-gray-50 py-24 px-6 lg:px-12 relative z-20">
+            <div className="max-w-7xl mx-auto">
+                <motion.div
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24"
+                    variants={staggerSlow}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: '-60px' }}
+                    viewport={{ once: true, margin: '-80px' }}
                 >
-                    <motion.p variants={clipReveal} className="60 text-xs tracking-[0.4em] uppercase font-medium mb-10">
-                        {t('projects.label')}
-                    </motion.p>
+                    {/* Left Column: Content & Statistics */}
+                    <motion.div
+                        variants={staggerSlow}
+                    >
+                        {/* Section Label */}
+                        <motion.p
+                            variants={clipReveal}
+                            className="text-red-500 text-xs tracking-[0.4em] uppercase font-medium mb-8"
+                        >
+                            {t('projects.label')}
+                        </motion.p>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
-                        <SplitHeading
-                            text={t('projects.title')}
-                            className="text-3xl md:text-4xl font-bold text-[#000168] leading-tight"
-                        />
-                        <motion.div variants={staggerFast} className="grid grid-cols-3 gap-6">
-                            {stats.map((stat) => (
+                        {/* Main Heading */}
+                        <motion.h2
+                            variants={fadeUp}
+                            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#000168] leading-tight mb-16"
+                        >
+                            {t('projects.title')}
+                        </motion.h2>
+
+                        {/* Statistics Stack */}
+                        <motion.div
+                            variants={staggerFast}
+                            className="space-y-0"
+                        >
+                            {stats.map((stat, index) => (
                                 <motion.div
-                                    variants={fadeUp}
                                     key={stat.label}
-                                    className="flex flex-col gap-1"
+                                    variants={fadeLeft}
+                                    className={`py-8 ${index < stats.length - 1 ? 'border-b border-gray-300' : ''}`}
                                 >
-                                    <p className="text-3xl font-bold text-foreground">
-                                        <AnimatedCounter target={stat.value} />
+                                    <p className="text-6xl lg:text-7xl font-light text-[#000168] tracking-tight mb-2">
+                                        {stat.value}
                                     </p>
-                                    <p className="80 text-xs leading-snug">{stat.label}</p>
+                                    <p className="text-sm font-medium text-gray-600 uppercase tracking-widest">
+                                        {stat.label}
+                                    </p>
                                 </motion.div>
                             ))}
                         </motion.div>
-                    </div>
+                    </motion.div>
 
+                    {/* Right Column: Project Grid (2x2) */}
                     <motion.div
-                        className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                        className="grid grid-cols-2 gap-6 lg:gap-8"
                         variants={staggerFast}
                     >
                         {projectsData.map((project, i) => (
                             <motion.div
+                                key={i}
                                 variants={{
-                                    hidden: { opacity: 0, y: 80, scale: 0.7, rotate: i % 2 === 0 ? -5 : 5 },
-                                    visible: { opacity: 1, y: 0, scale: 1, rotate: 0, transition: { ...SPRING, delay: i * 0.15 } },
+                                    hidden: { opacity: 0, scale: 0.9, y: 40 },
+                                    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
                                 }}
-                                whileHover={{ y: -16, scale: 1.04, rotate: 0, transition: { duration: 0.4, ease: EASE } }}
-                                whileTap={{ scale: 0.97 }}
-                                key={project.title}
-                                className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl"
+                                whileHover={{ scale: 1.03, transition: { duration: 0.3, ease: EASE } }}
+                                className="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg aspect-square"
                             >
-                                <div className="aspect-4/5 overflow-hidden">
-                                    <motion.img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover"
-                                        whileHover={{ scale: 1.15 }}
-                                        transition={{ duration: 0.7, ease: EASE }}
-                                    />
-                                </div>
-                                <motion.div
-                                    className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent flex items-end p-6"
-                                    initial={{ opacity: 0.4 }}
-                                    whileHover={{ opacity: 1 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <motion.p
-                                        className="text-white font-semibold text-lg"
-                                        initial={{ y: 10, opacity: 0.7 }}
-                                        whileHover={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        {project.title}
-                                    </motion.p>
-                                </motion.div>
+                                <img
+                                    src={project.image}
+                                    alt="Project"
+                                    className="w-full h-full object-cover"
+                                />
+                                {/* Subtle diagonal stripe pattern overlay */}
+                                <div className="absolute inset-0 opacity-20 mix-blend-overlay" style={{
+                                    backgroundImage: 'repeating-linear-gradient(45deg, #000, #000 10px, transparent 10px, transparent 20px)'
+                                }} />
+                                {/* Hover tint */}
+                                <div className="absolute inset-0 bg-[#000168]/0 group-hover:bg-[#000168]/10 transition-colors duration-300" />
                             </motion.div>
                         ))}
                     </motion.div>
+                </motion.div>
 
-                    <motion.div variants={fadeUp} className="mt-10 flex justify-center">
-                        <button className="text-sm font-medium hover:text-foreground transition-colors border border-border hover:border-foreground/50 rounded-full px-8 py-3">
-                            {t('projects.view_all')}
-                        </button>
-                    </motion.div>
-                </motion.section>
+                {/* Bottom Center CTA */}
+                <motion.div
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-40px' }}
+                    className="mt-16 flex justify-center"
+                >
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex items-center gap-3 px-10 py-4 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-full transition-colors duration-300 shadow-lg"
+                    >
+                        {t('projects.view_all')}
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </motion.button>
+                </motion.div>
             </div>
-        </div>
+        </section>
     );
 }
 
@@ -684,7 +898,9 @@ export default function Home() {
             <WhatWeDoSection />
             <ProductsTeaserSection />
             <BrandsSection />
+            <DealerNetworkSection />
             <ProjectsShowcaseSection />
+            <ContactSection />
             {/* Footer is pulled up -100vh to slide over the sticky portfolio */}
             <div className="-mt-[100vh] relative z-30">
                 <Footer />

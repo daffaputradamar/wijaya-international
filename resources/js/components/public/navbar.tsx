@@ -2,6 +2,7 @@ import { Link, usePage } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/lib/language-context';
 import { home, products, services, contact } from '@/routes';
+import { LuPhone } from 'react-icons/lu';
 
 export default function Navbar() {
     const { t, lang, setLang } = useLanguage();
@@ -114,13 +115,13 @@ export default function Navbar() {
                     {/* Get In Touch Button */}
                     <Link
                         href={typeof contact() === 'string' ? contact() : contact().url}
-                        className={`hidden sm:inline-flex px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
+                        className={`hidden sm:inline-flex items-center px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
                             isHeroState
                                 ? 'bg-white text-black hover:bg-white/90 shadow-lg'
-                                : 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90'
+                                : 'bg-red-500 text-white hover:bg-red-600 dark:bg-white dark:text-black dark:hover:bg-white/90'
                         }`}
                     >
-                        {t('nav.getInTouch')}
+                        {t('nav.getInTouch')} <LuPhone className="ml-2 size-4" />
                     </Link>
 
                     {/* Language toggle */}

@@ -74,6 +74,7 @@ export const translations = {
         'dealer.title': 'Dealer Network',
         'dealer.body':
             'Didukung oleh infrastruktur solid, produk dan layanan kami telah menjangkau berbagai wilayah strategis di Indonesia, bersama ratusan partner kami dan akan terus bertambah.',
+        'dealer.cta': 'Bergabunglah dengan jaringan dealer kami',
 
         // Projects Showcase
         'projects.label': 'Portofolio',
@@ -95,6 +96,9 @@ export const translations = {
         'contact.body':
             'Kami percaya kemitraan yang kuat dimulai dari komunikasi yang terbuka. Hubungi kami untuk penawaran layanan atau kerja sama bisnis.',
         'contact.cta': "Let's Connect With Us",
+        'contact.form.name': 'Nama/Perusahaan Anda',
+        'contact.form.email': 'Email Anda',
+        'contact.form.needs': 'Kebutuhan Anda',
         'contact.phone.label': 'Phone',
         'contact.email.label': 'Email',
         'contact.address.label': 'Head-Office',
@@ -209,6 +213,7 @@ export const translations = {
         'dealer.title': 'Dealer Network',
         'dealer.body':
             'Supported by solid infrastructure, our products and services have reached various strategic areas in Indonesia, together with hundreds of our partners and will continue to grow.',
+        'dealer.cta': 'Join our dealer network',
 
         // Projects Showcase
         'projects.label': 'Portfolio',
@@ -230,6 +235,9 @@ export const translations = {
         'contact.body':
             'We believe strong partnerships start with open communication. Contact us for service offerings or business cooperation.',
         'contact.cta': "Let's Connect With Us",
+        'contact.form.name': 'Your Name/Company',
+        'contact.form.email': 'Your Email',
+        'contact.form.needs': 'Your Needs',
         'contact.phone.label': 'Phone',
         'contact.email.label': 'Email',
         'contact.address.label': 'Head-Office',
