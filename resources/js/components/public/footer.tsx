@@ -2,12 +2,13 @@ import { Link } from '@inertiajs/react';
 import { useLanguage } from '@/lib/language-context';
 import { home, privacyPolicy, termsConditions } from '@/routes';
 import { LuPhone, LuMail, LuMapPin, LuInstagram, LuTwitter, LuYoutube } from 'react-icons/lu';
+import { SplitIconButton } from '@/components/ui/split-icon-button';
 
 export default function Footer() {
     const { t } = useLanguage();
 
     return (
-        <footer className="min-h-screen relative z-30 bg-[#000d47] text-white flex flex-col justify-between">
+        <footer className="min-h-screen relative z-30 bg-[#000268] text-white flex flex-col justify-between">
             {/* Top Area: Company Intro */}
             <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

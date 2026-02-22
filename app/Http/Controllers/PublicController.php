@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\ProductCategory;
+use App\Models\Project;
+use App\Models\ServiceCard;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -9,7 +13,37 @@ class PublicController extends Controller
 {
     public function home(): Response
     {
-        return Inertia::render('home');
+        return Inertia::render('home', [
+            'brands' => Brand::active()->ordered()->get()->map(fn (Brand $b) => [
+                'id' => $b->id,
+                'name' => $b->name,
+                'logo_url' => $b->logo_url,
+            ]),
+            'projects' => Project::active()->ordered()->get()->map(fn (Project $p) => [
+                'id' => $p->id,
+                'name' => $p->name,
+                'image_url' => $p->image_url,
+            ]),
+            'productCategories' => ProductCategory::active()->ordered()->get()->map(fn (ProductCategory $c) => [
+                'id' => $c->id,
+                'key' => $c->key,
+                'title_id' => $c->title_id,
+                'title_en' => $c->title_en,
+                'body_id' => $c->body_id,
+                'body_en' => $c->body_en,
+                'image_url' => $c->image_url,
+                'video_url' => $c->video_url,
+            ]),
+            'serviceCards' => ServiceCard::active()->ordered()->get()->map(fn (ServiceCard $s) => [
+                'id' => $s->id,
+                'key' => $s->key,
+                'icon_key' => $s->icon_key,
+                'title_id' => $s->title_id,
+                'title_en' => $s->title_en,
+                'body_id' => $s->body_id,
+                'body_en' => $s->body_en,
+            ]),
+        ]);
     }
 
     public function products(): Response

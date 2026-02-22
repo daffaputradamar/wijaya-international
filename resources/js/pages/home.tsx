@@ -10,16 +10,58 @@ import {
     useMotionValueEvent,
     type Variants,
 } from 'framer-motion';
-import { LuPackage, LuCamera, LuChartBar, LuSmartphone } from 'react-icons/lu';
+import { LuPackage, LuCamera, LuChartBar, LuSmartphone, LuArrowRight } from 'react-icons/lu';
 import GuestLayout from '@/layouts/guest-layout';
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
 } from '@/components/ui/carousel';
+import { SplitIconButton } from '@/components/ui/split-icon-button';
 import Footer from '@/components/public/footer';
 import { useLanguage } from '@/lib/language-context';
 import { products } from '@/routes';
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+interface BrandData {
+    id: number;
+    name: string;
+    logo_url: string;
+}
+
+interface ProjectData {
+    id: number;
+    name: string;
+    image_url: string;
+}
+
+interface ProductCategoryData {
+    id: number;
+    key: string;
+    title_id: string;
+    title_en: string;
+    body_id: string;
+    body_en: string;
+    image_url: string | null;
+    video_url: string | null;
+}
+
+interface ServiceCardData {
+    id: number;
+    key: string;
+    icon_key: string;
+    title_id: string;
+    title_en: string;
+    body_id: string;
+    body_en: string;
+}
+
+interface HomeProps {
+    brands: BrandData[];
+    projects: ProjectData[];
+    productCategories: ProductCategoryData[];
+    serviceCards: ServiceCardData[];
+}
 
 // ─── Shared Variants ──────────────────────────────────────────────────────────
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -312,30 +354,18 @@ function ServiceIcon({ iconKey }: { iconKey: string }) {
 }
 
 // ─── What We Do Section ───────────────────────────────────────────────────────
-function WhatWeDoSection() {
-    const { t } = useLanguage();
+function WhatWeDoSection({ serviceCards: cards }: { serviceCards: ServiceCardData[] }) {
+    const { t, lang } = useLanguage();
 
-    const serviceCards = [
-        {
-            key: 'distribution',
-            title: t('service.distribution.title'),
-            body: t('service.distribution.body'),
-        },
-        {
-            key: 'imaging',
-            title: t('service.imaging.title'),
-            body: t('service.imaging.body'),
-        },
-        {
-            key: 'marketing',
-            title: t('service.marketing.title'),
-            body: t('service.marketing.body'),
-        },
-        {
-            key: 'accessories',
-            title: t('service.accessories.title'),
-            body: t('service.accessories.body'),
-        },
+    const serviceCards = cards.length > 0 ? cards.map((card) => ({
+        key: card.key,
+        title: lang === 'id' ? card.title_id : card.title_en,
+        body: lang === 'id' ? card.body_id : card.body_en,
+    })) : [
+        { key: 'distribution', title: t('service.distribution.title'), body: t('service.distribution.body') },
+        { key: 'imaging', title: t('service.imaging.title'), body: t('service.imaging.body') },
+        { key: 'marketing', title: t('service.marketing.title'), body: t('service.marketing.body') },
+        { key: 'accessories', title: t('service.accessories.title'), body: t('service.accessories.body') },
     ];
 
     return (
@@ -394,28 +424,19 @@ function WhatWeDoSection() {
 }
 
 // ─── Products Teaser ──────────────────────────────────────────────────────────
-function ProductsTeaserSection() {
-    const { t } = useLanguage();
+function ProductsTeaserSection({ productCategories: categories }: { productCategories: ProductCategoryData[] }) {
+    const { t, lang } = useLanguage();
 
-    const productCategories = [
-        {
-            key: 'photography',
-            title: t('products.photography.title'),
-            body: t('products.photography.body'),
-            image: '/images/wijaya/hero-bg.jpg',
-        },
-        {
-            key: 'electronics',
-            title: t('products.electronics.title'),
-            body: t('products.electronics.body'),
-            image: '/images/wijaya/consumer-electronics.jpg',
-        },
-        {
-            key: 'technical',
-            title: t('products.technical.title'),
-            body: t('products.technical.body'),
-            image: '/images/wijaya/road-landscape.jpg',
-        },
+    const productCategories = categories.length > 0 ? categories.map((cat) => ({
+        key: cat.key,
+        title: lang === 'id' ? cat.title_id : cat.title_en,
+        body: lang === 'id' ? cat.body_id : cat.body_en,
+        image: cat.image_url ?? '/images/wijaya/hero-bg.jpg',
+        video_url: cat.video_url,
+    })) : [
+        { key: 'photography', title: t('products.photography.title'), body: t('products.photography.body'), image: '/images/wijaya/hero-bg.jpg', video_url: null },
+        { key: 'electronics', title: t('products.electronics.title'), body: t('products.electronics.body'), image: '/images/wijaya/consumer-electronics.jpg', video_url: null },
+        { key: 'technical', title: t('products.technical.title'), body: t('products.technical.body'), image: '/images/wijaya/road-landscape.jpg', video_url: null },
     ];
 
     return (
@@ -468,7 +489,17 @@ function ProductsTeaserSection() {
                                 className="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer h-100"
                             >
                                 <div className="w-full h-full">
-                                    {cat.key === 'photography' ? (
+                                    {cat.video_url ? (
+                                        <video
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            className="w-full h-full object-cover"
+                                        >
+                                            <source src={cat.video_url} type="video/mp4" />
+                                        </video>
+                                    ) : cat.key === 'photography' && !cat.video_url ? (
                                         <video
                                             autoPlay
                                             loop
@@ -529,18 +560,20 @@ function ProductsTeaserSection() {
 }
 
 // ─── Brands Section ───────────────────────────────────────────────────────────
-function BrandsSection() {
+function BrandsSection({ brands: brandData }: { brands: BrandData[] }) {
     const { t } = useLanguage();
 
-    const brands = [
-        { name: 'SBOX', image: '/images/wijaya/brands/sbox.avif' },
-        { name: 'Kodak', image: '/images/wijaya/brands/kodak.avif' },
-        { name: 'Canon', image: '/images/wijaya/brands/canon.avif' },
-        { name: 'Sony', image: '/images/wijaya/brands/sony.avif' },
-        { name: 'DJI', image: '/images/wijaya/brands/dji.avif' },
-        { name: 'Feiyutech', image: '/images/wijaya/brands/feiyutech.avif' },
-        { name: '7artisan', image: '/images/wijaya/brands/7artisan.avif' },
-    ];
+    const brands = brandData.length > 0
+        ? brandData.map((b) => ({ name: b.name, image: b.logo_url }))
+        : [
+            { name: 'SBOX', image: '/images/wijaya/brands/sbox.avif' },
+            { name: 'Kodak', image: '/images/wijaya/brands/kodak.avif' },
+            { name: 'Canon', image: '/images/wijaya/brands/canon.avif' },
+            { name: 'Sony', image: '/images/wijaya/brands/sony.avif' },
+            { name: 'DJI', image: '/images/wijaya/brands/dji.avif' },
+            { name: 'Feiyutech', image: '/images/wijaya/brands/feiyutech.avif' },
+            { name: '7artisan', image: '/images/wijaya/brands/7artisan.avif' },
+        ];
 
     return (
         <section className="bg-muted/10 pt-24 px-6 lg:px-12 border-t border-border relative z-20">
@@ -621,13 +654,12 @@ function DealerNetworkSection() {
                         <p className="text-base mb-8 text-center">
                             {t('dealer.body')}
                         </p>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="px-8 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300"
-                        >
-                            {t('dealer.cta')}
-                        </motion.button>
+                        <SplitIconButton
+                            text={t('dealer.cta')}
+                            icon={<LuArrowRight className="w-5 h-5" />}
+                            variant="red"
+                            size="lg"
+                        />
                     </motion.div>
                 </div>
             </div>
@@ -671,7 +703,7 @@ function ContactSection() {
 
                 {/* Content */}
                 <motion.section
-                    className="w-full max-w-7xl mx-auto px-6 lg:px-12 relative z-10"
+                    className="w-full lg:w-[calc(100%-5rem)] mx-auto py-8 px-6 rounded-2xl lg:px-12 relative z-10 bg-[#010147]/10 backdrop-blur-sm"
                     variants={staggerSlow}
                     initial="hidden"
                     whileInView="visible"
@@ -694,7 +726,7 @@ function ContactSection() {
                             {/* Main Heading */}
                             <motion.h2
                                 variants={fadeUp}
-                                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8 whitespace-pre-line"
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-8 whitespace-pre-line"
                             >
                                 {t('contact.title')}
                             </motion.h2>
@@ -702,7 +734,7 @@ function ContactSection() {
                             {/* Supporting Text */}
                             <motion.p
                                 variants={fadeUp}
-                                className="text-base text-white/80 leading-relaxed max-w-md"
+                                className="text-base text-white/80 leading-relaxed max-w-xl"
                             >
                                 {t('contact.body')}
                             </motion.p>
@@ -748,14 +780,16 @@ function ContactSection() {
                             />
 
                             {/* CTA Button */}
-                            <motion.button
-                                type="submit"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="w-full px-8 py-4 bg-red-500 hover:bg-red-600 text-white font-bold text-center rounded-full transition-colors duration-300 shadow-lg mt-4"
-                            >
-                                {t('contact.cta')}
-                            </motion.button>
+                            <div className="mt-6 flex justify-center">
+                                <SplitIconButton
+                                    type="submit"
+                                    text={t('contact.cta')}
+                                    icon={<LuArrowRight className="w-6 h-6" />}
+                                    variant="red"
+                                    size="lg"
+                                    className="w-full justify-center"
+                                />
+                            </div>
                         </motion.form>
                     </div>
                 </motion.section>
@@ -765,7 +799,7 @@ function ContactSection() {
 }
 
 // ─── Projects Showcase ────────────────────────────────────────────────────────
-function ProjectsShowcaseSection() {
+function ProjectsShowcaseSection({ projects: projectData }: { projects: ProjectData[] }) {
     const { t } = useLanguage();
 
     const stats = [
@@ -774,16 +808,18 @@ function ProjectsShowcaseSection() {
         { value: 88, label: t('projects.stat3.label') },
     ];
 
-    const projectsData = [
-        { image: '/images/wijaya/hero-bg.jpg' },
-        { image: '/images/wijaya/consumer-electronics.jpg' },
-        { image: '/images/wijaya/road-landscape.jpg' },
-        { image: '/images/wijaya/about.avif' },
-    ];
+    const projectsData = projectData.length > 0
+        ? projectData.map((p) => ({ name: p.name, image: p.image_url }))
+        : [
+            { name: 'Nikon D850 Launch Event', image: '/images/wijaya/hero-bg.jpg' },
+            { name: 'Sony Alpha X Experience', image: '/images/wijaya/consumer-electronics.jpg' },
+            { name: 'National Imaging Summit', image: '/images/wijaya/road-landscape.jpg' },
+            { name: 'Canon Visionary Masterclass', image: '/images/wijaya/about.avif' },
+        ];
 
     return (
         <section className="bg-gray-50 py-24 px-6 lg:px-12 relative z-20">
-            <div className="max-w-7xl mx-auto">
+            <div className='w-full lg:w-[calc(100%-5rem)] mx-auto'>
                 <motion.div
                     className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24"
                     variants={staggerSlow}
@@ -817,9 +853,8 @@ function ProjectsShowcaseSection() {
                             className="space-y-0"
                         >
                             {stats.map((stat, index) => (
-                                <motion.div
+                                <div
                                     key={stat.label}
-                                    variants={fadeLeft}
                                     className={`py-8 ${index < stats.length - 1 ? 'border-b border-gray-300' : ''}`}
                                 >
                                     <p className="text-6xl lg:text-7xl font-light text-[#000168] tracking-tight mb-2">
@@ -828,7 +863,7 @@ function ProjectsShowcaseSection() {
                                     <p className="text-sm font-medium text-gray-600 uppercase tracking-widest">
                                         {stat.label}
                                     </p>
-                                </motion.div>
+                                </div>
                             ))}
                         </motion.div>
                     </motion.div>
@@ -845,26 +880,43 @@ function ProjectsShowcaseSection() {
                                     hidden: { opacity: 0, scale: 0.9, y: 40 },
                                     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
                                 }}
-                                whileHover={{ scale: 1.03, transition: { duration: 0.3, ease: EASE } }}
+                                whileHover={{
+                                    scale: 1.03,
+                                    borderRadius: "48px",
+                                    transition: { duration: 0.4, ease: EASE }
+                                }}
                                 className="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg aspect-square"
                             >
                                 <img
                                     src={project.image}
-                                    alt="Project"
-                                    className="w-full h-full object-cover"
+                                    alt={project.name}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 {/* Subtle diagonal stripe pattern overlay */}
                                 <div className="absolute inset-0 opacity-20 mix-blend-overlay" style={{
                                     backgroundImage: 'repeating-linear-gradient(45deg, #000, #000 10px, transparent 10px, transparent 20px)'
                                 }} />
                                 {/* Hover tint */}
-                                <div className="absolute inset-0 bg-[#000168]/0 group-hover:bg-[#000168]/10 transition-colors duration-300" />
+                                <div className="absolute inset-0 bg-[#000168]/0 group-hover:bg-[#000168]/40 transition-colors duration-500" />
+
+                                {/* Center Name */}
+                                <div className="absolute inset-0 flex items-center justify-center p-8 text-center">
+                                    <p className="text-white text-lg md:text-xl font-bold leading-tight opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-6 group-hover:translate-y-0">
+                                        {project.name}
+                                    </p>
+                                </div>
+
+                                {/* Bottom Right Arrow */}
+                                <div className="absolute bottom-8 right-8 translate-x-16 translate-y-16 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200 ease-out z-20">
+                                    <div className="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-2xl">
+                                        <LuArrowRight className="w-6 h-6" />
+                                    </div>
+                                </div>
                             </motion.div>
                         ))}
                     </motion.div>
                 </motion.div>
 
-                {/* Bottom Center CTA */}
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"
@@ -872,16 +924,12 @@ function ProjectsShowcaseSection() {
                     viewport={{ once: true, margin: '-40px' }}
                     className="mt-16 flex justify-center"
                 >
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="flex items-center gap-3 px-10 py-4 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-full transition-colors duration-300 shadow-lg"
-                    >
-                        {t('projects.view_all')}
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                        </svg>
-                    </motion.button>
+                    <SplitIconButton
+                        text={t('projects.view_all')}
+                        icon={<LuArrowRight className="w-5 h-5" />}
+                        variant="red"
+                        size="lg"
+                    />
                 </motion.div>
             </div>
         </section>
@@ -889,17 +937,17 @@ function ProjectsShowcaseSection() {
 }
 
 // ─── Home Page ────────────────────────────────────────────────────────────────
-export default function Home() {
+export default function Home({ brands, projects, productCategories, serviceCards }: HomeProps) {
     return (
         <GuestLayout hideFooter>
             <Head title="Wijaya International — Perusahaan Distribusi Nasional" />
             <HeroSection />
             <AboutSection />
-            <WhatWeDoSection />
-            <ProductsTeaserSection />
-            <BrandsSection />
+            <WhatWeDoSection serviceCards={serviceCards} />
+            <ProductsTeaserSection productCategories={productCategories} />
+            <BrandsSection brands={brands} />
             <DealerNetworkSection />
-            <ProjectsShowcaseSection />
+            <ProjectsShowcaseSection projects={projects} />
             <ContactSection />
             {/* Footer is pulled up -100vh to slide over the sticky portfolio */}
             <div className="-mt-[100vh] relative z-30">
