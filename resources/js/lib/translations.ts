@@ -129,6 +129,11 @@ export const translations = {
         'products.page.title': 'Produk Kami',
         'products.page.subtitle': 'Solusi imaging terlengkap untuk kebutuhan Anda.',
 
+        // Projects page
+        'projects.page.subtitle': 'Dokumentasi kampanye nasional, event peluncuran, dan aktivasi brand kami.',
+        'projects.back': 'Kembali ke Proyek',
+        'projects.noDescription': 'Deskripsi tidak tersedia.',
+
         // Services page
         'services.page.title': 'Layanan Kami',
         'services.page.subtitle': 'Ekosistem layanan menyeluruh yang mendukung pertumbuhan bisnis Anda.',
@@ -268,6 +273,11 @@ export const translations = {
         // Products page
         'products.page.title': 'Our Products',
         'products.page.subtitle': 'The most complete imaging solutions for your needs.',
+
+        // Projects page
+        'projects.page.subtitle': 'A showcase of our nationwide campaigns, launch events, and brand activations.',
+        'projects.back': 'Back to Projects',
+        'projects.noDescription': 'No description available.',
 
         // Services page
         'services.page.title': 'Our Services',

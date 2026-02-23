@@ -20,6 +20,22 @@ test('authenticated users can access admin projects index', function () {
         ->assertOk();
 });
 
+test('authenticated users can access project create page', function () {
+    $this->actingAs($this->user)
+        ->get('/admin/projects/create')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page->component('admin/projects/create'));
+});
+
+test('authenticated users can access project edit page', function () {
+    $project = Project::factory()->create();
+
+    $this->actingAs($this->user)
+        ->get("/admin/projects/{$project->id}/edit")
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page->component('admin/projects/edit')->has('project'));
+});
+
 test('authenticated users can store a project', function () {
     $image = UploadedFile::fake()->image('project.jpg');
 

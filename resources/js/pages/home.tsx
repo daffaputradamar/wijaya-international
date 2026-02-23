@@ -1,4 +1,4 @@
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, Link, router, useForm } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
 import {
     motion,
@@ -20,7 +20,7 @@ import {
 import { SplitIconButton } from '@/components/ui/split-icon-button';
 import Footer from '@/components/public/footer';
 import { useLanguage } from '@/lib/language-context';
-import { products } from '@/routes';
+import { products, projects } from '@/routes';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface BrandData {
@@ -659,6 +659,7 @@ function DealerNetworkSection() {
                             icon={<LuArrowRight className="w-5 h-5" />}
                             variant="red"
                             size="lg"
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                         />
                     </motion.div>
                 </div>
@@ -764,7 +765,7 @@ function ContactSection() {
                                 placeholder={t('contact.form.name')}
                                 value={form.data.name}
                                 onChange={e => form.setData('name', e.target.value)}
-                                className="w-full px-6 py-4 rounded-full bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
+                                className="w-full px-6 py-4 rounded-full bg-gray-100 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
                             />
                             {form.errors.name && <p className="-mt-4 text-sm text-red-400">{form.errors.name}</p>}
 
@@ -775,7 +776,7 @@ function ContactSection() {
                                 placeholder={t('contact.form.email')}
                                 value={form.data.email}
                                 onChange={e => form.setData('email', e.target.value)}
-                                className="w-full px-6 py-4 rounded-full bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
+                                className="w-full px-6 py-4 rounded-full bg-gray-100 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
                             />
                             {form.errors.email && <p className="-mt-4 text-sm text-red-400">{form.errors.email}</p>}
 
@@ -786,7 +787,7 @@ function ContactSection() {
                                 value={form.data.message}
                                 onChange={e => form.setData('message', e.target.value)}
                                 rows={5}
-                                className="w-full px-6 py-4 rounded-3xl bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all resize-none"
+                                className="w-full px-6 py-4 rounded-3xl bg-gray-100 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all resize-none"
                             />
                             {form.errors.message && <p className="-mt-4 text-sm text-red-400">{form.errors.message}</p>}
 
@@ -821,12 +822,12 @@ function ProjectsShowcaseSection({ projects: projectData }: { projects: ProjectD
     ];
 
     const projectsData = projectData.length > 0
-        ? projectData.map((p) => ({ name: p.name, image: p.image_url }))
+        ? projectData.map((p) => ({ id: p.id, name: p.name, image: p.image_url }))
         : [
-            { name: 'Nikon D850 Launch Event', image: '/images/wijaya/hero-bg.jpg' },
-            { name: 'Sony Alpha X Experience', image: '/images/wijaya/consumer-electronics.jpg' },
-            { name: 'National Imaging Summit', image: '/images/wijaya/road-landscape.jpg' },
-            { name: 'Canon Visionary Masterclass', image: '/images/wijaya/about.avif' },
+            { id: null, name: 'Nikon D850 Launch Event', image: '/images/wijaya/hero-bg.jpg' },
+            { id: null, name: 'Sony Alpha X Experience', image: '/images/wijaya/consumer-electronics.jpg' },
+            { id: null, name: 'National Imaging Summit', image: '/images/wijaya/road-landscape.jpg' },
+            { id: null, name: 'Canon Visionary Masterclass', image: '/images/wijaya/about.avif' },
         ];
 
     return (
@@ -897,6 +898,7 @@ function ProjectsShowcaseSection({ projects: projectData }: { projects: ProjectD
                                     borderRadius: "48px",
                                     transition: { duration: 0.4, ease: EASE }
                                 }}
+                                onClick={() => project.id !== null && router.visit(`/projects/${project.id}`)}
                                 className="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg aspect-square"
                             >
                                 <img
@@ -941,6 +943,7 @@ function ProjectsShowcaseSection({ projects: projectData }: { projects: ProjectD
                         icon={<LuArrowRight className="w-5 h-5" />}
                         variant="red"
                         size="lg"
+                        onClick={() => router.visit(projects().url)}
                     />
                 </motion.div>
             </div>

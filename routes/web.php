@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 // Public marketing routes
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/products', [PublicController::class, 'products'])->name('products');
+Route::get('/projects', [PublicController::class, 'projects'])->name('projects');
+Route::get('/projects/{project}', [PublicController::class, 'showProject'])->name('projects.show');
 Route::get('/services', [PublicController::class, 'services'])->name('services');
 Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
 Route::get('/legal/privacy-policy', [PublicController::class, 'privacyPolicy'])->name('privacy-policy');

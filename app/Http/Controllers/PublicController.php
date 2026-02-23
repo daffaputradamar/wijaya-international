@@ -58,6 +58,34 @@ class PublicController extends Controller
         ]);
     }
 
+    public function projects(): Response
+    {
+        $projects = Project::active()->ordered()->get()->map(fn (Project $p) => [
+            'id' => $p->id,
+            'name' => $p->name,
+            'description' => $p->description,
+            'image_url' => $p->image_url,
+        ])->all();
+
+        return Inertia::render('projects', [
+            'projects' => $projects,
+        ]);
+    }
+
+    public function showProject(Project $project): Response
+    {
+        abort_unless($project->is_active, 404);
+
+        return Inertia::render('projects/show', [
+            'project' => [
+                'id' => $project->id,
+                'name' => $project->name,
+                'description' => $project->description,
+                'image_url' => $project->image_url,
+            ],
+        ]);
+    }
+
     public function services(): Response
     {
         return Inertia::render('services', [

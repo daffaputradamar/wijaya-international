@@ -13,7 +13,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
     Route::resource('brands', BrandController::class)->except(['show', 'create', 'edit']);
     Route::post('brands/reorder', [BrandController::class, 'reorder'])->name('brands.reorder');
 
-    Route::resource('projects', ProjectController::class)->except(['show', 'create', 'edit']);
+    Route::resource('projects', ProjectController::class)->except(['show']);
     Route::post('projects/reorder', [ProjectController::class, 'reorder'])->name('projects.reorder');
 
     Route::resource('products', ProductCategoryController::class)->except(['show', 'create', 'edit']);

@@ -17,14 +17,21 @@ class ProjectController extends Controller
     public function index(): Response
     {
         return Inertia::render('admin/projects/index', [
+
             'projects' => Project::ordered()->get()->map(fn (Project $project) => [
                 'id' => $project->id,
                 'name' => $project->name,
+                'description' => $project->description,
                 'image_url' => $project->image_url,
                 'sort_order' => $project->sort_order,
                 'is_active' => $project->is_active,
             ]),
         ]);
+    }
+
+    public function create(): Response
+    {
+        return Inertia::render('admin/projects/create');
     }
 
     public function store(StoreProjectRequest $request): RedirectResponse
@@ -33,18 +40,34 @@ class ProjectController extends Controller
 
         Project::create([
             'name' => $request->name,
+            'description' => $request->description,
             'image_path' => $imagePath,
             'sort_order' => $request->sort_order ?? Project::max('sort_order') + 1,
             'is_active' => $request->boolean('is_active', true),
         ]);
 
-        return back();
+        return redirect()->route('admin.projects.index');
+    }
+
+    public function edit(Project $project): Response
+    {
+        return Inertia::render('admin/projects/edit', [
+            'project' => [
+                'id' => $project->id,
+                'name' => $project->name,
+                'description' => $project->description,
+                'image_url' => $project->image_url,
+                'sort_order' => $project->sort_order,
+                'is_active' => $project->is_active,
+            ],
+        ]);
     }
 
     public function update(UpdateProjectRequest $request, Project $project): RedirectResponse
     {
         $data = [
             'name' => $request->name ?? $project->name,
+            'description' => $request->has('description') ? $request->description : $project->description,
             'sort_order' => $request->sort_order ?? $project->sort_order,
             'is_active' => $request->has('is_active') ? $request->boolean('is_active') : $project->is_active,
         ];
@@ -58,7 +81,7 @@ class ProjectController extends Controller
 
         $project->update($data);
 
-        return back();
+        return redirect()->route('admin.projects.index');
     }
 
     public function destroy(Project $project): RedirectResponse

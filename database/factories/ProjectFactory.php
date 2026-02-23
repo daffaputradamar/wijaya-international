@@ -13,6 +13,7 @@ class ProjectFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(4),
+            'description' => $this->faker->paragraphs(3, true),
             'image_path' => 'projects/'.$this->faker->slug().'.jpg',
             'sort_order' => $this->faker->numberBetween(0, 100),
             'is_active' => true,
