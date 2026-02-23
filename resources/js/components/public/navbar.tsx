@@ -1,4 +1,4 @@
-import { Link, usePage } from '@inertiajs/react';
+import { Link, router, usePage } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/lib/language-context';
 import { home, products, services, contact } from '@/routes';
@@ -45,11 +45,28 @@ export default function Navbar() {
     }, [lastScrollY]);
 
     const navLinks = [
-        { label: t('nav.home'), href: home() },
-        { label: t('nav.products'), href: products() },
-        { label: t('nav.services'), href: services() },
-        { label: t('nav.contact'), href: contact() },
+        { label: t('nav.home'), href: home(), sectionId: null as string | null },
+        { label: t('nav.products'), href: products(), sectionId: 'products' },
+        { label: t('nav.services'), href: services(), sectionId: 'services' },
+        { label: t('nav.contact'), href: contact(), sectionId: 'contact' },
     ];
+
+    const getHrefStr = (href: unknown) =>
+        typeof href === 'string' ? href : (href as { url: string }).url;
+
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hrefStr: string, sectionId: string | null) => {
+        e.preventDefault();
+        if (isHome) {
+            if (sectionId === null) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            router.visit(hrefStr);
+        }
+        setMenuOpen(false);
+};
 
     const isActive = (href: unknown) => {
         const path = typeof href === 'string' ? href : (href as { url: string }).url;
@@ -95,26 +112,31 @@ export default function Navbar() {
 
                 {/* Desktop nav */}
                 <nav className="hidden md:flex items-center gap-16">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.label}
-                            href={typeof link.href === 'string' ? link.href : link.href.url}
-                            className={`text-base font-medium transition-colors duration-200 ${
-                                isActive(link.href)
-                                    ? (isHeroState ? 'text-white' : 'text-black font-semibold')
-                                    : subTextColor
-                            }`}
-                        >
-                            {link.label}
-                        </Link>
-                    ))}
+                    {navLinks.map((link) => {
+                        const hrefStr = getHrefStr(link.href);
+                        return (
+                            <a
+                                key={link.label}
+                                href={hrefStr}
+                                onClick={(e) => handleNavClick(e, hrefStr, link.sectionId)}
+                                className={`text-base font-medium transition-colors duration-200 ${
+                                    isActive(link.href)
+                                        ? isHeroState ? 'text-white' : 'text-black font-semibold'
+                                        : subTextColor
+                                }`}
+                            >
+                                {link.label}
+                            </a>
+                        );
+                    })}
                 </nav>
 
                 {/* Right side: CTA + language toggle + mobile menu button */}
                 <div className="flex items-center gap-4">
                     {/* Get In Touch Button */}
-                    <Link
-                        href={typeof contact() === 'string' ? contact() : contact().url}
+                    <a
+                        href={getHrefStr(contact())}
+                        onClick={(e) => handleNavClick(e, getHrefStr(contact()), 'contact')}
                         className={`hidden sm:inline-flex items-center px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
                             isHeroState
                                 ? 'bg-white text-black hover:bg-white/90 shadow-lg'
@@ -122,7 +144,7 @@ export default function Navbar() {
                         }`}
                     >
                         {t('nav.getInTouch')} <LuPhone className="ml-2 size-4" />
-                    </Link>
+                    </a>
 
                     {/* Language toggle */}
                     <button
@@ -158,20 +180,21 @@ export default function Navbar() {
             {/* Mobile menu */}
             {menuOpen && (
                 <div className="absolute top-full left-4 right-4 mt-2 rounded-2xl bg-black/95 backdrop-blur-md border border-white/10 py-6 px-6 flex flex-col gap-4 md:hidden shadow-2xl">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.label}
-                            href={typeof link.href === 'string' ? link.href : link.href.url}
-                            onClick={() => setMenuOpen(false)}
-                            className={`text-sm font-medium transition-colors ${
-                                isActive(link.href)
-                                    ? 'text-white'
-                                    : 'text-white/60'
-                            }`}
-                        >
-                            {link.label}
-                        </Link>
-                    ))}
+                    {navLinks.map((link) => {
+                        const hrefStr = getHrefStr(link.href);
+                        return (
+                            <a
+                                key={link.label}
+                                href={hrefStr}
+                                onClick={(e) => handleNavClick(e, hrefStr, link.sectionId)}
+                                className={`text-sm font-medium transition-colors ${
+                                    isActive(link.href) ? 'text-white' : 'text-white/60'
+                                }`}
+                            >
+                                {link.label}
+                            </a>
+                        );
+                    })}
                 </div>
             )}
         </header>

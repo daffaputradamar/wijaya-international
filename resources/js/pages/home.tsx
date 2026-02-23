@@ -1,4 +1,4 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, useForm } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
 import {
     motion,
@@ -369,7 +369,7 @@ function WhatWeDoSection({ serviceCards: cards }: { serviceCards: ServiceCardDat
     ];
 
     return (
-        <section id="what-we-do" className="bg-secondary/20 py-32 px-6 lg:px-12 relative z-20 overflow-hidden">
+        <section id="services" className="bg-secondary/20 py-32 px-6 lg:px-12 relative z-20 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     variants={staggerSlow}
@@ -440,7 +440,7 @@ function ProductsTeaserSection({ productCategories: categories }: { productCateg
     ];
 
     return (
-        <section className="bg-[#000168] text-white py-24 px-6 lg:px-12 relative z-20">
+        <section id="products" className="bg-[#000168] text-white py-24 px-6 lg:px-12 relative z-20">
             <div className="max-w-7xl mx-auto">
                 <motion.p
                     variants={clipReveal}
@@ -671,21 +671,18 @@ function DealerNetworkSection() {
 // ─── Contact Section ─────────────────────────────────────────────────────────
 function ContactSection() {
     const { t } = useLanguage();
-    const [formData, setFormData] = useState({ name: '', email: '', needs: '' });
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
+    const form = useForm({ name: '', email: '', message: '' });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Form submitted:', formData);
+        form.post('/contact/submit', {
+            preserveScroll: true,
+            onSuccess: () => form.reset(),
+        });
     };
 
     return (
-        <div className="relative h-[200vh] bg-background">
+        <div id="contact" className="relative h-[200vh] bg-background">
             <div className="sticky top-0 h-screen z-0 flex items-center justify-center overflow-hidden">
                 {/* Background Video */}
                 <video
@@ -738,6 +735,17 @@ function ContactSection() {
                             >
                                 {t('contact.body')}
                             </motion.p>
+
+                            {/* Success Message */}
+                            {form.wasSuccessful && (
+                                <motion.p
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="mt-6 text-green-400 font-medium"
+                                >
+                                    ✓ {t('contact.success') ?? 'Your inquiry has been submitted!'}
+                                </motion.p>
+                            )}
                         </motion.div>
 
                         {/* Right Column: Contact Form */}
@@ -754,40 +762,44 @@ function ContactSection() {
                                 type="text"
                                 name="name"
                                 placeholder={t('contact.form.name')}
-                                value={formData.name}
-                                onChange={handleInputChange}
+                                value={form.data.name}
+                                onChange={e => form.setData('name', e.target.value)}
                                 className="w-full px-6 py-4 rounded-full bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
                             />
+                            {form.errors.name && <p className="-mt-4 text-sm text-red-400">{form.errors.name}</p>}
 
                             {/* Email Input */}
                             <input
                                 type="email"
                                 name="email"
                                 placeholder={t('contact.form.email')}
-                                value={formData.email}
-                                onChange={handleInputChange}
+                                value={form.data.email}
+                                onChange={e => form.setData('email', e.target.value)}
                                 className="w-full px-6 py-4 rounded-full bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
                             />
+                            {form.errors.email && <p className="-mt-4 text-sm text-red-400">{form.errors.email}</p>}
 
-                            {/* Needs Textarea */}
+                            {/* Message Textarea */}
                             <textarea
-                                name="needs"
+                                name="message"
                                 placeholder={t('contact.form.needs')}
-                                value={formData.needs}
-                                onChange={handleInputChange}
+                                value={form.data.message}
+                                onChange={e => form.setData('message', e.target.value)}
                                 rows={5}
                                 className="w-full px-6 py-4 rounded-3xl bg-gray-200/90 backdrop-blur-sm text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all resize-none"
                             />
+                            {form.errors.message && <p className="-mt-4 text-sm text-red-400">{form.errors.message}</p>}
 
                             {/* CTA Button */}
                             <div className="mt-6 flex justify-center">
                                 <SplitIconButton
                                     type="submit"
-                                    text={t('contact.cta')}
+                                    text={form.processing ? '...' : t('contact.cta')}
                                     icon={<LuArrowRight className="w-6 h-6" />}
                                     variant="red"
                                     size="lg"
                                     className="w-full justify-center"
+                                    disabled={form.processing}
                                 />
                             </div>
                         </motion.form>

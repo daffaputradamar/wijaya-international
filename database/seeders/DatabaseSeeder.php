@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             ProjectSeeder::class,
             ProductCategorySeeder::class,
             ServiceCardSeeder::class,
+            ContactInfoSeeder::class,
+            SocialLinkSeeder::class,
         ]);
     }
 }

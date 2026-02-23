@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, Images, LayoutGrid, Layers, Package, Star } from 'lucide-react';
+import { BookOpen, Folder, Images, LayoutGrid, Layers, MessageCircle, Package, Phone, Star } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -48,19 +48,20 @@ const adminNavItems: NavItem[] = [
         href: '/admin/services',
         icon: Layers,
     },
+    {
+        title: 'Contact Info',
+        href: '/admin/contact',
+        icon: Phone,
+    },
+    {
+        title: 'Inquiries',
+        href: '/admin/inquiries',
+        icon: MessageCircle,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
-    {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
-    },
+
 ];
 
 export function AppSidebar() {

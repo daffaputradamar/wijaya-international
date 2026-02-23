@@ -3,7 +3,29 @@ import { useState } from 'react';
 import GuestLayout from '@/layouts/guest-layout';
 import { useLanguage } from '@/lib/language-context';
 
-function ContactContent() {
+interface ContactInfoData {
+    phone: string | null;
+    whatsapp: string | null;
+    email: string | null;
+    address: string | null;
+    maps_embed_url: string | null;
+}
+
+interface SocialLinkData {
+    platform: string;
+    url: string;
+    type: 'social' | 'ecommerce';
+}
+
+interface Props {
+    contactInfo: ContactInfoData | null;
+    socialLinks: {
+        social: SocialLinkData[];
+        ecommerce: SocialLinkData[];
+    };
+}
+
+function ContactContent({ contactInfo, socialLinks }: Props) {
     const { t } = useLanguage();
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -14,23 +36,49 @@ function ContactContent() {
         setEmail('');
     };
 
+    const phone = contactInfo?.phone ?? t('contact.page.phone');
+    const whatsapp = contactInfo?.whatsapp ?? null;
+    const emailAddr = contactInfo?.email ?? t('contact.page.email');
+    const address = contactInfo?.address ?? t('contact.page.address');
+    const mapsUrl = contactInfo?.maps_embed_url ?? null;
+
     const contactItems = [
         {
-            labelKey: 'contact.phone.label',
-            value: t('contact.page.phone'),
-            href: 'tel:+622112345678',
+            label: t('contact.phone.label'),
+            value: phone,
+            href: phone ? `tel:${phone.replace(/\s/g, '')}` : null,
+        },
+        ...(whatsapp ? [{
+            label: 'WhatsApp',
+            value: whatsapp,
+            href: `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`,
+        }] : []),
+        {
+            label: t('contact.email.label'),
+            value: emailAddr,
+            href: emailAddr ? `mailto:${emailAddr}` : null,
         },
         {
-            labelKey: 'contact.email.label',
-            value: t('contact.page.email'),
-            href: 'mailto:info@wijayainternational.co.id',
-        },
-        {
-            labelKey: 'contact.address.label',
-            value: t('contact.page.address'),
+            label: t('contact.address.label'),
+            value: address,
             href: null,
         },
     ];
+
+    const socialItems = socialLinks.social.length > 0
+        ? socialLinks.social
+        : [
+            { platform: 'X (Twitter)', url: 'https://x.com/' },
+            { platform: 'Instagram', url: 'https://instagram.com/' },
+        ];
+
+    const ecommerceItems = socialLinks.ecommerce.length > 0
+        ? socialLinks.ecommerce
+        : [
+            { platform: 'Tokopedia', url: '#' },
+            { platform: 'Shopee', url: '#' },
+            { platform: 'Lazada', url: '#' },
+        ];
 
     return (
         <>
@@ -53,7 +101,7 @@ function ContactContent() {
                     {/* Left: CTA + contact items */}
                     <div className="flex flex-col gap-10">
                         <a
-                            href="mailto:info@wijayainternational.co.id"
+                            href={emailAddr ? `mailto:${emailAddr}` : '#'}
                             className="inline-flex items-center gap-2 bg-white text-black font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-white/90 transition-colors w-fit"
                         >
                             {t('contact.cta')}
@@ -68,11 +116,11 @@ function ContactContent() {
                             </p>
                             {contactItems.map((item) => (
                                 <div
-                                    key={item.labelKey}
+                                    key={item.label}
                                     className="flex flex-col gap-1.5 px-6 py-5 border-b border-white/5 last:border-b-0"
                                 >
                                     <p className="text-white/30 text-xs uppercase tracking-widest">
-                                        {t(item.labelKey)}
+                                        {item.label}
                                     </p>
                                     {item.href ? (
                                         <a
@@ -96,31 +144,16 @@ function ContactContent() {
                             <p className="text-white/30 text-xs tracking-[0.4em] uppercase font-medium">
                                 {t('contact.social.label')}
                             </p>
-                            <div className="flex items-center gap-4">
-                                {[
-                                    { label: 'X (Twitter)', href: 'https://x.com/', icon: (
-                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.677l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                        </svg>
-                                    )},
-                                    { label: 'Instagram', href: 'https://instagram.com/', icon: (
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                            <circle cx="12" cy="12" r="4.5" />
-                                            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
-                                        </svg>
-                                    )},
-                                ].map((social) => (
+                            <div className="flex flex-wrap items-center gap-3">
+                                {socialItems.map((social) => (
                                     <a
-                                        key={social.label}
-                                        href={social.href}
+                                        key={social.platform}
+                                        href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm border border-white/10 rounded-full px-4 py-2"
-                                        aria-label={social.label}
                                     >
-                                        {social.icon}
-                                        <span>{social.label}</span>
+                                        {social.platform}
                                     </a>
                                 ))}
                             </div>
@@ -131,14 +164,17 @@ function ContactContent() {
                             <p className="text-white/30 text-xs tracking-[0.4em] uppercase font-medium">
                                 {t('contact.ecommerce.label')}
                             </p>
-                            <div className="flex items-center gap-4">
-                                {['Tokopedia', 'Shopee', 'Lazada'].map((store) => (
-                                    <span
-                                        key={store}
-                                        className="text-white/40 text-sm border border-white/10 rounded-full px-4 py-2"
+                            <div className="flex flex-wrap items-center gap-3">
+                                {ecommerceItems.map((store) => (
+                                    <a
+                                        key={store.platform}
+                                        href={store.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-white/40 hover:text-white/70 text-sm border border-white/10 rounded-full px-4 py-2 transition-colors"
                                     >
-                                        {store}
-                                    </span>
+                                        {store.platform}
+                                    </a>
                                 ))}
                             </div>
                         </div>
@@ -171,15 +207,33 @@ function ContactContent() {
                     </div>
                 </div>
             </section>
+
+            {/* Maps embed */}
+            {mapsUrl && (
+                <section className="px-6 lg:px-12 pb-20 bg-[#0a0a0a]">
+                    <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden border border-white/10 h-80">
+                        <iframe
+                            src={mapsUrl}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Office Location"
+                        />
+                    </div>
+                </section>
+            )}
         </>
     );
 }
 
-export default function Contact() {
+export default function Contact({ contactInfo, socialLinks }: Props) {
     return (
         <GuestLayout>
             <Head title="Contact — PT Wijaya International" />
-            <ContactContent />
+            <ContactContent contactInfo={contactInfo} socialLinks={socialLinks} />
         </GuestLayout>
     );
 }

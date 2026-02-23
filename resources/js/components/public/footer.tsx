@@ -15,7 +15,7 @@ export default function Footer() {
                     {/* Left: Logo & Description */}
                     <div className="flex flex-col gap-6">
                         <Link href={home().url} className="flex items-center gap-3 w-fit">
-                            <img src="/images/wijaya/logo.avif" alt="Logo" className="h-10 w-auto object-contain" />
+                            <img src="/images/wijaya/logobw.avif" alt="Logo" className="h-10 w-auto object-contain" />
                             <div className="flex flex-col leading-tight">
                                 <span className="font-bold text-lg tracking-wide">PT. WIJAYA</span>
                                 <span className="font-bold text-lg tracking-wide">INTERNATIONAL</span>

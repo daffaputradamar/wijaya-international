@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\ContactInfo;
+use App\Models\ContactSubmission;
 use App\Models\ProductCategory;
 use App\Models\Project;
 use App\Models\ServiceCard;
+use App\Models\SocialLink;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -116,7 +121,34 @@ class PublicController extends Controller
 
     public function contact(): Response
     {
-        return Inertia::render('contact');
+        $contactInfo = ContactInfo::first();
+
+        $socialLinks = SocialLink::active()->ordered()->get()->map(fn (SocialLink $s) => [
+            'platform' => $s->platform,
+            'url' => $s->url,
+            'type' => $s->type,
+        ])->groupBy('type');
+
+        return Inertia::render('contact', [
+            'contactInfo' => $contactInfo,
+            'socialLinks' => [
+                'social' => $socialLinks->get('social', collect())->values(),
+                'ecommerce' => $socialLinks->get('ecommerce', collect())->values(),
+            ],
+        ]);
+    }
+
+    public function submitContact(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'message' => ['required', 'string', 'max:5000'],
+        ]);
+
+        ContactSubmission::create($validated);
+
+        return redirect()->back()->with('success', 'Your inquiry has been submitted. We will get back to you soon.');
     }
 
     public function privacyPolicy(): Response
