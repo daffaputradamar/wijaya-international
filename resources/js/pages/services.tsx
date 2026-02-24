@@ -19,7 +19,11 @@ export default function Services({ services }: ServicesProps) {
 
     return (
         <GuestLayout>
-            <Head title="Services — PT Wijaya International" />
+            <Head title="Services">
+                <meta head-key="description" name="description" content="Layanan distribusi nasional, dukungan purna jual, dan kemitraan bisnis dari PT Wijaya International untuk seluruh wilayah Indonesia." />
+                <meta head-key="og:title" property="og:title" content="Services | PT Wijaya International" />
+                <meta head-key="og:description" property="og:description" content="Layanan distribusi nasional, dukungan purna jual, dan kemitraan bisnis dari PT Wijaya International." />
+            </Head>
 
             {/* Page Hero */}
             <section className="pt-32 pb-20 px-6 lg:px-12 bg-[#0a0a0a]">

@@ -68,7 +68,13 @@ export default function ProjectShow({ project }: ShowProps) {
 
     return (
         <GuestLayout>
-            <Head title={`${project.name} — PT Wijaya International`} />
+            <Head title={project.name}>
+                <meta head-key="description" name="description" content={`${project.name} — proyek dan kolaborasi PT Wijaya International.`} />
+                <meta head-key="og:title" property="og:title" content={`${project.name} | PT Wijaya International`} />
+                <meta head-key="og:description" property="og:description" content={`${project.name} — proyek dan kolaborasi PT Wijaya International.`} />
+                <meta head-key="og:image" property="og:image" content={project.image_url} />
+                <meta head-key="twitter:image" name="twitter:image" content={project.image_url} />
+            </Head>
 
             {/* ── Parallax Hero ─────────────────────────────────────────── */}
             <section className="relative h-[80vh] min-h-[580px] flex items-end overflow-hidden bg-background">

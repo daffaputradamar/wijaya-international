@@ -232,7 +232,11 @@ function ContactContent({ contactInfo, socialLinks }: Props) {
 export default function Contact({ contactInfo, socialLinks }: Props) {
     return (
         <GuestLayout>
-            <Head title="Contact — PT Wijaya International" />
+            <Head title="Contact">
+                <meta head-key="description" name="description" content="Hubungi PT Wijaya International untuk informasi produk, kemitraan distribusi, atau pertanyaan bisnis lainnya. Kami siap membantu Anda." />
+                <meta head-key="og:title" property="og:title" content="Contact | PT Wijaya International" />
+                <meta head-key="og:description" property="og:description" content="Hubungi PT Wijaya International untuk informasi produk dan kemitraan distribusi." />
+            </Head>
             <ContactContent contactInfo={contactInfo} socialLinks={socialLinks} />
         </GuestLayout>
     );

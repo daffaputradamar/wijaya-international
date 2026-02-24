@@ -128,7 +128,10 @@ function TermsContent() {
 export default function TermsConditions() {
     return (
         <GuestLayout>
-            <Head title="Terms &amp; Conditions — PT Wijaya International" />
+            <Head title="Terms & Conditions">
+                <meta head-key="description" name="description" content="Syarat dan ketentuan penggunaan layanan PT Wijaya International. Harap baca dengan seksama sebelum menggunakan layanan kami." />
+                <meta name="robots" content="noindex, follow" />
+            </Head>
             <TermsContent />
         </GuestLayout>
     );

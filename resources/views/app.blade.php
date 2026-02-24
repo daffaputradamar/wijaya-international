@@ -30,7 +30,26 @@
             }
         </style>
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <title inertia>{{ config('app.name') }}</title>
+
+        {{-- SEO --}}
+        <meta name="description" content="PT Wijaya International adalah distributor produk kamera, elektronik, dan teknologi terkemuka di Indonesia. Merek ternama: Sony, Canon, DJI, Feiyutech, dan lainnya.">
+        <meta name="keywords" content="distributor kamera, elektronik, photography, videography, DJI, Sony, Canon, Feiyutech, PT Wijaya International, Indonesia">
+        <meta name="robots" content="index, follow">
+
+        {{-- Open Graph --}}
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="{{ config('app.name') }}">
+        <meta property="og:title" content="{{ config('app.name') }}">
+        <meta property="og:description" content="PT Wijaya International adalah distributor produk kamera, elektronik, dan teknologi terkemuka di Indonesia.">
+        <meta property="og:image" content="{{ url('/images/wijaya/hero-bg.jpg') }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+
+        {{-- Twitter Card --}}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ config('app.name') }}">
+        <meta name="twitter:description" content="PT Wijaya International adalah distributor produk kamera, elektronik, dan teknologi terkemuka di Indonesia.">
+        <meta name="twitter:image" content="{{ url('/images/wijaya/hero-bg.jpg') }}">
 
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">

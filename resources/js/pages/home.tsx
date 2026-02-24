@@ -955,7 +955,13 @@ function ProjectsShowcaseSection({ projects: projectData }: { projects: ProjectD
 export default function Home({ brands, projects, productCategories, serviceCards }: HomeProps) {
     return (
         <GuestLayout hideFooter>
-            <Head title="Wijaya International — Perusahaan Distribusi Nasional" />
+            <Head title="Perusahaan Distribusi Nasional">
+                <meta head-key="description" name="description" content="PT Wijaya International adalah distributor resmi produk kamera, elektronik, dan teknologi terkemuka di Indonesia. Merek ternama: Sony, Canon, DJI, Feiyutech, Kodak, dan lainnya." />
+                <meta head-key="og:title" property="og:title" content="PT Wijaya International | Distribusi Elektronik & Kamera" />
+                <meta head-key="og:description" property="og:description" content="Distributor resmi produk kamera, elektronik, dan teknologi terkemuka di Indonesia." />
+                <meta head-key="twitter:title" name="twitter:title" content="PT Wijaya International | Distribusi Elektronik & Kamera" />
+                <meta head-key="twitter:description" name="twitter:description" content="Distributor resmi produk kamera, elektronik, dan teknologi terkemuka di Indonesia." />
+            </Head>
             <HeroSection />
             <AboutSection />
             <WhatWeDoSection serviceCards={serviceCards} />

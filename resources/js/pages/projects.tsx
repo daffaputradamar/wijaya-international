@@ -89,7 +89,11 @@ export default function Projects({ projects }: ProjectsProps) {
 
     return (
         <GuestLayout>
-            <Head title="Projects — PT Wijaya International" />
+            <Head title="Projects">
+                <meta head-key="description" name="description" content="Portofolio proyek dan kolaborasi PT Wijaya International bersama merek-merek kamera dan elektronik terkemuka di Indonesia." />
+                <meta head-key="og:title" property="og:title" content="Projects | PT Wijaya International" />
+                <meta head-key="og:description" property="og:description" content="Portofolio proyek dan kolaborasi PT Wijaya International bersama merek-merek terkemuka." />
+            </Head>
 
             {/* Dynamic Hero Section with Parallax */}
             <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-background">

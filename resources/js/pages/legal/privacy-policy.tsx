@@ -126,7 +126,10 @@ function PrivacyPolicyContent() {
 export default function PrivacyPolicy() {
     return (
         <GuestLayout>
-            <Head title="Privacy Policy — PT Wijaya International" />
+            <Head title="Privacy Policy">
+                <meta head-key="description" name="description" content="Kebijakan privasi PT Wijaya International menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda." />
+                <meta name="robots" content="noindex, follow" />
+            </Head>
             <PrivacyPolicyContent />
         </GuestLayout>
     );

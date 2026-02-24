@@ -19,7 +19,11 @@ export default function Products({ products }: ProductsProps) {
 
     return (
         <GuestLayout>
-            <Head title="Products — PT Wijaya International" />
+            <Head title="Products">
+                <meta head-key="description" name="description" content="Temukan berbagai produk kamera, aksesoris, dan teknologi terkemuka yang didistribusikan oleh PT Wijaya International di seluruh Indonesia." />
+                <meta head-key="og:title" property="og:title" content="Products | PT Wijaya International" />
+                <meta head-key="og:description" property="og:description" content="Produk kamera, aksesoris, dan teknologi terkemuka dari merek-merek ternama dunia." />
+            </Head>
 
             {/* Hero */}
             <section className="relative pt-32 pb-20 px-6 lg:px-12 bg-[#0a0a0a]">
