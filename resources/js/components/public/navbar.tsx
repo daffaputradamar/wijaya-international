@@ -1,7 +1,7 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/lib/language-context';
-import { home, products, services, contact } from '@/routes';
+import { home, products, services, contact, news } from '@/routes';
 import { LuPhone } from 'react-icons/lu';
 
 export default function Navbar() {
@@ -48,6 +48,7 @@ export default function Navbar() {
         { label: t('nav.home'), href: home(), sectionId: null as string | null },
         { label: t('nav.products'), href: products(), sectionId: 'products' },
         { label: t('nav.services'), href: services(), sectionId: 'services' },
+        { label: t('nav.news'), href: news(), sectionId: null as string | null },
         { label: t('nav.contact'), href: contact(), sectionId: 'contact' },
     ];
 

@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             ServiceCardSeeder::class,
             ContactInfoSeeder::class,
             SocialLinkSeeder::class,
+            NewsCategorySeeder::class,
+            NewsSeeder::class,
         ]);
     }
 }

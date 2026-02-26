@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ContactInfoController;
 use App\Http\Controllers\Admin\InquiryController;
+use App\Http\Controllers\Admin\NewsCategoryController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceCardController;
@@ -30,4 +32,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 
     Route::resource('inquiries', InquiryController::class)->only(['index', 'show', 'destroy']);
     Route::post('inquiries/{inquiry}/mark-read', [InquiryController::class, 'markRead'])->name('inquiries.mark-read');
+
+    Route::resource('news-categories', NewsCategoryController::class)->except(['show']);
+    Route::resource('news', NewsController::class)->except(['show']);
 });

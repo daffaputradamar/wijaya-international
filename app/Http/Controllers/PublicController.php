@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\ContactInfo;
 use App\Models\ContactSubmission;
+use App\Models\News;
+use App\Models\NewsCategory;
 use App\Models\ProductCategory;
 use App\Models\Project;
 use App\Models\ServiceCard;
@@ -48,6 +50,16 @@ class PublicController extends Controller
                 'body_id' => $s->body_id,
                 'body_en' => $s->body_en,
             ]),
+            'latestNews' => News::active()->published()->with('category')
+                ->latest('published_at')->limit(4)->get()->map(fn (News $n) => [
+                    'id' => $n->id,
+                    'title_id' => $n->title_id,
+                    'title_en' => $n->title_en,
+                    'slug' => $n->slug,
+                    'image_url' => $n->image_url,
+                    'published_at' => $n->published_at?->toDateString(),
+                    'category' => $n->category ? ['name_id' => $n->category->name_id, 'name_en' => $n->category->name_en, 'slug' => $n->category->slug] : null,
+                ]),
         ]);
     }
 
@@ -187,5 +199,64 @@ class PublicController extends Controller
     public function termsConditions(): Response
     {
         return Inertia::render('legal/terms-conditions');
+    }
+
+    public function news(Request $request): Response
+    {
+        $sort = $request->query('sort', 'latest');
+        $categorySlug = $request->query('category');
+
+        $query = News::active()->published()->with('category');
+
+        if ($categorySlug) {
+            $query->whereHas('category', fn ($q) => $q->where('slug', $categorySlug));
+        }
+
+        if ($sort === 'oldest') {
+            $query->oldest('published_at');
+        } else {
+            $query->latest('published_at');
+        }
+
+        $newsPaginated = $query->paginate(12)->through(fn (News $n) => [
+            'id' => $n->id,
+            'title_id' => $n->title_id,
+            'title_en' => $n->title_en,
+            'slug' => $n->slug,
+            'image_url' => $n->image_url,
+            'published_at' => $n->published_at?->toDateString(),
+            'category' => $n->category ? ['name_id' => $n->category->name_id, 'name_en' => $n->category->name_en, 'slug' => $n->category->slug] : null,
+        ]);
+
+        return Inertia::render('news', [
+            'news' => $newsPaginated,
+            'categories' => NewsCategory::active()->ordered()->get()->map(fn (NewsCategory $c) => [
+                'name_id' => $c->name_id,
+                'name_en' => $c->name_en,
+                'slug' => $c->slug,
+            ]),
+            'filters' => ['sort' => $sort, 'category' => $categorySlug],
+        ]);
+    }
+
+    public function showNews(News $news): Response
+    {
+        abort_unless($news->is_active && $news->published_at?->lte(now()), 404);
+
+        $news->load('category');
+
+        return Inertia::render('news/show', [
+            'news' => [
+                'id' => $news->id,
+                'title_id' => $news->title_id,
+                'title_en' => $news->title_en,
+                'body_id' => $news->body_id,
+                'body_en' => $news->body_en,
+                'slug' => $news->slug,
+                'image_url' => $news->image_url,
+                'published_at' => $news->published_at?->toDateString(),
+                'category' => $news->category ? ['name_id' => $news->category->name_id, 'name_en' => $news->category->name_en, 'slug' => $news->category->slug] : null,
+            ],
+        ]);
     }
 }

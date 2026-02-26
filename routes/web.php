@@ -14,6 +14,9 @@ Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
 Route::get('/legal/privacy-policy', [PublicController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('/legal/terms-conditions', [PublicController::class, 'termsConditions'])->name('terms-conditions');
 
+Route::get('/news', [PublicController::class, 'news'])->name('news');
+Route::get('/news/{news:slug}', [PublicController::class, 'showNews'])->name('news.show');
+
 Route::post('/contact/submit', [PublicController::class, 'submitContact'])->name('contact.submit');
 
 // Authenticated app routes

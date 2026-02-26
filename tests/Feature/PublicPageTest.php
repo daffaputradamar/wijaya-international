@@ -68,3 +68,74 @@ test('project detail page returns 404 for an inactive project', function () {
 
     $this->get(route('projects.show', $project))->assertNotFound();
 });
+
+test('news listing page returns 200', function () {
+    $this->get(route('news'))
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('news')
+            ->has('news')
+            ->has('categories')
+        );
+});
+
+test('news listing page filters by category slug', function () {
+    $category = \App\Models\NewsCategory::factory()->create(['is_active' => true]);
+    $published = \App\Models\News::factory()->create([
+        'news_category_id' => $category->id,
+        'is_active' => true,
+        'published_at' => now()->subDay(),
+    ]);
+    $other = \App\Models\News::factory()->create([
+        'news_category_id' => null,
+        'is_active' => true,
+        'published_at' => now()->subDay(),
+    ]);
+
+    $this->get(route('news', ['category' => $category->slug]))
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('news')
+            ->has('news', fn ($prop) => $prop
+                ->has('data', 1)
+                ->etc()
+            )
+        );
+});
+
+test('news detail page returns 200 for a published active article', function () {
+    $news = \App\Models\News::factory()->create([
+        'is_active' => true,
+        'published_at' => now()->subDay(),
+    ]);
+
+    $this->get(route('news.show', $news))
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('news/show')
+            ->has('news', fn ($prop) => $prop
+                ->where('id', $news->id)
+                ->has('title_en')
+                ->has('image_url')
+                ->etc()
+            )
+        );
+});
+
+test('news detail page returns 404 for an inactive article', function () {
+    $news = \App\Models\News::factory()->create([
+        'is_active' => false,
+        'published_at' => now()->subDay(),
+    ]);
+
+    $this->get(route('news.show', $news))->assertNotFound();
+});
+
+test('news detail page returns 404 for an unpublished article', function () {
+    $news = \App\Models\News::factory()->create([
+        'is_active' => true,
+        'published_at' => null,
+    ]);
+
+    $this->get(route('news.show', $news))->assertNotFound();
+});

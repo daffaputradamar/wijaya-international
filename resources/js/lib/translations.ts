@@ -4,6 +4,7 @@ export const translations = {
         'nav.home': 'Beranda',
         'nav.products': 'Produk',
         'nav.services': 'Layanan',
+        'nav.news': 'Berita',
         'nav.contact': 'Kontak',
         'nav.getInTouch': 'Hubungi Kami',
 
@@ -149,6 +150,7 @@ export const translations = {
         'nav.home': 'Home',
         'nav.products': 'Products',
         'nav.services': 'Services',
+        'nav.news': 'News',
         'nav.contact': 'Contact',
         'nav.getInTouch': 'Get In Touch',
 
