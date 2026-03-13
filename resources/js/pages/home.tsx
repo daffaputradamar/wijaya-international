@@ -1,5 +1,6 @@
 import { Head, Link, router, useForm } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
+import Autoplay from "embla-carousel-autoplay"
 import {
     motion,
     useScroll,
@@ -21,6 +22,7 @@ import { SplitIconButton } from '@/components/ui/split-icon-button';
 import Footer from '@/components/public/footer';
 import { useLanguage } from '@/lib/language-context';
 import { products, projects, news } from '@/routes';
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface BrandData {
@@ -611,7 +613,11 @@ function BrandsSection({ brands: brandData }: { brands: BrandData[] }) {
                 </motion.div>
 
                 {/* Carousel */}
-                <Carousel className="w-full">
+                <Carousel className="w-full" plugins={[
+                    Autoplay({
+                        delay:2000
+                    })
+                ]}>
                     <CarouselContent className="gap-8">
                         {brands.map((brand) => (
                             <CarouselItem key={brand.name} className="basis-auto pl-0">
@@ -659,19 +665,22 @@ function DealerNetworkSection() {
                         viewport={{ once: true, margin: '-60px' }}
                         className='flex flex-col items-center max-w-3xl mx-auto'
                     >
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#000168] tracking-tight mb-4">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#000168] tracking-tight mb-4 text-center">
                             {t('dealer.title')}
                         </h2>
-                        <p className="text-base mb-8 text-center">
+                        <p className="text-sm md:text-base mb-8 text-center max-w-2xl">
                             {t('dealer.body')}
                         </p>
-                        <SplitIconButton
-                            text={t('dealer.cta')}
-                            icon={<LuArrowRight className="w-5 h-5" />}
-                            variant="red"
-                            size="lg"
-                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                        />
+                        <div className="w-full flex justify-center px-4">
+                            <SplitIconButton
+                                text={t('dealer.cta')}
+                                icon={<LuArrowRight className="w-5 h-5" />}
+                                variant="red"
+                                size="lg"
+                                className="max-w-full"
+                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            />
+                        </div>
                     </motion.div>
                 </div>
             </div>

@@ -25,9 +25,9 @@ export function SplitIconButton({
     const [isHovered, setIsHovered] = React.useState(false);
 
     const sizeConfig = {
-        sm: { textCircle: 'h-8 text-xs px-3', iconCircle: 'w-8 h-8', gap: 'gap-0' },
-        md: { textCircle: 'h-10 text-sm px-4', iconCircle: 'w-10 h-10', gap: 'gap-0' },
-        lg: { textCircle: 'h-12 text-base px-6', iconCircle: 'w-12 h-12', gap: 'gap-0' },
+        sm: { textCircle: 'min-h-8 text-xs px-3 py-1', iconCircle: 'w-8 h-8', gap: 'gap-0' },
+        md: { textCircle: 'min-h-10 text-sm px-4 py-1.5', iconCircle: 'w-10 h-10', gap: 'gap-0' },
+        lg: { textCircle: 'min-h-12 text-base px-6 py-2', iconCircle: 'w-12 h-12', gap: 'gap-0' },
     };
 
     const variantConfig = {
@@ -62,16 +62,16 @@ export function SplitIconButton({
         >
             {/* Text Circle */}
             <motion.div
-                className={`flex items-center justify-center font-medium whitespace-nowrap shadow-sm group-hover:shadow-md transition-shadow duration-300 px-6 ${size_cfg.textCircle} ${config.text}`}
+                className={`flex items-center justify-center font-medium shadow-sm group-hover:shadow-md transition-shadow duration-300 ${size_cfg.textCircle} ${config.text}`}
                 initial={false}
                 animate={{
-                    borderRadius: '9999px',
+                    borderRadius: isHovered ? '24px' : '9999px',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 style={{ zIndex: 10 }}
             >
                 <div className={`flex items-center gap-3 overflow-hidden ${isLeft ? 'flex-row-reverse' : 'flex-row'}`}>
-                    <span>{text}</span>
+                    <span className="max-w-[12rem] sm:max-w-none leading-tight whitespace-normal text-center">{text}</span>
                     <motion.div
                         initial={false}
                         animate={{
