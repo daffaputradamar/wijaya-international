@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Navbar from '@/components/public/navbar';
 import Footer from '@/components/public/footer';
-// import CookieBanner from '@/components/public/cookie-banner';
+import CookieBanner from '@/components/public/cookie-banner';
 
 interface GuestLayoutProps {
     children: ReactNode;
@@ -14,7 +14,7 @@ export default function GuestLayout({ children, hideFooter = false }: GuestLayou
             <Navbar />
             <main>{children}</main>
             {!hideFooter && <Footer />}
-            {/* <CookieBanner /> */}
+            <CookieBanner />
         </div>
     );
 }

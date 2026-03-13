@@ -208,7 +208,7 @@ function HeroSection() {
 
             {/* Content */}
             <motion.div
-                className="absolute bottom-12 left-6 md:left-20 z-10 max-w-5xl"
+                className="absolute bottom-12 left-6 right-6 md:left-20 md:right-auto z-10 max-w-5xl"
                 style={{ y: yText, opacity: opacityText, scale: scaleText }}
             >
                 <motion.p
@@ -219,7 +219,7 @@ function HeroSection() {
                 >
                     Welcome to Wijaya International
                 </motion.p>
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-none tracking-tighter text-left uppercase">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-none tracking-tighter text-left uppercase overflow-hidden">
                     {heroWords.map((word, i) => (
                         <span key={word} className="inline-block overflow-hidden mr-[0.2em]">
                             <motion.span
@@ -246,7 +246,7 @@ function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.8, duration: 0.8, ease: EASE }}
-                className="absolute bottom-8 right-8 z-10 flex flex-col items-center gap-2"
+                className="absolute bottom-8 right-6 md:right-8 z-10 flex flex-col items-center gap-2"
             >
                 <span className="text-white/40 text-[10px] tracking-[0.3em] uppercase rotate-90 origin-center mb-4">Scroll</span>
                 <motion.div
@@ -453,7 +453,7 @@ function ProductsTeaserSection({ productCategories: categories }: { productCateg
     ];
 
     return (
-        <section id="products" className="bg-[#000168] text-white py-24 px-6 lg:px-12 relative z-20">
+        <section id="products" className="bg-[#000168] text-white py-24 px-6 lg:px-12 relative z-20 overflow-x-hidden">
             <div className="max-w-7xl mx-auto">
                 <motion.p
                     variants={clipReveal}
@@ -589,7 +589,7 @@ function BrandsSection({ brands: brandData }: { brands: BrandData[] }) {
         ];
 
     return (
-        <section className="bg-muted/10 pt-24 px-6 lg:px-12 border-t border-border relative z-20">
+        <section className="bg-muted/10 pt-24n px-6 lg:px-12 border-t border-border relative z-20">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     variants={staggerSlow}
@@ -641,7 +641,7 @@ function DealerNetworkSection() {
     const { t } = useLanguage();
 
     return (
-        <section className="bg-background pb-24 px-6 lg:px-12 relative z-20">
+        <section className="bg-background pb-24 px-6 lg:px-12 relative z-20 overflow-x-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 gap-12 lg:gap-16 items-center">
                     <motion.div
