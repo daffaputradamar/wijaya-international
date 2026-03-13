@@ -27,21 +27,21 @@ export default function CookieBanner() {
     }
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-[100] bg-[#111] border-t border-white/10 px-6 py-4">
-            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <p className="text-white/70 text-sm flex-1">
+        <div className="fixed bottom-0 left-0 right-0 z-[100] bg-[#111] border-t border-white/10 px-4 py-4 sm:px-6">
+            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p className="text-white/70 text-sm text-center sm:text-left flex-1 break-words w-full">
                     {t('cookie.message')}
                 </p>
-                <div className="flex items-center gap-3 flex-shrink-0">
+                <div className="flex items-center justify-center gap-3 w-full sm:w-auto">
                     <button
                         onClick={handleReject}
-                        className="text-sm text-white/50 hover:text-white transition-colors px-4 py-1.5 border border-white/20 rounded-full"
+                        className="text-sm text-white/50 hover:text-white transition-colors px-6 sm:px-4 py-2 sm:py-1.5 border border-white/20 rounded-full whitespace-nowrap"
                     >
                         {t('cookie.reject')}
                     </button>
                     <button
                         onClick={handleAccept}
-                        className="text-sm text-black bg-white hover:bg-white/90 transition-colors px-4 py-1.5 rounded-full font-medium"
+                        className="text-sm text-black bg-white hover:bg-white/90 transition-colors px-6 sm:px-4 py-2 sm:py-1.5 rounded-full font-medium whitespace-nowrap"
                     >
                         {t('cookie.accept')}
                     </button>
