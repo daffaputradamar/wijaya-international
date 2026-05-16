@@ -498,7 +498,7 @@ function ProductsTeaserSection({ productCategories: categories }: { productCateg
 
                     {/* Right: 2x2 Card Grid */}
                     <motion.div
-                        className="grid grid-cols-2 gap-4"
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                         variants={staggerFast}
                         initial="hidden"
                         whileInView="visible"
@@ -534,7 +534,7 @@ function ProductsTeaserSection({ productCategories: categories }: { productCateg
 
                                 {/* Content */}
                                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                                    <h3 className="text-white font-extrabold text-5xl group-hover:text-2xl leading-tight mb-2">
+                                    <h3 className="text-white font-extrabold text-2xl sm:text-3xl lg:text-5xl group-hover:text-lg sm:group-hover:text-2xl leading-tight mb-2 transition-[font-size] duration-300">
                                         {cat.title}
                                     </h3>
                                     <p className="text-white/70 text-xs leading-relaxed mb-3 line-clamp-2 max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-500 ease-in-out">
@@ -572,13 +572,13 @@ function BrandsSection({ brands: brandData }: { brands: BrandData[] }) {
         ? brandData.map((b) => ({ name: b.name, image: b.logo_url }))
         : [
             // Row 1
-            { name: 'SBOX', image: '/assets/brands/sbox.png' },
+            { name: 'SBOX', image: '/assets/brands/SBOX.png' },
             { name: 'Kodak PixPro', image: '/assets/brands/kodakpixpro.png' },
             { name: 'Kodak Charmera', image: '/assets/brands/kodak charmera.png' },
-            { name: 'Canon', image: '/assets/brands/canon.png' },
-            { name: 'Sony', image: '/assets/brands/sony.png' },
-            { name: 'DJI', image: '/assets/brands/dji.png' },
-            { name: 'FeiYuTech', image: '/assets/brands/feiyutech.png' },
+            { name: 'Canon', image: '/assets/brands/Canon.png' },
+            { name: 'Sony', image: '/assets/brands/Sony.png' },
+            { name: 'DJI', image: '/assets/brands/DJI.png' },
+            { name: 'FeiYuTech', image: '/assets/brands/Feiyutech.png' },
             { name: '7Artisans', image: '/assets/brands/7artisan.png' },
             // Row 2
             { name: 'Fujifilm', image: '/assets/brands/fujifilm.png' },
