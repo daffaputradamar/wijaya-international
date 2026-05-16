@@ -3,7 +3,7 @@ export default function AppLogo() {
         <>
             <div className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-md">
                 <img
-                    src="/images/wijaya/logo.avif"
+                    src="/images/wijaya/wijaya_blue.png"
                     alt="Wijaya International"
                     className="size-8 object-contain"
                 />

@@ -154,7 +154,7 @@ class PublicController extends Controller
                 'key' => 'after_sales',
                 'title' => 'After Sales Support',
                 'description' => 'services.after_sales_desc',
-                'image' => '/images/wijaya/logobw.avif',
+                'image' => '/images/wijaya/logo/wijaya_white.png',
             ],
         ];
     }

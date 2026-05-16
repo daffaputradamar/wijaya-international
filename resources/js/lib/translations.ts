@@ -25,12 +25,12 @@ export const translations = {
         'about.stat1.label': 'Tahun Pengalaman',
         'about.stat2.value': '300+',
         'about.stat2.label': 'Dealer Network',
-        'about.stat3.value': '100+',
+        'about.stat3.value': '150+',
         'about.stat3.label': 'Integritas & Profesionalisme',
-
+        'about.cta': 'Pelajari Selengkapnya',
         // What We Do Section
-        'whatwedo.label': 'Yang Kami Lakukan',
-        'whatwedo.subtitle': 'Di PT Wijaya International, fokus utama kami adalah',
+        'whatwedo.label': 'Bisnis Utama',
+        'whatwedo.subtitle': 'Di PT. Wijaya International, fokus utama kami adalah',
         'whatwedo.headline': 'Menghidupkan industri visual Indonesia',
         'whatwedo.body':
             'Kami mengintegrasikan teknologi terkini dengan jaringan distribusi yang solid, memastikan setiap produk inovasi dapat diakses oleh kreator di seluruh Indonesia.',
@@ -48,6 +48,18 @@ export const translations = {
         'service.accessories.title': 'Camera Accessories',
         'service.accessories.body':
             'Lengkapi kebutuhan foto dan video konsumen dengan aksesori berkualitas tinggi mulai dari penyimpanan, daya, hingga perangkat pendukung lainnya, untuk performa dan pengalaman yang optimal.',
+        'service.retail.title': 'Retail',
+        'service.retail.body':
+            'Menyediakan akses langsung kepada konsumen akhir melalui jaringan toko retail yang tersebar di seluruh Indonesia, memastikan pengalaman belanja yang optimal.',
+        'service.manufacture.title': 'Manufacture',
+        'service.manufacture.body':
+            'Mengembangkan dan memproduksi produk berkualitas tinggi yang memenuhi standar industri, dari proses desain hingga distribusi ke pasar.',
+        'service.brand.title': 'Brand Management',
+        'service.brand.body':
+            'Membangun presensi dan relevansi brand yang kuat di pasar visual Indonesia melalui strategi pemasaran yang terintegrasi dan konten berkualitas tinggi.',
+        'service.camera.title': 'Camera Support',
+        'service.camera.body':
+            'Menyediakan dukungan teknis, layanan purna jual, dan suku cadang resmi untuk berbagai merek kamera terkemuka bagi kreator dan profesional.',
         'service.services.title': 'Services',
         'service.services.body':
             'PT Wijaya International merancang ekosistem layanan yang menyeluruh, dari manajemen distribusi hingga dukungan purna jual, untuk memastikan bisnis anda beroperasi dengan efisiensi maksimal.',
@@ -90,6 +102,25 @@ export const translations = {
         'projects.1.title': 'Photography & Optics',
         'projects.2.title': 'Ones Residence',
         'projects.3.title': 'Gameroom Offices',
+
+        // Why Choose Us Section
+        'why.label': 'Mengapa Memilih Kami',
+        'why.title': 'Mengapa Memilih PT Wijaya International?',
+        'why.body': 'Kami berkomitmen memberikan nilai lebih di setiap transaksi konsumen kami. Sebagai pemimpin dalam solusi digital imaging, inilah jaminan yang kami berikan kepada Anda:',
+        'why.distributor.title': 'Distributor Resmi',
+        'why.distributor.body': 'Sebagai mitra strategis dan jalur distribusi utama untuk merek-merek global terkemuka, kami menjamin 100% keaslian dan standar kualitas tertinggi pada setiap produk yang Anda terima.',
+        'why.jaringan.title': 'Jaringan Dealer Nasional',
+        'why.jaringan.body': 'Jaringan dealer kami tersebar luas di seluruh Indonesia, memudahkan akses ke produk unggulan kami di mana saja.',
+        'why.garansi.title': 'Garansi Resmi',
+        'why.garansi.body': 'Semua produk dilengkapi dengan garansi resmi, memberikan ketenangan pikiran dalam setiap pembelian.',
+        'why.layanan.title': 'Layanan Service Center Mandiri',
+        'why.layanan.body': 'Pusat layanan mandiri kami siap memberikan dukungan teknis dan perbaikan terpercaya untuk semua produk.',
+        'why.pengiriman.title': 'Pengiriman Nasional yang Cepat',
+        'why.pengiriman.body': 'Sistem logistik kami memastikan pengiriman cepat dan aman ke seluruh penjuru Indonesia.',
+        'why.legalitas.title': 'Legalitas & Perizinan Terjamin',
+        'why.legalitas.body': 'Beroperasi dengan izin resmi dan dokumen legalitas yang lengkap, memastikan kepercayaan dan keamanan transaksi.',
+        'why.marketing.title': 'Marketing & Brand Support',
+        'why.marketing.body': 'Dukungan penuh dalam strategi pemasaran dan pengembangan brand untuk memperkuat posisi pasar.',
 
         // Contact Section
         'contact.label': 'Hubungi Kami',
@@ -171,12 +202,12 @@ export const translations = {
         'about.stat1.label': 'Years of Experience',
         'about.stat2.value': '300+',
         'about.stat2.label': 'Dealer Network',
-        'about.stat3.value': '100+',
+        'about.stat3.value': '150+',
         'about.stat3.label': 'Integrity & Professionalism',
-
+        'about.cta': 'Learn More',
         // What We Do Section
-        'whatwedo.label': 'What We Do',
-        'whatwedo.subtitle': 'At PT Wijaya International, our main focus is',
+        'whatwedo.label': 'Main Business',
+        'whatwedo.subtitle': 'At PT. Wijaya International, our main focus is',
         'whatwedo.headline': 'Bringing Indonesia\'s visual industry to life',
         'whatwedo.body':
             'We integrate the latest technology with a solid distribution network, ensuring every innovative product is accessible to creators throughout Indonesia.',
@@ -194,6 +225,18 @@ export const translations = {
         'service.accessories.title': 'Camera Accessories',
         'service.accessories.body':
             'Complete your customers\' photo and video needs with high-quality accessories ranging from storage, power, to other supporting devices, for optimal performance and experience.',
+        'service.retail.title': 'Retail',
+        'service.retail.body':
+            'Providing direct access to end consumers through a retail store network spread across Indonesia, ensuring an optimal shopping experience.',
+        'service.manufacture.title': 'Manufacture',
+        'service.manufacture.body':
+            'Developing and producing high-quality products that meet industry standards, from design process to market distribution.',
+        'service.brand.title': 'Brand Management',
+        'service.brand.body':
+            'Building strong brand presence and relevance in Indonesia\'s visual market through integrated marketing strategies and high-quality content.',
+        'service.camera.title': 'Camera Support',
+        'service.camera.body':
+            'Providing technical support, after-sales service, and official spare parts for leading camera brands for creators and professionals.',
         'service.services.title': 'Services',
         'service.services.body':
             'PT Wijaya International designs a comprehensive service ecosystem, from distribution management to after-sales support, to ensure your business operates with maximum efficiency.',
@@ -236,6 +279,25 @@ export const translations = {
         'projects.1.title': 'Photography & Optics',
         'projects.2.title': 'Ones Residence',
         'projects.3.title': 'Gameroom Offices',
+
+        // Why Choose Us Section
+        'why.label': 'Why Choose Us',
+        'why.title': 'Why Choose PT Wijaya International?',
+        'why.body': 'We are committed to delivering greater value in every consumer transaction. As a leader in digital imaging solutions, here is what we guarantee for you:',
+        'why.distributor.title': 'Official Distributor',
+        'why.distributor.body': 'As a strategic partner and main distribution channel for leading global brands, we guarantee 100% authenticity and the highest quality standards on every product you receive.',
+        'why.jaringan.title': 'National Dealer Network',
+        'why.jaringan.body': 'Our dealer network spans across Indonesia, making it easy to access our premium products anywhere.',
+        'why.garansi.title': 'Official Warranty',
+        'why.garansi.body': 'All products come with official warranty, giving you peace of mind with every purchase.',
+        'why.layanan.title': 'Independent Service Center',
+        'why.layanan.body': 'Our independent service centers provide reliable technical support and repairs for all products.',
+        'why.pengiriman.title': 'Fast National Delivery',
+        'why.pengiriman.body': 'Our logistics system ensures fast and safe delivery to every corner of Indonesia.',
+        'why.legalitas.title': 'Legal & Licensed',
+        'why.legalitas.body': 'Operating with official permits and complete legal documentation, ensuring trust and transaction security.',
+        'why.marketing.title': 'Marketing & Brand Support',
+        'why.marketing.body': 'Full support in marketing strategies and brand development to strengthen market positioning.',
 
         // Contact Section
         'contact.label': 'Contact Us',

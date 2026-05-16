@@ -77,7 +77,7 @@ const fallbackProjects: Project[] = [
     { id: 3, name: 'National Imaging Summit', description: null, image_url: '/images/wijaya/road-landscape.jpg' },
     { id: 4, name: 'Canon Visionary Masterclass', description: null, image_url: '/images/wijaya/about.avif' },
     { id: 5, name: 'Fujifilm Creator Series', description: null, image_url: '/images/wijaya/wijayalocations.avif' },
-    { id: 6, name: 'Panasonic Pro Workshop', description: null, image_url: '/images/wijaya/logobw.avif' },
+    { id: 6, name: 'Panasonic Pro Workshop', description: null, image_url: '/images/wijaya/logo/wijaya_white.png' },
 ];
 
 export default function Projects({ projects }: ProjectsProps) {
