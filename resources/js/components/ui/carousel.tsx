@@ -102,6 +102,8 @@ function Carousel({
     }
   }, [api, onSelect])
 
+  const isRTL = opts?.direction === "rtl"
+
   return (
     <CarouselContext.Provider
       value={{
@@ -122,6 +124,7 @@ function Carousel({
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
+        dir={isRTL ? "rtl" : "ltr"}
         {...props}
       >
         {children}
