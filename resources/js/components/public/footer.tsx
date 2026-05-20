@@ -4,8 +4,6 @@ import {
     LuMail,
     LuMapPin,
     LuInstagram,
-    LuTwitter,
-    LuYoutube,
 } from 'react-icons/lu';
 import { useLanguage } from '@/lib/language-context';
 import { home, privacyPolicy, termsConditions } from '@/routes';
@@ -16,9 +14,12 @@ export default function Footer() {
     return (
         <footer className="relative z-30 flex min-h-screen flex-col justify-center gap-32 bg-[#1833A0] text-white">
             {/* Top Area: Company Intro */}
-            <div className="mx-auto w-full max-w-7xl px-6 pt-16 lg:px-12 flex flex-col gap-32">
+            <div className="mx-auto flex w-full max-w-7xl flex-col gap-32 px-6 pt-16 lg:px-12">
                 <div className="flex items-start gap-6">
-                    <Link href={home().url} className="flex items-center gap-3 w-2/3">
+                    <Link
+                        href={home().url}
+                        className="flex w-2/3 items-center gap-3"
+                    >
                         <img
                             src="/images/wijaya/logo/wijaya_white.png"
                             alt="Logo"
@@ -40,7 +41,7 @@ export default function Footer() {
                         <div className="space-y-6">
                             {/* Phone */}
                             <div className="flex items-center gap-4">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-red-500 bg-[#001a5f]">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-red-500 bg-[#001a5f]">
                                     <LuPhone className="h-5 w-5 text-red-500" />
                                 </div>
                                 <a
@@ -53,7 +54,7 @@ export default function Footer() {
 
                             {/* Email */}
                             <div className="flex items-center gap-4">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-red-500 bg-[#001a5f]">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-red-500 bg-[#001a5f]">
                                     <LuMail className="h-5 w-5 text-red-500" />
                                 </div>
                                 <a
@@ -65,16 +66,15 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-<div>
-                        <h3 className="mb-8 text-lg font-bold tracking-widest text-white uppercase invisible">
+                    <div>
+                        <h3 className="invisible mb-8 text-lg font-bold tracking-widest text-white uppercase">
                             Narahubung
                         </h3>
 
                         <div className="space-y-6">
-
-                             {/* Location */}
+                            {/* Location */}
                             <div className="flex items-center gap-4">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-red-500 bg-[#001a5f]">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-red-500 bg-[#001a5f]">
                                     <LuMapPin className="h-5 w-5 text-red-500" />
                                 </div>
                                 <div className="rounded-full bg-gray-900/50 px-4 py-2 text-lg text-gray-200">
@@ -84,7 +84,7 @@ export default function Footer() {
 
                             {/* Instagram */}
                             <div className="flex items-center gap-4">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-red-500 bg-[#001a5f]">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-red-500 bg-[#001a5f]">
                                     <LuInstagram className="h-5 w-5 text-red-500" />
                                 </div>
                                 <a
@@ -94,10 +94,8 @@ export default function Footer() {
                                     Instagram
                                 </a>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
 

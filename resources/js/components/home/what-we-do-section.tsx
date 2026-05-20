@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { LuArrowRight } from 'react-icons/lu';
 import { useLanguage } from '@/lib/language-context';
 import { clipReveal, EASE, fadeUp, staggerFast, staggerSlow } from './motion-variants';
@@ -17,8 +16,6 @@ function ServiceCard({
     card: Partial<ServiceCardData> & { title: string; body: string };
     lang: string;
 }) {
-    const [isHovered, setIsHovered] = useState(false);
-
     return (
         <motion.div
             variants={{
@@ -27,96 +24,31 @@ function ServiceCard({
                     opacity: 1,
                     y: 0,
                     scale: 1,
-                    transition: { duration: 0.8, ease: EASE },
+                    transition: { duration: 0.5, ease: EASE },
                 },
             }}
-            whileHover={{ y: -8, transition: { duration: 0.3, ease: EASE } }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="group relative min-h-80 cursor-pointer overflow-hidden rounded-2xl border-2 border-[#000168] bg-white p-10 text-center transition-shadow duration-300 hover:shadow-xl"
+            className="group relative min-h-80 cursor-pointer overflow-hidden rounded-2xl border-2 border-[#000168] bg-white p-10 text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl"
         >
-            {/* Background - fades to dark on hover */}
-            <motion.div
-                className="absolute inset-0 rounded-2xl bg-[#1833A0]"
-                animate={{ opacity: isHovered ? 1 : 0 }}
-                transition={{ duration: 0.3, ease: EASE }}
-            />
+            {/* Background overlay */}
+            <div className="absolute inset-0 rounded-2xl bg-[#1833A0] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-            {/* SINGLE icon + title — animate from centered to top-left */}
-            <motion.div
-                className="absolute flex items-center"
-                animate={
-                    isHovered
-                        ? { top: 40, left: 40, right: 40 }
-                        : {
-                              top: '50%',
-                              left: 40,
-                              right: 40,
-                              y: '-50%',          // vertically center when not hovered
-                          }
-                }
-                transition={{ duration: 0.8, ease: EASE }}
-                style={{ gap: isHovered ? 24 : 0, flexDirection: isHovered ? 'row' : 'column', justifyContent: isHovered ? 'flex-start' : 'center' }}
-            >
-                {/* Icon — shrinks into a circle on hover */}
-                <motion.div
-                    animate={
-                        isHovered
-                            ? {
-                                  width: 56,
-                                  height: 56,
-                                  borderRadius: '50%',
-                                  backgroundColor: '#ffffff',
-                                  padding: 12,
-                              }
-                            : {
-                                  width: 96,
-                                  height: 96,
-                                  borderRadius: 0,
-                                  backgroundColor: 'transparent',
-                                  padding: 0,
-                              }
-                    }
-                    transition={{ duration: 0.4, ease: EASE }}
-                    className="relative shrink-0 flex items-center justify-center"
-                >
-                    <ServiceIcon
-                        iconKey={card.key!}
-                        className="w-full h-full"
-                    />
-                </motion.div>
+            {/* Icon — bottom edge sits at card center by default, slides to top-left on hover */}
+            <div className="absolute left-1/2 top-1/2 z-10 flex h-24 w-24 -translate-x-1/2 -translate-y-full shrink-0 items-center justify-center transition-all duration-300 group-hover:left-10 group-hover:top-10 group-hover:h-14 group-hover:w-14 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rounded-full group-hover:bg-white group-hover:p-3">
+                <ServiceIcon iconKey={card.key!} className="h-full w-full" />
+            </div>
 
-                {/* Title — color shifts white on hover */}
-                <motion.h3
-                    animate={{
-                        color: isHovered ? '#ffffff' : '#1833A0',
-                        marginTop: isHovered ? 0 : 24,
-                    }}
-                    transition={{ duration: 0.3, ease: EASE }}
-                    className={isHovered ? 'text-3xl font-extrabold' : 'text-4xl font-extrabold'}
-                >
-                    {card.title}
-                </motion.h3>
-            </motion.div>
+            {/* Title — top edge sits 1.5rem below card center by default, slides beside icon on hover */}
+            <h3 className="absolute left-10 right-10 top-[calc(50%+1.5rem)] z-10 text-center text-4xl font-extrabold text-[#1833A0] transition-all duration-300 group-hover:left-[7.5rem] group-hover:top-[3.25rem] group-hover:text-left group-hover:text-3xl group-hover:text-white">
+                {card.title}
+            </h3>
 
-            {/* Body text — fades in on hover */}
-            <motion.p
-                className="absolute left-10 right-10 text-left text-base leading-relaxed text-white/90"
-                animate={{
-                    opacity: isHovered ? 1 : 0,
-                    bottom: isHovered ? 60 : 60,
-                }}
-                transition={{ duration: 0.3, ease: EASE, delay: isHovered ? 0.1 : 0 }}
-            >
+            {/* Body text */}
+            <p className="absolute bottom-16 left-10 right-10 z-10 text-left text-base leading-relaxed text-white/90 opacity-0 transition-opacity delay-100 duration-300 group-hover:opacity-100">
                 {card.body}
-            </motion.p>
+            </p>
 
-            {/* Learn More link — fades in at bottom on hover */}
-            <motion.div
-                className="absolute bottom-5 right-10 flex justify-end"
-                animate={{ opacity: isHovered ? 1 : 0 }}
-                transition={{ duration: 0.3, ease: EASE, delay: isHovered ? 0.15 : 0 }}
-            >
+            {/* Learn More link */}
+            <div className="absolute bottom-5 right-10 z-10 flex justify-end opacity-0 transition-opacity delay-150 duration-300 group-hover:opacity-100">
                 <a
                     href="#"
                     className="inline-flex items-center gap-2 font-semibold text-red-500 transition-colors hover:text-red-400"
@@ -124,7 +56,7 @@ function ServiceCard({
                     {lang === 'id' ? 'Pelajari Selengkapnya' : 'Learn More'}
                     <LuArrowRight className="h-5 w-5" />
                 </a>
-            </motion.div>
+            </div>
         </motion.div>
     );
 }
