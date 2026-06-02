@@ -41,10 +41,22 @@ export interface LatestNewsData {
     category: { name_id: string; name_en: string; slug: string } | null;
 }
 
+export interface DealerData {
+    id: number;
+    name: string;
+    category: string;
+    lat: number;
+    lng: number;
+    address: string | null;
+    features: string[] | null;
+    is_open: boolean;
+}
+
 export interface HomeProps {
     brands: BrandData[];
     projects: ProjectData[];
     productCategories: ProductCategoryData[];
     serviceCards: ServiceCardData[];
     latestNews: LatestNewsData[];
+    dealers: DealerData[];
 }

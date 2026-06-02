@@ -50,6 +50,16 @@ class PublicController extends Controller
                 'body_id' => $s->body_id,
                 'body_en' => $s->body_en,
             ]),
+            'dealers' => \App\Models\Dealer::active()->ordered()->get()->map(fn (\App\Models\Dealer $d) => [
+                'id' => $d->id,
+                'name' => $d->name,
+                'category' => $d->category,
+                'lat' => $d->lat,
+                'lng' => $d->lng,
+                'address' => $d->address,
+                'features' => $d->features ?? [],
+                'is_open' => $d->is_open,
+            ]),
             'latestNews' => News::active()->published()->with('category')
                 ->latest('published_at')->limit(4)->get()->map(fn (News $n) => [
                     'id' => $n->id,

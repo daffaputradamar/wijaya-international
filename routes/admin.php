@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ContactInfoController;
+use App\Http\Controllers\Admin\DealerController;
 use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\NewsCategoryController;
 use App\Http\Controllers\Admin\NewsController;
@@ -12,6 +13,9 @@ use App\Http\Controllers\Admin\SocialLinkController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(function () {
+    Route::resource('dealers', DealerController::class)->except(['show', 'create', 'edit']);
+    Route::post('dealers/reorder', [DealerController::class, 'reorder'])->name('dealers.reorder');
+
     Route::resource('brands', BrandController::class)->except(['show', 'create', 'edit']);
     Route::post('brands/reorder', [BrandController::class, 'reorder'])->name('brands.reorder');
 

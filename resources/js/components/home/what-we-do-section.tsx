@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion';
 import { LuArrowRight } from 'react-icons/lu';
 import { useLanguage } from '@/lib/language-context';
-import { clipReveal, EASE, fadeUp, staggerFast, staggerSlow } from './motion-variants';
+import {
+    clipReveal,
+    EASE,
+    fadeUp,
+    staggerFast,
+    staggerSlow,
+} from './motion-variants';
 import ServiceIcon from './service-icon';
 import type { ServiceCardData } from './types';
 
@@ -24,36 +30,40 @@ function ServiceCard({
                     opacity: 1,
                     y: 0,
                     scale: 1,
-                    transition: { duration: 0.5, ease: EASE },
+                    transition: {
+                        duration: 0.5,
+                        ease: EASE,
+                    },
                 },
             }}
             className="group relative min-h-80 cursor-pointer overflow-hidden rounded-2xl border-2 border-[#000168] bg-white p-10 text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl"
         >
-            {/* Background overlay */}
+            {/* Background Overlay */}
             <div className="absolute inset-0 rounded-2xl bg-[#1833A0] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-            {/* Icon — bottom edge sits at card center by default, slides to top-left on hover */}
-            <div className="absolute left-1/2 top-1/2 z-10 flex h-24 w-24 -translate-x-1/2 -translate-y-full shrink-0 items-center justify-center transition-all duration-300 group-hover:left-10 group-hover:top-10 group-hover:h-14 group-hover:w-14 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rounded-full group-hover:bg-white group-hover:p-3">
+            {/* Icon */}
+            <div className="absolute top-1/2 left-1/2 z-10 flex h-24 w-24 -translate-x-1/2 -translate-y-full items-center justify-center transition-all duration-500 ease-out group-hover:top-10 group-hover:left-10 group-hover:h-14 group-hover:w-14 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rounded-full group-hover:bg-white group-hover:p-3">
                 <ServiceIcon iconKey={card.key!} className="h-full w-full" />
             </div>
 
-            {/* Title — top edge sits 1.5rem below card center by default, slides beside icon on hover */}
-            <h3 className="absolute left-10 right-10 top-[calc(50%+1.5rem)] z-10 text-center text-4xl font-extrabold text-[#1833A0] transition-all duration-300 group-hover:left-[7.5rem] group-hover:top-[3.25rem] group-hover:text-left group-hover:text-3xl group-hover:text-white">
+            {/* Title */}
+            <h3 className="absolute top-[calc(50%+3rem)] left-1/2 z-10 w-65 -translate-x-1/2 scale-[1.25] text-center text-3xl font-extrabold text-[#1833A0] transition-all duration-500 ease-out group-hover:top-12 group-hover:left-28 group-hover:w-45 group-hover:translate-x-0 group-hover:scale-100 group-hover:text-left group-hover:text-white">
                 {card.title}
             </h3>
 
-            {/* Body text */}
-            <p className="absolute bottom-16 left-10 right-10 z-10 text-left text-base leading-relaxed text-white/90 opacity-0 transition-opacity delay-100 duration-300 group-hover:opacity-100">
+            {/* Body */}
+            <p className="absolute right-10 bottom-16 left-10 z-10 text-left text-base leading-relaxed text-white/90 opacity-0 transition-opacity delay-100 duration-300 group-hover:opacity-100">
                 {card.body}
             </p>
 
-            {/* Learn More link */}
-            <div className="absolute bottom-5 right-10 z-10 flex justify-end opacity-0 transition-opacity delay-150 duration-300 group-hover:opacity-100">
+            {/* Learn More */}
+            <div className="absolute right-10 bottom-5 z-10 flex justify-end opacity-0 transition-opacity delay-150 duration-300 group-hover:opacity-100">
                 <a
                     href="#"
                     className="inline-flex items-center gap-2 font-semibold text-red-500 transition-colors hover:text-red-400"
                 >
                     {lang === 'id' ? 'Pelajari Selengkapnya' : 'Learn More'}
+
                     <LuArrowRight className="h-5 w-5" />
                 </a>
             </div>
@@ -61,7 +71,9 @@ function ServiceCard({
     );
 }
 
-export default function WhatWeDoSection({ serviceCards: cards }: WhatWeDoSectionProps) {
+export default function WhatWeDoSection({
+    serviceCards: cards,
+}: WhatWeDoSectionProps) {
     const { t, lang } = useLanguage();
 
     const serviceCards =

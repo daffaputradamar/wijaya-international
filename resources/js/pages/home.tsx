@@ -16,6 +16,7 @@ export default function Home({
     brands,
     productCategories,
     serviceCards,
+    dealers,
 }: Omit<HomeProps, 'latestNews' | 'projects'>) {
     return (
         <GuestLayout hideFooter>
@@ -51,7 +52,7 @@ export default function Home({
             <WhatWeDoSection serviceCards={serviceCards} />
             <ProductsTeaserSection productCategories={productCategories} />
             <BrandsSection brands={brands} />
-            <DealerNetworkSection />
+            <DealerNetworkSection dealers={dealers} />
             <WhyChooseUsSection />
             {/* <NewsSectionHome latestNews={latestNews} /> */}
             <ContactSection />

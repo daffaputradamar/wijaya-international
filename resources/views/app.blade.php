@@ -51,12 +51,15 @@
         <meta name="twitter:description" content="PT Wijaya International adalah distributor produk kamera, elektronik, dan teknologi terkemuka di Indonesia.">
         <meta name="twitter:image" content="{{ url('/images/wijaya/hero-bg.jpg') }}">
 
-        <link rel="icon" href="/favicon.ico?v=1" sizes="any">
-        <link rel="icon" href="/favicon.svg?v=1" type="image/svg+xml">
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+        <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+
+        <!-- Leaflet Map CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
         @viteReactRefresh
         @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])

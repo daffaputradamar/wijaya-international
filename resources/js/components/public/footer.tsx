@@ -15,15 +15,15 @@ export default function Footer() {
         <footer className="relative z-30 flex min-h-screen flex-col justify-center gap-32 bg-[#1833A0] text-white">
             {/* Top Area: Company Intro */}
             <div className="mx-auto flex w-full max-w-7xl flex-col gap-32 px-6 pt-16 lg:px-12">
-                <div className="flex items-start gap-6">
+                <div className="flex items-center gap-6">
                     <Link
                         href={home().url}
                         className="flex w-2/3 items-center gap-3"
                     >
                         <img
-                            src="/images/wijaya/logo/wijaya_white.png"
+                            src="/images/wijaya/logo/wijaya_icon.png"
                             alt="Logo"
-                            className="h-16 w-72 object-cover"
+                            className="h-auto w-72"
                         />
                     </Link>
                     <p className="text-xl leading-relaxed text-gray-300">

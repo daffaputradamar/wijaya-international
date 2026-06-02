@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             SocialLinkSeeder::class,
             NewsCategorySeeder::class,
             NewsSeeder::class,
+            DealerSeeder::class,
         ]);
     }
 }

@@ -2,8 +2,16 @@ export const translations = {
     id: {
         // Navigation
         'nav.home': 'Beranda',
+        'nav.profile': 'Profil',
+        'nav.aboutUs': 'Tentang Kami',
+        'nav.mainBusiness': 'Bisnis Utama',
+        'nav.ownerProfile': 'Profile Owner',
+        'nav.fullProfile': 'Profil Selengkapnya',
         'nav.products': 'Produk',
         'nav.services': 'Layanan',
+        'nav.moreServices': 'Layanan Selengkapnya',
+        'nav.moreProducts': 'Produk Selengkapnya',
+        'nav.dealer': 'Dealer',
         'nav.news': 'Berita',
         'nav.contact': 'Kontak',
         'nav.getInTouch': 'Hubungi Kami',
@@ -179,8 +187,16 @@ export const translations = {
     en: {
         // Navigation
         'nav.home': 'Home',
+        'nav.profile': 'Profile',
+        'nav.aboutUs': 'About Us',
+        'nav.mainBusiness': 'Main Business',
+        'nav.ownerProfile': 'Owner Profile',
+        'nav.fullProfile': 'Full Profile',
         'nav.products': 'Products',
         'nav.services': 'Services',
+        'nav.moreServices': 'More Services',
+        'nav.moreProducts': 'More Products',
+        'nav.dealer': 'Dealers',
         'nav.news': 'News',
         'nav.contact': 'Contact',
         'nav.getInTouch': 'Get In Touch',

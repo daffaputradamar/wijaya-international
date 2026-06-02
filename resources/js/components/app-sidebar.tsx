@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, FolderOpen, Images, LayoutGrid, Layers, MessageCircle, Newspaper, Package, Phone, Star } from 'lucide-react';
+import { BookOpen, Folder, FolderOpen, Images, LayoutGrid, Layers, MapPin, MessageCircle, Newspaper, Package, Phone, Star } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -67,6 +67,11 @@ const newsItems: NavItem[] = [
 ];
 
 const settingsItems: NavItem[] = [
+    {
+        title: 'Dealers',
+        href: '/admin/dealers',
+        icon: MapPin,
+    },
     {
         title: 'Contact Info',
         href: '/admin/contact',
