@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
-import { LuSearch, LuMapPin, LuExternalLink, LuArrowRight } from 'react-icons/lu';
+import { LuSearch, LuMapPin, LuExternalLink } from 'react-icons/lu';
 import { useLanguage } from '@/lib/language-context';
 import type { DealerData } from './types';
 import { fadeUp, staggerSlow } from './motion-variants';
-import { SplitIconButton } from '../ui/split-icon-button';
 
 interface DealerNetworkSectionProps {
     dealers: DealerData[];
@@ -133,6 +132,7 @@ export default function DealerNetworkSection({ dealers = [] }: DealerNetworkSect
 
             const directionUrl = `https://www.google.com/maps/search/?api=1&query=${dealer.lat},${dealer.lng}`;
             const featureTags = getFeatureTags(dealer).slice(0, 3);
+            const openStatus = dealer.is_open ? t('dealer.openNow') : t('dealer.closed');
             const popupContent = `
                 <div style="font-family: inherit; font-size: 13px; max-width: 220px; padding: 4px;">
                     <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px; color: #1833a0; line-height: 1.2;">
@@ -151,11 +151,11 @@ export default function DealerNetworkSection({ dealers = [] }: DealerNetworkSect
                     </div>
                     <div style="margin-bottom: 8px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;">
                         <span style="height: 6px; width: 6px; border-radius: 50%; display: inline-block; background-color: ${dealer.is_open ? '#10b981' : '#ef4444'};"></span>
-                        <span style="color: #4b5563; font-weight: 500;">${dealer.is_open ? 'Open Now' : 'Closed'}</span>
+                        <span style="color: #4b5563; font-weight: 500;">${openStatus}</span>
                     </div>
                     <div style="border-top: 1px solid #e5e7eb; padding-top: 8px;">
                         <a href="${directionUrl}" target="_blank" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px; color: #ffffff; background-color: #dc2626; padding: 5px 10px; border-radius: 6px; font-weight: 600; font-size: 10px; transition: background 0.2s;">
-                            <span>🗺️ Directions</span>
+                            <span>🗺️ ${t('dealer.popupDirections')}</span>
                         </a>
                     </div>
                 </div>
@@ -222,13 +222,13 @@ export default function DealerNetworkSection({ dealers = [] }: DealerNetworkSect
                         variants={fadeUp}
                         className="mb-6 text-4xl font-bold leading-tight text-[#1833a0] md:text-6xl"
                     >
-                        Trusted by 300+ Dealers Nationwide
+                        {t('dealer.title')}
                     </motion.h2>
                     <motion.p
                         variants={fadeUp}
                         className="mx-auto mb-12 max-w-3xl text-base leading-relaxed text-[#000168]"
                     >
-                        Dipercaya untuk mendistribusikan teknologi terbaik kepada konsumen Indonesia, kami telah bekerja sama dan secara resmi menghadirkan berbagai produk unggulan tanpa kompromi
+                        {t('dealer.body')}
                     </motion.p>
                 </motion.div>
 
@@ -243,7 +243,7 @@ export default function DealerNetworkSection({ dealers = [] }: DealerNetworkSect
                                     <LuSearch className="absolute left-3.5 h-4 w-4 text-gray-400" />
                                     <input
                                         type="text"
-                                        placeholder="Search locations, addresses, or features..."
+                                        placeholder={t('dealer.searchPlaceholder')}
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                         className="w-full rounded-xl border border-gray-200 bg-gray-50/50 p-2.5 pl-10 text-sm outline-none transition focus:border-red-600 focus:bg-white dark:border-gray-700 dark:bg-gray-900 dark:focus:border-red-600"
@@ -255,7 +255,7 @@ export default function DealerNetworkSection({ dealers = [] }: DealerNetworkSect
                                 {filteredDealers.length === 0 ? (
                                     <div className="p-8 text-center text-gray-500">
                                         <div className="mb-2 text-3xl">🗺️</div>
-                                        <p className="text-sm">No dealers found matching your criteria.</p>
+                                        <p className="text-sm">{t('dealer.emptyState')}</p>
                                     </div>
                                 ) : (
                                     filteredDealers.map((dealer) => {
@@ -300,11 +300,11 @@ export default function DealerNetworkSection({ dealers = [] }: DealerNetworkSect
                                                             }`}
                                                         ></span>
                                                         <span className="font-medium text-gray-600 dark:text-gray-400">
-                                                            {dealer.is_open ? 'Open Now' : 'Closed'}
+                                                            {dealer.is_open ? t('dealer.openNow') : t('dealer.closed')}
                                                         </span>
                                                     </div>
                                                     <button className="flex items-center gap-0.5 font-semibold text-[#1833a0] hover:underline dark:text-blue-400">
-                                                        View on map <LuExternalLink className="h-3 w-3" />
+                                                        {t('dealer.viewOnMap')} <LuExternalLink className="h-3 w-3" />
                                                     </button>
                                                 </div>
                                             </div>
@@ -326,33 +326,20 @@ export default function DealerNetworkSection({ dealers = [] }: DealerNetworkSect
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
-                    className="mt-12 text-center"
+                    className="mt-12 flex justify-center"
                 >
-                    <motion.h2
+                    <motion.div
                         variants={fadeUp}
-                        className="mb-6 text-4xl font-bold leading-tight text-[#1833a0] md:text-6xl"
+                        className="mb-12"
                     >
-                        {t('dealer.title', 'Dealer Network')}
-                    </motion.h2>
-                    <motion.p
-                        variants={fadeUp}
-                        className="mx-auto mb-12 max-w-2xl text-base leading-relaxed text-[#000168]"
-                    >
-                        {t('dealer.body', 'Supported by solid infrastructure, our products and services have reached various areas in Indonesia.')}
-                    </motion.p>
-
-                    <motion.p
-                        variants={fadeUp}
-                        className="flex items-center justify-center mb-12"
-                    >
-                        <SplitIconButton
-                                                    text={t('dealer.cta')}
-                                                    icon={<LuArrowRight className="h-5 w-5" />}
-                                                    variant="red"
-                                                    size="lg"
-                                                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                                                />
-                    </motion.p>
+                        <button
+                            type="button"
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="rounded-full bg-[#dc2626] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#b91c1c]"
+                        >
+                            {t('dealer.cta')}
+                        </button>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

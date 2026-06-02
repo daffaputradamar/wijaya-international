@@ -26,7 +26,7 @@ export default function Footer() {
                             className="h-auto w-72"
                         />
                     </Link>
-                    <p className="text-xl leading-relaxed text-gray-300">
+                    <p className="text-sm md:text-xl leading-relaxed text-gray-300">
                         {t('footer.description')}
                     </p>
                 </div>

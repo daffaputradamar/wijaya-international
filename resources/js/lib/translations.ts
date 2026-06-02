@@ -96,6 +96,12 @@ export const translations = {
         'dealer.body':
             'Didukung oleh infrastruktur solid, produk dan layanan kami telah menjangkau berbagai wilayah strategis di Indonesia, bersama ratusan partner kami dan akan terus bertambah.',
         'dealer.cta': 'Bergabunglah dengan jaringan dealer kami',
+        'dealer.searchPlaceholder': 'Cari lokasi, alamat, atau fitur...',
+        'dealer.emptyState': 'Tidak ada dealer yang cocok dengan pencarian Anda.',
+        'dealer.openNow': 'Buka',
+        'dealer.closed': 'Tutup',
+        'dealer.viewOnMap': 'Lihat peta',
+        'dealer.popupDirections': 'Arahkan ke sini',
 
         // Projects Showcase
         'projects.label': 'Portofolio',
@@ -281,6 +287,12 @@ export const translations = {
         'dealer.body':
             'Supported by solid infrastructure, our products and services have reached various strategic areas in Indonesia, together with hundreds of our partners and will continue to grow.',
         'dealer.cta': 'Join our dealer network',
+        'dealer.searchPlaceholder': 'Search locations, addresses, or features...',
+        'dealer.emptyState': 'No dealers found matching your search.',
+        'dealer.openNow': 'Open',
+        'dealer.closed': 'Closed',
+        'dealer.viewOnMap': 'View on map',
+        'dealer.popupDirections': 'Directions',
 
         // Projects Showcase
         'projects.label': 'Portfolio',
