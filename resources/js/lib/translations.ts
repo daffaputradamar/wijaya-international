@@ -96,6 +96,8 @@ export const translations = {
         'dealer.body':
             'Didukung oleh infrastruktur solid, produk dan layanan kami telah menjangkau berbagai wilayah strategis di Indonesia, bersama ratusan partner kami dan akan terus bertambah.',
         'dealer.cta': 'Bergabunglah dengan jaringan dealer kami',
+        'dealer.trusted': 'Telah Dipercaya oleh 300+ Dealer Nasional',
+        'dealer.trustedBody': 'Dipercaya untuk mendistribusikan teknologi terbaik kepada konsumen Indonesia, kami telah bekerja sama dan secara resmi menghadirkan berbagai produk unggulan tanpa kompromi',
         'dealer.searchPlaceholder': 'Cari lokasi, alamat, atau fitur...',
         'dealer.emptyState': 'Tidak ada dealer yang cocok dengan pencarian Anda.',
         'dealer.openNow': 'Buka',
@@ -283,6 +285,8 @@ export const translations = {
 
         // Dealer Network
         'dealer.label': 'Dealer Network',
+        'dealer.trusted': 'Trusted by 300+ Dealers Nationwide',
+        'dealer.trustedBody': 'Trusted to deliver the best technology to Indonesian consumers, we have partnered with leading brands to officially bring a wide range of premium products without compromise.',
         'dealer.title': 'Dealer Network',
         'dealer.body':
             'Supported by solid infrastructure, our products and services have reached various strategic areas in Indonesia, together with hundreds of our partners and will continue to grow.',
