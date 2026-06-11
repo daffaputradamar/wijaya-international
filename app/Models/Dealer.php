@@ -15,7 +15,7 @@ class Dealer extends Model
         'lat',
         'lng',
         'address',
-        'features',
+        'contact_number',
         'is_open',
         'sort_order',
     ];
@@ -27,7 +27,6 @@ class Dealer extends Model
             'sort_order' => 'integer',
             'lat' => 'double',
             'lng' => 'double',
-            'features' => 'array',
         ];
     }
 

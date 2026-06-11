@@ -16,7 +16,7 @@ interface Dealer {
     lat: number;
     lng: number;
     address: string | null;
-    features: string[] | null;
+    contact_number: string | null;
     is_open: boolean;
     sort_order: number;
 }
@@ -34,20 +34,12 @@ export default function DealersIndex({ dealers }: Props) {
     const [showCreate, setShowCreate] = useState(false);
     const [editDealer, setEditDealer] = useState<Dealer | null>(null);
 
-    const normalizeFeatures = (value: string | null | undefined) => {
-        return (value || '')
-            .split(/[\r\n,]+/)
-            .map((feature) => feature.trim())
-            .filter(Boolean)
-            .join(', ');
-    };
-
     const createForm = useForm({
         name: '',
         address: '',
         lat: '',
         lng: '',
-        features: '',
+        contact_number: '',
         is_open: true,
         sort_order: String(dealers.length + 1),
     });
@@ -57,7 +49,7 @@ export default function DealersIndex({ dealers }: Props) {
         address: '',
         lat: '',
         lng: '',
-        features: '',
+        contact_number: '',
         is_open: true,
         sort_order: '0',
         _method: 'PATCH',
@@ -82,7 +74,7 @@ export default function DealersIndex({ dealers }: Props) {
             address: dealer.address || '',
             lat: String(dealer.lat),
             lng: String(dealer.lng),
-            features: normalizeFeatures(dealer.features?.join(', ')),
+            contact_number: dealer.contact_number || '',
             is_open: dealer.is_open,
             sort_order: String(dealer.sort_order),
             _method: 'PATCH',
@@ -129,7 +121,7 @@ export default function DealersIndex({ dealers }: Props) {
                                 <th className="px-4 py-3 text-left font-medium text-muted-foreground">Name</th>
                                 <th className="px-4 py-3 text-left font-medium text-muted-foreground">Address</th>
                                 <th className="px-4 py-3 text-left font-medium text-muted-foreground">Coordinates</th>
-                                <th className="px-4 py-3 text-left font-medium text-muted-foreground">Features</th>
+                                <th className="px-4 py-3 text-left font-medium text-muted-foreground">Contact</th>
                                 <th className="px-4 py-3 text-left font-medium text-muted-foreground">Status</th>
                                 <th className="px-4 py-3 text-right font-medium text-muted-foreground">Actions</th>
                             </tr>
@@ -144,21 +136,8 @@ export default function DealersIndex({ dealers }: Props) {
                                     <td className="px-4 py-3 text-muted-foreground font-mono text-xs">
                                         {dealer.lat.toFixed(5)}, {dealer.lng.toFixed(5)}
                                     </td>
-                                    <td className="px-4 py-3">
-                                        <div className="flex flex-wrap gap-1.5">
-                                            {(dealer.features || []).length > 0 ? (
-                                                (dealer.features || []).slice(0, 3).map((feature) => (
-                                                    <span
-                                                        key={feature}
-                                                        className="inline-flex rounded-full border border-red-100 bg-red-50 px-2 py-1 text-[10px] font-semibold text-red-700 dark:border-red-900/40 dark:bg-red-950/30 dark:text-red-300"
-                                                    >
-                                                        {feature}
-                                                    </span>
-                                                ))
-                                            ) : (
-                                                <span className="text-xs text-muted-foreground">No features set</span>
-                                            )}
-                                        </div>
+                                    <td className="px-4 py-3 text-muted-foreground">
+                                        {dealer.contact_number || '-'}
                                     </td>
                                     <td className="px-4 py-3">
                                         <Badge variant={dealer.is_open ? 'default' : 'destructive'}>
@@ -232,17 +211,14 @@ export default function DealersIndex({ dealers }: Props) {
                             </div>
 
                             <div className="space-y-1">
-                                <Label htmlFor="c-features">Features</Label>
-                                <textarea
-                                    id="c-features"
-                                    value={createForm.data.features}
-                                    onChange={(e) => createForm.setData('features', e.target.value)}
-                                    rows={3}
-                                    placeholder="Free Wifi, Parking, Wine Tasting"
-                                    className="w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:bg-gray-950 text-gray-800 dark:text-gray-200"
+                                <Label htmlFor="c-contact">Contact Number</Label>
+                                <Input
+                                    id="c-contact"
+                                    value={createForm.data.contact_number}
+                                    onChange={(e) => createForm.setData('contact_number', e.target.value)}
+                                    placeholder="+62 812 3456 7890"
                                 />
-                                <p className="text-xs text-muted-foreground">Separate tags with commas or new lines.</p>
-                                {createForm.errors.features && <span className="text-xs text-red-600">{createForm.errors.features}</span>}
+                                {createForm.errors.contact_number && <span className="text-xs text-red-600">{createForm.errors.contact_number}</span>}
                             </div>
 
                             <GeocodingAndMap
@@ -326,17 +302,14 @@ export default function DealersIndex({ dealers }: Props) {
                                 </div>
 
                                 <div className="space-y-1">
-                                    <Label htmlFor="e-features">Features</Label>
-                                    <textarea
-                                        id="e-features"
-                                        value={editForm.data.features}
-                                        onChange={(e) => editForm.setData('features', e.target.value)}
-                                        rows={3}
-                                        placeholder="Free Wifi, Parking, Wine Tasting"
-                                        className="w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:bg-gray-950 text-gray-800 dark:text-gray-200"
+                                    <Label htmlFor="e-contact">Contact Number</Label>
+                                    <Input
+                                        id="e-contact"
+                                        value={editForm.data.contact_number}
+                                        onChange={(e) => editForm.setData('contact_number', e.target.value)}
+                                        placeholder="+62 812 3456 7890"
                                     />
-                                    <p className="text-xs text-muted-foreground">Separate tags with commas or new lines.</p>
-                                    {editForm.errors.features && <span className="text-xs text-red-600">{editForm.errors.features}</span>}
+                                    {editForm.errors.contact_number && <span className="text-xs text-red-600">{editForm.errors.contact_number}</span>}
                                 </div>
 
                                 <GeocodingAndMap

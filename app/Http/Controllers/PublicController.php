@@ -57,7 +57,7 @@ class PublicController extends Controller
                 'lat' => $d->lat,
                 'lng' => $d->lng,
                 'address' => $d->address,
-                'features' => $d->features ?? [],
+                'contact_number' => $d->contact_number,
                 'is_open' => $d->is_open,
             ]),
             'latestNews' => News::active()->published()->with('category')

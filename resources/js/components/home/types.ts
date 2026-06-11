@@ -48,7 +48,7 @@ export interface DealerData {
     lat: number;
     lng: number;
     address: string | null;
-    features: string[] | null;
+    contact_number: string | null;
     is_open: boolean;
 }
 

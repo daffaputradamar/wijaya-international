@@ -23,7 +23,7 @@ class DealerController extends Controller
                 'lat' => $dealer->lat,
                 'lng' => $dealer->lng,
                 'address' => $dealer->address,
-                'features' => $dealer->features ?? [],
+                'contact_number' => $dealer->contact_number,
                 'is_open' => $dealer->is_open,
                 'sort_order' => $dealer->sort_order,
             ]),
@@ -38,7 +38,7 @@ class DealerController extends Controller
             'address' => $request->address,
             'lat' => $request->lat,
             'lng' => $request->lng,
-            'features' => $this->parseFeatures($request->input('features')),
+            'contact_number' => $request->contact_number,
             'is_open' => $request->boolean('is_open', true),
             'sort_order' => $request->sort_order ?? (Dealer::max('sort_order') + 1),
         ]);
@@ -54,7 +54,7 @@ class DealerController extends Controller
             'address' => $request->address,
             'lat' => $request->lat,
             'lng' => $request->lng,
-            'features' => $this->parseFeatures($request->input('features')),
+            'contact_number' => $request->contact_number,
             'is_open' => $request->boolean('is_open'),
             'sort_order' => $request->sort_order ?? $dealer->sort_order,
         ]);
@@ -82,29 +82,5 @@ class DealerController extends Controller
         }
 
         return back();
-    }
-
-    /**
-     * @return array<int, string>
-     */
-    private function parseFeatures(mixed $features): array
-    {
-        if (is_array($features)) {
-            return collect($features)
-                ->map(fn ($feature) => trim((string) $feature))
-                ->filter()
-                ->values()
-                ->all();
-        }
-
-        if (! is_string($features)) {
-            return [];
-        }
-
-        return collect(preg_split('/[\r\n,]+/', $features) ?: [])
-            ->map(fn (string $feature) => trim($feature))
-            ->filter()
-            ->values()
-            ->all();
     }
 }

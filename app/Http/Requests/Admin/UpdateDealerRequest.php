@@ -18,7 +18,7 @@ class UpdateDealerRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'category' => ['nullable', 'string', 'in:retail,food,service,health,other'],
             'address' => ['nullable', 'string'],
-            'features' => ['nullable', 'string', 'max:1000'],
+            'contact_number' => ['nullable', 'string', 'max:100'],
             'lat' => ['required', 'numeric', 'between:-90,90'],
             'lng' => ['required', 'numeric', 'between:-180,180'],
             'is_open' => ['nullable', 'boolean'],

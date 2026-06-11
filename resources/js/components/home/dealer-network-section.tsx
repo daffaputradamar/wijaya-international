@@ -37,22 +37,13 @@ export default function DealerNetworkSection({
                     d.address
                         .toLowerCase()
                         .includes(searchQuery.toLowerCase())) ||
-                (d.features || []).some((feature) =>
-                    feature.toLowerCase().includes(searchQuery.toLowerCase()),
-                );
+                (d.contact_number &&
+                    d.contact_number
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase()));
             return matchesQuery;
         });
     }, [dealers, searchQuery]);
-
-    const getFeatureTags = (dealer: DealerData) => {
-        if (dealer.features && dealer.features.length > 0) {
-            return dealer.features;
-        }
-
-        return dealer.is_open
-            ? ['Free Wifi', 'Parking', 'Open Today']
-            : ['Free Wifi', 'Parking'];
-    };
 
     // Load Leaflet dynamically to support SSR
     useEffect(() => {
@@ -150,7 +141,6 @@ export default function DealerNetworkSection({
             }).addTo(map);
 
             const directionUrl = `https://www.google.com/maps/search/?api=1&query=${dealer.lat},${dealer.lng}`;
-            const featureTags = getFeatureTags(dealer).slice(0, 3);
             const openStatus = dealer.is_open
                 ? t('dealer.openNow')
                 : t('dealer.closed');
@@ -162,14 +152,14 @@ export default function DealerNetworkSection({
                     <div style="color: #4b5563; font-size: 11px; margin-bottom: 8px; line-height: 1.4;">
                         ${dealer.address || ''}
                     </div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px;">
-                        ${featureTags
-                            .map(
-                                (feature) =>
-                                    `<span style="display: inline-flex; align-items: center; border-radius: 9999px; border: 1px solid #fecaca; background: #fef2f2; color: #b91c1c; font-size: 10px; font-weight: 600; padding: 3px 8px;">${feature}</span>`,
-                            )
-                            .join('')}
-                    </div>
+                    ${
+                        dealer.contact_number
+                            ? `
+                    <div style="margin-bottom: 8px; font-size: 11px; color: #1833a0; font-weight: 600;">
+                        📞 ${dealer.contact_number}
+                    </div>`
+                            : ''
+                    }
                     <div style="margin-bottom: 8px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;">
                         <span style="height: 6px; width: 6px; border-radius: 50%; display: inline-block; background-color: ${dealer.is_open ? '#10b981' : '#ef4444'};"></span>
                         <span style="color: #4b5563; font-weight: 500;">${openStatus}</span>
@@ -314,18 +304,11 @@ export default function DealerNetworkSection({
                                                         {dealer.name}
                                                     </h4>
                                                 </div>
-                                                <div className="mt-3 flex flex-wrap gap-1.5">
-                                                    {getFeatureTags(dealer)
-                                                        .slice(0, 3)
-                                                        .map((feature) => (
-                                                            <span
-                                                                key={feature}
-                                                                className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-red-700 dark:border-red-900/40 dark:bg-red-950/30 dark:text-red-300"
-                                                            >
-                                                                {feature}
-                                                            </span>
-                                                        ))}
-                                                </div>
+                                                {dealer.contact_number && (
+                                                    <div className="mt-2 text-[11px] font-semibold text-[#1833a0] dark:text-blue-400">
+                                                        📞 {dealer.contact_number}
+                                                    </div>
+                                                )}
                                                 {dealer.address && (
                                                     <p className="mt-2 flex items-start gap-1 p-0.5 text-xs text-gray-500 dark:text-gray-400">
                                                         <LuMapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-600" />
