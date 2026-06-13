@@ -21,7 +21,7 @@ export default function Footer() {
                         className="flex w-2/3 items-center gap-3"
                     >
                         <img
-                            src="/images/wijaya/logo/wijaya_icon.png"
+                            src="/images/wijaya/logo/logo_white.svg"
                             alt="Logo"
                             className="h-auto w-72"
                         />
