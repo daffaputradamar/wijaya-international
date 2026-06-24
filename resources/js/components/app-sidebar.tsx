@@ -29,27 +29,9 @@ const mainNavItems: NavItem[] = [
 
 const showcaseItems: NavItem[] = [
     {
-        title: 'Brands',
-        href: '/admin/brands',
-        icon: Star,
-    },
-    {
         title: 'Projects',
         href: '/admin/projects',
         icon: Images,
-    },
-];
-
-const productsServiceItems: NavItem[] = [
-    {
-        title: 'Product Categories',
-        href: '/admin/products',
-        icon: Package,
-    },
-    {
-        title: 'Service Cards',
-        href: '/admin/services',
-        icon: Layers,
     },
 ];
 
@@ -110,26 +92,6 @@ export function AppSidebar() {
                     <SidebarGroupLabel>Showcase</SidebarGroupLabel>
                     <SidebarMenu>
                         {showcaseItems.map((item) => (
-                            <SidebarMenuItem key={item.title}>
-                                <SidebarMenuButton
-                                    asChild
-                                    isActive={isCurrentUrl(item.href)}
-                                    tooltip={{ children: item.title }}
-                                >
-                                    <Link href={item.href} prefetch>
-                                        {item.icon && <item.icon />}
-                                        <span>{item.title}</span>
-                                    </Link>
-                                </SidebarMenuButton>
-                            </SidebarMenuItem>
-                        ))}
-                    </SidebarMenu>
-                </SidebarGroup>
-
-                <SidebarGroup className="px-2 py-0">
-                    <SidebarGroupLabel>Products & Services</SidebarGroupLabel>
-                    <SidebarMenu>
-                        {productsServiceItems.map((item) => (
                             <SidebarMenuItem key={item.title}>
                                 <SidebarMenuButton
                                     asChild

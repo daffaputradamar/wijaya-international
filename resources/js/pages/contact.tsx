@@ -2,6 +2,7 @@ import { Head } from '@inertiajs/react';
 import { useState } from 'react';
 import GuestLayout from '@/layouts/guest-layout';
 import { useLanguage } from '@/lib/language-context';
+import { getSocialPlatform } from '@/lib/social-platforms';
 
 interface ContactInfoData {
     phone: string | null;
@@ -68,16 +69,17 @@ function ContactContent({ contactInfo, socialLinks }: Props) {
     const socialItems = socialLinks.social.length > 0
         ? socialLinks.social
         : [
-            { platform: 'X (Twitter)', url: 'https://x.com/' },
-            { platform: 'Instagram', url: 'https://instagram.com/' },
+            { platform: 'instagram', url: 'https://instagram.com/' },
+            { platform: 'facebook', url: 'https://facebook.com/' },
+            { platform: 'twitter', url: 'https://x.com/' },
         ];
 
     const ecommerceItems = socialLinks.ecommerce.length > 0
         ? socialLinks.ecommerce
         : [
-            { platform: 'Tokopedia', url: '#' },
-            { platform: 'Shopee', url: '#' },
-            { platform: 'Lazada', url: '#' },
+            { platform: 'tokopedia', url: '#' },
+            { platform: 'shopee', url: '#' },
+            { platform: 'lazada', url: '#' },
         ];
 
     return (
@@ -145,17 +147,22 @@ function ContactContent({ contactInfo, socialLinks }: Props) {
                                 {t('contact.social.label')}
                             </p>
                             <div className="flex flex-wrap items-center gap-3">
-                                {socialItems.map((social) => (
-                                    <a
-                                        key={social.platform}
-                                        href={social.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm border border-white/10 rounded-full px-4 py-2"
-                                    >
-                                        {social.platform}
-                                    </a>
-                                ))}
+                                {socialItems.map((social) => {
+                                    const platform = getSocialPlatform(social.platform);
+                                    const Icon = platform?.icon;
+                                    return (
+                                        <a
+                                            key={social.platform}
+                                            href={social.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm border border-white/10 rounded-full px-4 py-2"
+                                        >
+                                            {Icon && <Icon className="h-4 w-4" />}
+                                            {platform?.label ?? social.platform}
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </div>
 
@@ -165,17 +172,22 @@ function ContactContent({ contactInfo, socialLinks }: Props) {
                                 {t('contact.ecommerce.label')}
                             </p>
                             <div className="flex flex-wrap items-center gap-3">
-                                {ecommerceItems.map((store) => (
-                                    <a
-                                        key={store.platform}
-                                        href={store.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-white/40 hover:text-white/70 text-sm border border-white/10 rounded-full px-4 py-2 transition-colors"
-                                    >
-                                        {store.platform}
-                                    </a>
-                                ))}
+                                {ecommerceItems.map((store) => {
+                                    const platform = getSocialPlatform(store.platform);
+                                    const Icon = platform?.icon;
+                                    return (
+                                        <a
+                                            key={store.platform}
+                                            href={store.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 text-sm border border-white/10 rounded-full px-4 py-2 transition-colors"
+                                        >
+                                            {Icon && <Icon className="h-4 w-4" />}
+                                            {platform?.label ?? store.platform}
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </div>
 

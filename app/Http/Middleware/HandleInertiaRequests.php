@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\ContactInfo;
+use App\Models\SocialLink;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -42,6 +44,13 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'contactInfo' => fn () => ContactInfo::first(),
+            'socialLinks' => fn () => [
+                'social' => SocialLink::active()->ordered()->where('type', 'social')->get()->map(fn (SocialLink $s) => [
+                    'platform' => $s->platform,
+                    'url' => $s->url,
+                ]),
+            ],
         ];
     }
 }

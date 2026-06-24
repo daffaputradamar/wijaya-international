@@ -15,10 +15,7 @@ class DashboardController extends Controller
     public function index(): Response
     {
         $stats = [
-            'brands' => Brand::count(),
             'projects' => Project::count(),
-            'productCategories' => ProductCategory::count(),
-            'serviceCards' => ServiceCard::count(),
             'inquiries' => ContactSubmission::count(),
             'unreadInquiries' => ContactSubmission::unread()->count(),
         ];

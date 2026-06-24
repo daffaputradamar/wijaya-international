@@ -1,5 +1,5 @@
 import { Head, useForm } from '@inertiajs/react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import AppLayout from '@/layouts/app-layout';
 import type { BreadcrumbItem } from '@/types';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import * as ContactInfoController from '@/actions/App/Http/Controllers/Admin/ContactInfoController';
 import * as SocialLinkController from '@/actions/App/Http/Controllers/Admin/SocialLinkController';
 import { LuPencil, LuTrash2, LuPlus } from 'react-icons/lu';
+import { SOCIAL_PLATFORMS, getSocialPlatform } from '@/lib/social-platforms';
 
 interface ContactInfo {
     id: number | null;
@@ -53,11 +54,27 @@ function LinkForm({
     errors: Partial<Record<keyof LinkFormData, string>>;
     defaultType: 'social' | 'ecommerce';
 }) {
+    const filteredPlatforms = useMemo(
+        () => SOCIAL_PLATFORMS.filter((p) => p.type === data.type),
+        [data.type],
+    );
+
     return (
         <div className="flex flex-col gap-4">
             <div>
                 <Label>Platform</Label>
-                <Input value={data.platform} onChange={(e) => setData('platform', e.target.value)} placeholder="e.g. Instagram" />
+                <select
+                    value={data.platform}
+                    onChange={(e) => setData('platform', e.target.value)}
+                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                >
+                    <option value="">-- Select Platform --</option>
+                    {filteredPlatforms.map((p) => (
+                        <option key={p.key} value={p.key}>
+                            {p.label}
+                        </option>
+                    ))}
+                </select>
                 {errors.platform && <p className="text-destructive text-xs mt-1">{errors.platform}</p>}
             </div>
             <div>
@@ -125,8 +142,9 @@ export default function ContactIndex({ contactInfo, socialLinks }: Props) {
     };
 
     const openEdit = (link: SocialLink) => {
+        const platformKey = getSocialPlatform(link.platform)?.key ?? link.platform;
         editForm.setData({
-            platform: link.platform,
+            platform: platformKey,
             url: link.url,
             type: link.type,
             sort_order: String(link.sort_order),
@@ -248,7 +266,14 @@ export default function ContactIndex({ contactInfo, socialLinks }: Props) {
                                 {group.items.map((link) => (
                                     <div key={link.id} className="flex items-center justify-between py-3">
                                         <div className="flex items-center gap-3">
-                                            <span className="font-medium text-sm">{link.platform}</span>
+                                            {(() => {
+                                                const platform = getSocialPlatform(link.platform);
+                                                const Icon = platform?.icon;
+                                                return Icon ? <Icon className="size-5 shrink-0" /> : null;
+                                            })()}
+                                            <span className="font-medium text-sm">
+                                                {getSocialPlatform(link.platform)?.label ?? link.platform}
+                                            </span>
                                             <span className="text-muted-foreground text-xs truncate max-w-xs">{link.url}</span>
                                             {!link.is_active && <Badge variant="secondary">Inactive</Badge>}
                                         </div>

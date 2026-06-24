@@ -17,7 +17,7 @@ class StoreSocialLinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'platform' => ['required', 'string', 'max:100'],
+            'platform' => ['required', 'string', 'in:instagram,facebook,twitter,youtube,linkedin,tiktok,whatsapp,tokopedia,shopee,lazada,blibli'],
             'url' => ['required', 'url', 'max:500'],
             'type' => ['required', 'in:social,ecommerce'],
             'sort_order' => ['nullable', 'integer', 'min:0'],

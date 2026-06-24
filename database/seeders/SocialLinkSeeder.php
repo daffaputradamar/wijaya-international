@@ -12,19 +12,20 @@ class SocialLinkSeeder extends Seeder
      */
     public function run(): void
     {
+        SocialLink::truncate();
+
         $links = [
-            ['platform' => 'Instagram', 'url' => 'https://instagram.com/wijayainternational', 'type' => 'social', 'sort_order' => 0],
-            ['platform' => 'X (Twitter)', 'url' => 'https://x.com/wijayaintl', 'type' => 'social', 'sort_order' => 1],
-            ['platform' => 'Tokopedia', 'url' => 'https://tokopedia.com/wijayainternational', 'type' => 'ecommerce', 'sort_order' => 0],
-            ['platform' => 'Shopee', 'url' => 'https://shopee.co.id/wijayainternational', 'type' => 'ecommerce', 'sort_order' => 1],
-            ['platform' => 'Lazada', 'url' => 'https://lazada.co.id/wijayainternational', 'type' => 'ecommerce', 'sort_order' => 2],
+            ['platform' => 'instagram', 'url' => 'https://instagram.com/wijayainternational', 'type' => 'social', 'sort_order' => 0],
+            ['platform' => 'twitter', 'url' => 'https://x.com/wijayaintl', 'type' => 'social', 'sort_order' => 1],
+            ['platform' => 'facebook', 'url' => 'https://facebook.com/wijayainternational', 'type' => 'social', 'sort_order' => 2],
+            ['platform' => 'youtube', 'url' => 'https://youtube.com/@wijayainternational', 'type' => 'social', 'sort_order' => 3],
+            ['platform' => 'tokopedia', 'url' => 'https://tokopedia.com/wijayainternational', 'type' => 'ecommerce', 'sort_order' => 0],
+            ['platform' => 'shopee', 'url' => 'https://shopee.co.id/wijayainternational', 'type' => 'ecommerce', 'sort_order' => 1],
+            ['platform' => 'lazada', 'url' => 'https://lazada.co.id/wijayainternational', 'type' => 'ecommerce', 'sort_order' => 2],
         ];
 
         foreach ($links as $link) {
-            SocialLink::firstOrCreate(
-                ['platform' => $link['platform']],
-                array_merge($link, ['is_active' => true])
-            );
+            SocialLink::create(array_merge($link, ['is_active' => true]));
         }
     }
 }

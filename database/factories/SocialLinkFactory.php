@@ -17,7 +17,7 @@ class SocialLinkFactory extends Factory
     public function definition(): array
     {
         return [
-            'platform' => $this->faker->randomElement(['Instagram', 'X (Twitter)', 'Tokopedia', 'Shopee', 'Lazada']),
+            'platform' => $this->faker->randomElement(['instagram', 'facebook', 'twitter', 'youtube', 'linkedin', 'tiktok', 'whatsapp', 'tokopedia', 'shopee', 'lazada', 'blibli']),
             'url' => $this->faker->url(),
             'type' => $this->faker->randomElement(['social', 'ecommerce']),
             'sort_order' => 0,

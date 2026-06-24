@@ -35,10 +35,7 @@ interface Props {
 }
 
 const statCards = [
-    { key: 'brands' as const, label: 'Brands', icon: Star, href: '/admin/brands', color: 'text-yellow-500' },
     { key: 'projects' as const, label: 'Projects', icon: Images, href: '/admin/projects', color: 'text-blue-500' },
-    { key: 'productCategories' as const, label: 'Product Categories', icon: Package, href: '/admin/products', color: 'text-green-500' },
-    { key: 'serviceCards' as const, label: 'Service Cards', icon: Layers, href: '/admin/services', color: 'text-purple-500' },
     { key: 'inquiries' as const, label: 'Inquiries', icon: MessageCircle, href: '/admin/inquiries', color: 'text-red-500' },
 ];
 
@@ -48,7 +45,7 @@ export default function Dashboard({ stats, recentInquiries }: Props) {
             <Head title="Dashboard" />
             <div className="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6">
                 {/* Stats Grid */}
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
                     {statCards.map(({ key, label, icon: Icon, href, color }) => (
                         <Link
                             key={key}

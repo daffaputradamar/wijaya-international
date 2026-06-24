@@ -6,9 +6,121 @@ import { useLanguage } from '@/lib/language-context';
 import { products } from '@/routes';
 import { EASE, fadeUp, staggerFast, staggerSlow } from './motion-variants';
 import type { ProductCategoryData } from './types';
+import { useState, useEffect } from 'react';
 
 interface ProductsTeaserSectionProps {
     productCategories: ProductCategoryData[];
+}
+
+function ProductCard({ cat, lang }: { cat: { key: string; title: string; body: string; image: string; video_url: string | null }; lang: string }) {
+    const [isActive, setIsActive] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    const { t } = useLanguage();
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+        const handleChange = (e: MediaQueryListEvent) => {
+            setIsMobile(e.matches);
+
+            if (!e.matches) {
+                setIsActive(false);
+            }
+        };
+
+        setIsMobile(mediaQuery.matches);
+        mediaQuery.addEventListener('change', handleChange);
+
+        return () =>
+            mediaQuery.removeEventListener('change', handleChange);
+    }, []);
+
+    const active = isMobile && isActive;
+
+    return (
+        <motion.div
+            variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.95 },
+                visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: { duration: 0.8, ease: EASE },
+                },
+            }}
+            whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: EASE } }}
+            className="group relative aspect-4/3 cursor-pointer overflow-hidden rounded-2xl"
+            onClick={() => {
+                if (isMobile) {
+                    setIsActive((prev) => !prev);
+                } else {
+                    router.visit(products().url);
+                }
+            }}
+        >
+            {/* Background */}
+            {cat.video_url ? (
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 h-full w-full object-cover"
+                >
+                    <source src={cat.video_url} type="video/mp4" />
+                </video>
+            ) : (
+                <img
+                    src={cat.image}
+                    alt={cat.title}
+                    className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ${
+                        active ? 'scale-110' : ''
+                    } ${!active ? 'group-hover:scale-110' : ''}`}
+                />
+            )}
+
+            {/* Overlays */}
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+            <div
+                className="absolute inset-0"
+                style={{
+                    backgroundImage:
+                        'linear-gradient(to right, rgba(0, 2, 104, 0.65), rgba(155, 25, 25, 0.45), rgba(0, 3, 139, 0.55))',
+                }}
+            />
+
+            {/* Content */}
+            <div className="absolute right-0 bottom-0 left-0 p-5">
+                <h3 className={`mb-2 leading-tight font-extrabold text-white transition-[font-size] duration-300 ${
+                    active
+                        ? 'text-lg sm:text-2xl'
+                        : 'text-2xl sm:text-3xl lg:text-5xl'
+                } ${!active ? 'group-hover:text-lg sm:group-hover:text-2xl' : ''}`}>
+                    {cat.title}
+                </h3>
+                <p className={`mb-3 line-clamp-2 overflow-hidden text-xs leading-relaxed text-white/70 transition-all duration-500 ease-in-out ${
+                    active ? 'max-h-20' : 'max-h-0'
+                } ${!active ? 'group-hover:max-h-20' : ''}`}>
+                    {cat.body}
+                </p>
+                <span
+                    className={`flex items-center gap-1 text-xs font-semibold text-red-400 transition-all duration-300 ${
+                        active
+                            ? 'translate-y-0 opacity-100'
+                            : 'translate-y-2 opacity-0'
+                    } ${!active ? 'group-hover:translate-y-0 group-hover:opacity-100' : ''}`}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        router.visit(products().url);
+                    }}
+                >
+                    {t('about.cta')}
+                    <LuArrowRight className="h-3 w-3" />
+                </span>
+            </div>
+        </motion.div>
+    );
 }
 
 export default function ProductsTeaserSection({ productCategories: categories }: ProductsTeaserSectionProps) {
@@ -68,64 +180,7 @@ export default function ProductsTeaserSection({ productCategories: categories }:
                         viewport={{ once: true }}
                     >
                         {productCategories.slice(0, 4).map((cat) => (
-                            <motion.div
-                                key={cat.key}
-                                variants={{
-                                    hidden: { opacity: 0, y: 40, scale: 0.95 },
-                                    visible: {
-                                        opacity: 1,
-                                        y: 0,
-                                        scale: 1,
-                                        transition: { duration: 0.8, ease: EASE },
-                                    },
-                                }}
-                                whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: EASE } }}
-                                className="group relative aspect-4/3 cursor-pointer overflow-hidden rounded-2xl"
-                                onClick={() => router.visit(products().url)}
-                            >
-                                {/* Background */}
-                                {cat.video_url ? (
-                                    <video
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        className="absolute inset-0 h-full w-full object-cover"
-                                    >
-                                        <source src={cat.video_url} type="video/mp4" />
-                                    </video>
-                                ) : (
-                                    <img
-                                        src={cat.image}
-                                        alt={cat.title}
-                                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                )}
-
-                                {/* Overlays */}
-                                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
-                                <div
-                                    className="absolute inset-0"
-                                    style={{
-                                        backgroundImage:
-                                            'linear-gradient(to right, rgba(0, 2, 104, 0.65), rgba(155, 25, 25, 0.45), rgba(0, 3, 139, 0.55))',
-                                    }}
-                                />
-
-                                {/* Content */}
-                                <div className="absolute right-0 bottom-0 left-0 p-5">
-                                    <h3 className="mb-2 text-2xl leading-tight font-extrabold text-white transition-[font-size] duration-300 group-hover:text-lg sm:text-3xl sm:group-hover:text-2xl lg:text-5xl">
-                                        {cat.title}
-                                    </h3>
-                                    <p className="mb-3 line-clamp-2 max-h-0 overflow-hidden text-xs leading-relaxed text-white/70 transition-all duration-500 ease-in-out group-hover:max-h-20">
-                                        {cat.body}
-                                    </p>
-                                    <span className="flex translate-y-2 items-center gap-1 text-xs font-semibold text-red-400 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                                        {t('about.cta')}
-                                        <LuArrowRight className="h-3 w-3" />
-                                    </span>
-                                </div>
-                            </motion.div>
+                            <ProductCard key={cat.key} cat={cat} lang={lang} />
                         ))}
                     </motion.div>
 

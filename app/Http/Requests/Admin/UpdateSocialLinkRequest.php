@@ -17,7 +17,7 @@ class UpdateSocialLinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'platform' => ['sometimes', 'required', 'string', 'max:100'],
+            'platform' => ['sometimes', 'required', 'string', 'in:instagram,facebook,twitter,youtube,linkedin,tiktok,whatsapp,tokopedia,shopee,lazada,blibli'],
             'url' => ['sometimes', 'required', 'url', 'max:500'],
             'type' => ['sometimes', 'required', 'in:social,ecommerce'],
             'sort_order' => ['nullable', 'integer', 'min:0'],

@@ -13,11 +13,8 @@ import GuestLayout from '@/layouts/guest-layout';
 
 // ─── Home Page ────────────────────────────────────────────────────────────────
 export default function Home({
-    brands,
-    productCategories,
-    serviceCards,
     dealers,
-}: Omit<HomeProps, 'latestNews' | 'projects'>) {
+}: Omit<HomeProps, 'latestNews' | 'projects' | 'brands' | 'productCategories' | 'serviceCards'>) {
     return (
         <GuestLayout hideFooter>
             <Head title="Perusahaan Distribusi Nasional">
@@ -49,9 +46,9 @@ export default function Home({
             </Head>
             <HeroSection />
             <AboutSection />
-            <WhatWeDoSection serviceCards={serviceCards} />
-            <ProductsTeaserSection productCategories={productCategories} />
-            <BrandsSection brands={brands} />
+            <WhatWeDoSection serviceCards={[]} />
+            <ProductsTeaserSection productCategories={[]} />
+            <BrandsSection brands={[]} />
             <DealerNetworkSection dealers={dealers} />
             <WhyChooseUsSection />
             {/* <NewsSectionHome latestNews={latestNews} /> */}
