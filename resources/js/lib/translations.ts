@@ -192,6 +192,93 @@ export const translations = {
         'contact.page.phone': '+62 21 1234 5678',
         'contact.page.email': 'info@wijayainternational.co.id',
         'contact.page.address': 'Jakarta, Indonesia',
+
+        // Profile page
+        'profile.page.title': 'Perusahaan Distribusi Nasional',
+        'profile.page.description':
+            'PT Wijaya International adalah distributor resmi produk kamera, elektronik, dan teknologi terkemuka di Indonesia. Merek ternama: Sony, Canon, DJI, Feiyutech, Kodak, dan lainnya.',
+        'profile.page.ogTitle': 'PT Wijaya International | Distribusi Elektronik & Kamera',
+        'profile.page.ogDescription':
+            'Distributor resmi produk kamera, elektronik, dan teknologi terkemuka di Indonesia.',
+        'profile.nav.distribution': 'Distribusi',
+        'profile.nav.retail': 'Retail',
+        'profile.nav.manufacture': 'Manufaktur',
+
+        // Profile Hero
+        'profile.hero.label': 'Core Business',
+        'profile.hero.word1': 'Mengidupkan',
+        'profile.hero.word2': 'Industri',
+        'profile.hero.word3': 'Visual',
+        'profile.hero.word4': 'Indonesia',
+        'profile.hero.description':
+            'Kami mengintegrasikan teknologi terkini dengan jaringan distribusi yang solid, memastikan setiap produk inovasi dapat diakses oleh kreator di seluruh Indonesia.',
+
+        // Distribution Section
+        'profile.distribution.label': 'DISTRIBUSI',
+        'profile.distribution.title':
+            'Menghubungkan Inovasi Global dengan Pasar Digital Imaging Indonesia',
+        'profile.distribution.description':
+            'Sebagai pilar utama dari model bisnis PT Wijaya International, Distribusi merupakan fokus kami untuk menjadi jembatan strategis yang menghubungkan inovasi teknologi global digital imaging dengan kebutuhan pasar kreatif di Indonesia. Kami memahami bahwa distribusi bukan sekadar perihal memindahkan produk dari satu titik ke titik lain. Bagi kami, distribusi adalah tentang membangun kepercayaan, memastikan ketersediaan, dan menjaga integritas merek di setiap langkah rantai pasok. Dengan pengalaman bertahun-tahun, kami selalu berusaha menempatkan posisi sebagai distributor perangkat digital imaging yang paling andal di tanah air.',
+        'profile.distribution.cta': 'Selengkapnya Tentang Dealer Resmi Kami',
+        'profile.distribution.row0.imageAlt': 'Store interior',
+        'profile.distribution.row0.p1':
+            'Kekuatan utama layanan distribusi kami terletak pada jaringan dealer nasional yang sangat luas dan terorganisir dengan baik. Kami bermitra dengan ratusan toko ritel, agensi kreatif, dan mitra bisnis yang tersebar dari di seluruh Indonesia.',
+        'profile.distribution.row0.p2':
+            'Jaringan yang masif ini memungkinkan merek-merek internasional yang kami kelola, seperti <strong>Sony</strong>, <strong>Canon</strong>, dan <strong>Kodak Pixpro</strong>, untuk menjangkau konsumen di berbagai tempat dengan standar layanan yang seragam. Kami memastikan bahwa setiap mitra dealer kami mendapatkan dukungan penuh, mulai dari pasokan stok yang stabil, pelatihan pengetahuan produk, hingga materi pemasaran yang efektif.',
+        'profile.distribution.row1.imageAlt': 'Warehouse interior',
+        'profile.distribution.row1.p1':
+            'Efisiensi operasional menjadi napas dari bisnis Distribusi kami. PT Wijaya International menginvestasikan sumber daya yang signifikan dalam sistem manajemen rantai pasok dan pergudangan yang modern.',
+        'profile.distribution.row1.p2':
+            'Hal ini menjamin bahwa setiap permintaan pasar dapat direspons dengan cepat dan akurat. Kami ingin memastikan agar produk terbaru dapat segera tersedia di tangan konsumen saat perilisan global. Ketepatan waktu ini sangat krusial dalam industri teknologi yang bergerak sangat cepat, di mana keterlambatan ketersediaan barang bisa berarti hilangnya peluang bagi para kreator visual.',
+        'profile.distribution.row2.imageAlt': 'Team working',
+        'profile.distribution.row2.p1':
+            'Tidak hanya menjadi sekadar penyedia stok, kami bertindak sebagai penasihat strategis bagi para mitra kami. Kami melakukan analisis pasar secara rutin untuk memahami tren permintaan dan memberikan rekomendasi produk yang paling relevan.',
+        'profile.distribution.row2.p2':
+            'Dengan pendekatan yang transparan dan profesional, kami membangun hubungan jangka panjang dengan para dealer yang didasarkan pada pertumbuhan bersama. Memilih PT Wijaya International sebagai mitra distribusi berarti bergabung dalam sebuah ekosistem yang mengedepankan profesionalitas, keandalan logistik, dan komitmen untuk memajukan industri digital imaging di Indonesia secara menyeluruh.',
+
+        // Retail Section
+        'profile.retail.label': 'RETAIL',
+        'profile.retail.title':
+            'Menghadirkan Pengalaman Belanja yang Personal di Seluruh Indonesia',
+        'profile.retail.description':
+            'Meskipun teknologi digital telah mengubah cara kita berinteraksi, PT Wijaya International tetap meyakini bahwa pengalaman fisik dalam mencoba dan merasakan sebuah perangkat kamera adalah hal yang tidak tergantikan. Melalui divisi Retail, kami hadir lebih dekat dengan konsumen melalui jaringan toko kamera fisik yang tersebar di berbagai lokasi strategis di seluruh Indonesia. Kehadiran toko ritel kami bukan hanya sebagai tempat transaksi, melainkan sebagai pusat edukasi dan interaksi bagi para pecinta fotografi dan videografi di tanah air.',
+        'profile.retail.row0.imageAlt': 'Retail store display',
+        'profile.retail.row0.p1':
+            'Setiap toko ritel kami dirancang untuk memberikan pengalaman belanja yang nyaman, modern, dan informatif. Kami memahami bahwa memilih kamera atau aksesori pendukung adalah sebuah keputusan penting yang memerlukan pertimbangan matang. Oleh karena itu, di setiap gerai kami, konsumen diberikan kebebasan untuk melakukan hands-on atau mencoba langsung unit display yang tersedia.',
+        'profile.retail.row0.p2':
+            'Untuk melengkapi pengalaman tersebut, kami turut menghadirkan perwakilan sales dan promotor resmi dari global leading brand seperti Sony dan Canon, langsung di setiap toko kami. Mereka hadir secara khusus untuk mendampingi Anda, memberikan penjelasan teknis secara interaktif, serta berbagi wawasan mendalam mengenai pengalaman penggunaan (user experience) dari masing-masing produk. Hal ini sangat penting agar pengguna dapat merasakan ergonomi perangkat, kecepatan fokus, hingga kualitas tangkapan gambar secara nyata sebelum melakukan pembelian.',
+        'profile.retail.row1.imageAlt': 'Staff assisting customer',
+        'profile.retail.row1.p1':
+            'Salah satu keunggulan kompetitif dari jaringan ritel PT Wijaya International adalah kualitas sumber daya manusia kami. Staf yang bertugas di toko-toko kami bukan sekadar pramuniaga, melainkan konsultan teknis yang memiliki pemahaman mendalam mengenai ekosistem digital imaging.',
+        'profile.retail.row1.p2':
+            'Mereka dilatih untuk mendengarkan kebutuhan spesifik setiap pelanggan, baik itu seorang pemula yang mencari kamera harian atau seorang profesional yang membutuhkan spesifikasi teknis tingkat tinggi, dan memberikan rekomendasi yang paling tepat guna tanpa kesan melakukan hard selling. Kami mengedepankan kejujuran dalam memberikan informasi agar setiap pelanggan merasa puas dengan investasi yang mereka lakukan.',
+        'profile.retail.row2.imageAlt': 'Camera display shelf',
+        'profile.retail.row2.p1':
+            'Penyebaran toko ritel kami yang luas di berbagai kota besar di Indonesia juga berfungsi sebagai titik akses layanan yang memudahkan konsumen. Kehadiran fisik ini memberikan rasa aman tambahan bagi pelanggan, karena mereka tahu ke mana harus kembali jika memerlukan konsultasi tambahan atau layanan purna jual.',
+        'profile.retail.row2.p2':
+            'Kami terus berekspansi untuk menjangkau lebih banyak wilayah, memastikan bahwa setiap individu memiliki akses terhadap peralatan berkualitas dengan standar pelayanan premium. Di PT Wijaya International, kami merayakan gairah visual Anda dengan memberikan aksesibilitas terbaik dan layanan yang menyentuh sisi personal dari setiap perjalanan kreatif Anda.',
+
+        // Manufacture Section
+        'profile.manufacture.label': 'MANUFAKTUR',
+        'profile.manufacture.title':
+            'Melahirkan Inovasi Lokal dengan Standar Global Melalui Brand SBOX',
+        'profile.manufacture.description':
+            'PT Wijaya International tidak hanya berperan dalam mendistribusikan produk global, tetapi juga mengambil peran aktif dalam menciptakan inovasi sendiri. Melalui divisi Manufaktur, kami telah melangkah lebih jauh dengan melahirkan brand kamera digital sendiri, yaitu SBOX. Langkah ini merupakan perwujudan dari visi kami untuk tidak hanya menjadi pemain di pasar domestik, tetapi juga menjadi kreator yang memahami keunikan karakter pengguna kamera di era modern yang dinamis dan penuh warna.',
+        'profile.manufacture.row0.imageAlt': 'Collage of SBOX products',
+        'profile.manufacture.row0.p1':
+            'SBOX lahir dari observasi mendalam kami terhadap pergeseran tren di dunia pencitraan digital. Kami melihat adanya kebutuhan pasar akan perangkat kamera yang tidak melulu kaku dan teknis, melainkan perangkat yang bisa menjadi bagian dari gaya hidup dan ekspresi diri.',
+        'profile.manufacture.row0.p2':
+            'Oleh karena itu, SBOX diposisikan sebagai merek kamera digital alternatif yang mengusung semangat fun, kasual, dan kreatif. Berbeda dengan merek kamera tradisional yang seringkali terasa mengintimidasi bagi pemula, SBOX dirancang untuk memberikan pengalaman memotret yang menyenangkan, mudah digunakan, namun tetap mampu menghasilkan visual yang menarik dan layak dibagikan.',
+        'profile.manufacture.row1.imageAlt': 'Camera in black box',
+        'profile.manufacture.row1.p1':
+            'Proses manufaktur dan pengembangan merek SBOX dilakukan dengan kontrol kualitas yang ketat di bawah pengawasan PT Wijaya International. Kami memadukan riset pasar lokal dengan standar komponen global untuk memastikan setiap produk SBOX memiliki durabilitas yang baik dan performa yang mumpuni.',
+        'profile.manufacture.row1.p2':
+            'Inovasi yang kami tanamkan pada SBOX fokus pada kemudahan fitur, desain yang trendi, dan fungsionalitas yang sesuai dengan gaya hidup generasi kreatif saat ini. SBOX adalah jawaban bagi mereka yang mencari alternatif kamera yang unik, berbeda, dan mampu menangkap momen sehari-hari dengan sentuhan yang lebih segar.',
+        'profile.manufacture.row2.imageAlt': 'Technical blueprint',
+        'profile.manufacture.row2.p1':
+            'Kehadiran SBOX sebagai brand orisinil di bawah naungan PT Wijaya International membuktikan kapasitas kami dalam mengelola end-to-end cycle sebuah produk, mulai dari tahap konsep, desain, produksi, hingga strategi pemasaran dan distribusi. Ini adalah bukti nyata kemandirian bisnis kami dan komitmen kami untuk terus memperkaya pilihan bagi konsumen di Indonesia.',
+        'profile.manufacture.row2.p2':
+            'SBOX bukan sekadar kamera; ia adalah simbol kreativitas tanpa batas yang kami persembahkan untuk dunia digital imaging. Dengan memilih produk manufaktur kami, Anda tidak hanya mendapatkan alat perekam momen, tetapi juga mendukung inovasi berkelanjutan yang lahir dari pemahaman mendalam akan kebutuhan pasar kreatif masa kini.',
     },
     en: {
         // Navigation
@@ -386,5 +473,92 @@ export const translations = {
         'contact.page.phone': '+62 21 1234 5678',
         'contact.page.email': 'info@wijayainternational.co.id',
         'contact.page.address': 'Jakarta, Indonesia',
+
+        // Profile page
+        'profile.page.title': 'National Distribution Company',
+        'profile.page.description':
+            'PT Wijaya International is an official distributor of leading camera, electronics, and technology products in Indonesia. Trusted brands: Sony, Canon, DJI, Feiyutech, Kodak, and more.',
+        'profile.page.ogTitle': 'PT Wijaya International | Electronics & Camera Distribution',
+        'profile.page.ogDescription':
+            'Official distributor of camera, electronics, and technology products in Indonesia.',
+        'profile.nav.distribution': 'Distribution',
+        'profile.nav.retail': 'Retail',
+        'profile.nav.manufacture': 'Manufacture',
+
+        // Profile Hero
+        'profile.hero.label': 'Core Business',
+        'profile.hero.word1': 'Empowering',
+        'profile.hero.word2': 'Visual',
+        'profile.hero.word3': 'Industry',
+        'profile.hero.word4': 'Indonesia',
+        'profile.hero.description':
+            'We integrate the latest technology with a solid distribution network, ensuring every innovative product is accessible to creators across Indonesia.',
+
+        // Distribution Section
+        'profile.distribution.label': 'DISTRIBUTION',
+        'profile.distribution.title':
+            'Connecting Global Innovation with Indonesia\'s Digital Imaging Market',
+        'profile.distribution.description':
+            'As the main pillar of PT Wijaya International\'s business model, Distribution is our focus to become a strategic bridge connecting global digital imaging technology innovation with the creative market needs in Indonesia. We understand that distribution is not just about moving products from one point to another. For us, distribution is about building trust, ensuring availability, and maintaining brand integrity at every step of the supply chain. With years of experience, we always strive to position ourselves as the most reliable digital imaging device distributor in the country.',
+        'profile.distribution.cta': 'Learn More About Our Authorized Dealers',
+        'profile.distribution.row0.imageAlt': 'Store interior',
+        'profile.distribution.row0.p1':
+            'The main strength of our distribution service lies in our extensive and well-organized national dealer network. We partner with hundreds of retail stores, creative agencies, and business partners spread across Indonesia.',
+        'profile.distribution.row0.p2':
+            'This massive network enables the international brands we manage, such as <strong>Sony</strong>, <strong>Canon</strong>, and <strong>Kodak Pixpro</strong>, to reach consumers in various places with uniform service standards. We ensure that every dealer partner receives full support, from stable stock supply, product knowledge training, to effective marketing materials.',
+        'profile.distribution.row1.imageAlt': 'Warehouse interior',
+        'profile.distribution.row1.p1':
+            'Operational efficiency is the lifeblood of our Distribution business. PT Wijaya International invests significant resources in modern supply chain management and warehousing systems.',
+        'profile.distribution.row1.p2':
+            'This ensures that every market demand can be responded to quickly and accurately. We want to ensure that the latest products are immediately available to consumers upon global release. This timeliness is crucial in the fast-moving technology industry, where delays in product availability can mean lost opportunities for visual creators.',
+        'profile.distribution.row2.imageAlt': 'Team working',
+        'profile.distribution.row2.p1':
+            'Beyond being mere stock providers, we act as strategic advisors for our partners. We conduct regular market analysis to understand demand trends and provide the most relevant product recommendations.',
+        'profile.distribution.row2.p2':
+            'With a transparent and professional approach, we build long-term relationships with dealers based on mutual growth. Choosing PT Wijaya International as a distribution partner means joining an ecosystem that prioritizes professionalism, logistics reliability, and a commitment to advancing the digital imaging industry in Indonesia comprehensively.',
+
+        // Retail Section
+        'profile.retail.label': 'RETAIL',
+        'profile.retail.title':
+            'Delivering a Personal Shopping Experience Across Indonesia',
+        'profile.retail.description':
+            'Although digital technology has changed the way we interact, PT Wijaya International firmly believes that the physical experience of trying and feeling a camera device is irreplaceable. Through our Retail division, we get closer to consumers through a network of physical camera stores spread across strategic locations throughout Indonesia. Our retail stores are not just transaction points, but centers of education and interaction for photography and videography enthusiasts in the country.',
+        'profile.retail.row0.imageAlt': 'Retail store display',
+        'profile.retail.row0.p1':
+            'Every retail store is designed to provide a comfortable, modern, and informative shopping experience. We understand that choosing a camera or supporting accessories is an important decision that requires careful consideration. Therefore, in every store, consumers are free to do hands-on testing of available display units.',
+        'profile.retail.row0.p2':
+            'To complete the experience, we also present official sales representatives and promoters from global leading brands such as Sony and Canon, directly in every store. They are specifically present to assist you, provide interactive technical explanations, and share in-depth insights about the user experience of each product.',
+        'profile.retail.row1.imageAlt': 'Staff assisting customer',
+        'profile.retail.row1.p1':
+            'One of the competitive advantages of PT Wijaya International\'s retail network is the quality of our human resources. Staff in our stores are not just salespeople, but technical consultants with deep understanding of the digital imaging ecosystem.',
+        'profile.retail.row1.p2':
+            'They are trained to listen to each customer\'s specific needs, whether a beginner looking for a daily camera or a professional requiring high-level technical specifications, and provide the most appropriate recommendations without hard selling. We prioritize honesty in providing information so that every customer feels satisfied with their investment.',
+        'profile.retail.row2.imageAlt': 'Camera display shelf',
+        'profile.retail.row2.p1':
+            'The widespread distribution of our retail stores across major cities in Indonesia also serves as service access points that make it easier for consumers. This physical presence provides added peace of mind for customers, knowing where to return for additional consultation or after-sales service.',
+        'profile.retail.row2.p2':
+            'We continue to expand to reach more regions, ensuring that every individual has access to quality equipment with premium service standards. At PT Wijaya International, we celebrate your visual passion by providing the best accessibility and services that touch the personal side of every creative journey.',
+
+        // Manufacture Section
+        'profile.manufacture.label': 'MANUFACTURE',
+        'profile.manufacture.title':
+            'Creating Local Innovation with Global Standards Through the SBOX Brand',
+        'profile.manufacture.description':
+            'PT Wijaya International not only plays a role in distributing global products, but also takes an active role in creating its own innovation. Through our Manufacturing division, we have gone further by launching our own digital camera brand, SBOX. This step embodies our vision to not only be a player in the domestic market, but also a creator who understands the unique character of camera users in this dynamic and colorful modern era.',
+        'profile.manufacture.row0.imageAlt': 'Collage of SBOX products',
+        'profile.manufacture.row0.p1':
+            'SBOX was born from our deep observation of the shifting trends in the digital imaging world. We saw a market need for camera devices that are not rigid and technical, but devices that can be part of a lifestyle and self-expression.',
+        'profile.manufacture.row0.p2':
+            'Therefore, SBOX is positioned as an alternative digital camera brand that embodies a fun, casual, and creative spirit. Unlike traditional camera brands that often feel intimidating for beginners, SBOX is designed to provide an enjoyable shooting experience that is easy to use, yet still capable of producing interesting and shareable visuals.',
+        'profile.manufacture.row1.imageAlt': 'Camera in black box',
+        'profile.manufacture.row1.p1':
+            'The manufacturing process and brand development of SBOX are carried out with strict quality control under the supervision of PT Wijaya International. We combine local market research with global component standards to ensure every SBOX product has good durability and reliable performance.',
+        'profile.manufacture.row1.p2':
+            'The innovation we instill in SBOX focuses on ease of use, trendy design, and functionality that suits the lifestyle of today\'s creative generation. SBOX is the answer for those looking for a unique, different camera alternative that can capture everyday moments with a fresher touch.',
+        'profile.manufacture.row2.imageAlt': 'Technical blueprint',
+        'profile.manufacture.row2.p1':
+            'The presence of SBOX as an original brand under PT Wijaya International proves our capacity to manage the end-to-end cycle of a product, from concept, design, production, to marketing and distribution strategies. This is tangible evidence of our business independence and commitment to continuously enrich choices for consumers in Indonesia.',
+        'profile.manufacture.row2.p2':
+            'SBOX is not just a camera; it is a symbol of limitless creativity that we dedicate to the world of digital imaging. By choosing our manufactured products, you not only get a moment-capturing device, but also support sustainable innovation born from a deep understanding of today\'s creative market needs.',
     },
 } as const;
