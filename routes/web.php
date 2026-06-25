@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 // Public marketing routes
 Route::get('/', [PublicController::class, 'home'])->name('home');
+Route::get('/profile', [PublicController::class, 'profile'])->name('profile');
 Route::get('/products', [PublicController::class, 'products'])->name('products');
 Route::get('/projects', [PublicController::class, 'projects'])->name('projects');
 Route::get('/projects/{project}', [PublicController::class, 'showProject'])->name('projects.show');

@@ -46,6 +46,11 @@ class PublicController extends Controller
         ]);
     }
 
+    public function profile(): Response
+    {
+        return Inertia::render('profile');
+    }
+
     public function products(): Response
     {
         return Inertia::render('products', [

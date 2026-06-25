@@ -4,7 +4,7 @@ import { useEffect, useState, type MouseEvent } from 'react';
 import { LuArrowRight, LuChevronDown, LuPhone } from 'react-icons/lu';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { useLanguage } from '@/lib/language-context';
-import { home, products, services } from '@/routes';
+import { home, products, services, profile } from '@/routes';
 
 type NavChildItem = {
     label: string;
@@ -44,6 +44,7 @@ export default function Navbar() {
     const homeHref = home().url;
     const servicesHref = services().url;
     const productsHref = products().url;
+    const profileHref = profile().url;
     const currentHash = typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '';
 
     const fallbackBrands: BrandMenuItem[] = [
@@ -104,7 +105,7 @@ export default function Navbar() {
                 { label: t('nav.aboutUs'), href: `${homeHref}#about`, sectionId: 'about' },
                 { label: t('nav.mainBusiness'), href: `${homeHref}#services`, sectionId: 'services' },
                 { label: t('nav.ownerProfile'), href: '#' },
-                { label: t('nav.fullProfile'), href: '#', highlight: true },
+                { label: t('nav.fullProfile'), href: profileHref, highlight: true },
             ],
         },
         {

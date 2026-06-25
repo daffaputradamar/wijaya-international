@@ -2,12 +2,12 @@ import type { IconType } from 'react-icons';
 import {
     LuInstagram,
     LuFacebook,
+    LuTwitter,
     LuYoutube,
     LuLinkedin,
     LuMusic,
     LuGlobe,
     LuShoppingCart,
-    LuX,
 } from 'react-icons/lu';
 
 export interface SocialPlatform {
@@ -20,7 +20,7 @@ export interface SocialPlatform {
 export const SOCIAL_PLATFORMS: SocialPlatform[] = [
     { key: 'instagram', label: 'Instagram', type: 'social', icon: LuInstagram },
     { key: 'facebook', label: 'Facebook', type: 'social', icon: LuFacebook },
-    { key: 'twitter', label: 'X (Twitter)', type: 'social', icon: LuX },
+    { key: 'twitter', label: 'X (Twitter)', type: 'social', icon: LuTwitter },
     { key: 'youtube', label: 'YouTube', type: 'social', icon: LuYoutube },
     { key: 'linkedin', label: 'LinkedIn', type: 'social', icon: LuLinkedin },
     { key: 'tiktok', label: 'TikTok', type: 'social', icon: LuMusic },
