@@ -82,7 +82,7 @@ export default function Profile() {
                 />
             </Head>
 
-            <div className="fixed right-0 bottom-0 left-0 z-25 mb-6 flex justify-between gap-4 bg-[#000168] py-3 px-5 backdrop-blur-md w-[calc(100%-2rem)] mx-auto rounded-xl">
+            <div className="hidden md:flex fixed right-0 bottom-0 left-0 z-25 mb-6 justify-between gap-4 bg-[#000168] py-3 px-5 backdrop-blur-md w-[calc(100%-2rem)] mx-auto rounded-xl">
                 {navSections.map(({ id, labelKey, iconKey }) => (
                     <button
                         key={id}

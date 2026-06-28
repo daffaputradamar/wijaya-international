@@ -183,9 +183,112 @@ export const translations = {
         'projects.back': 'Kembali ke Proyek',
         'projects.noDescription': 'Deskripsi tidak tersedia.',
 
-        // Services page
+        // Services page Hero
         'services.page.title': 'Layanan Kami',
         'services.page.subtitle': 'Ekosistem layanan menyeluruh yang mendukung pertumbuhan bisnis Anda.',
+        'services.page.description': 'PT Wijaya International menyediakan solusi end-to-end untuk ekosistem digital imaging Anda, mencakup pengelolaan brand, kelengkapan aksesori, hingga jaminan purna jual yang dapat diandalkan.',
+        'services.hero.label': 'LAYANAN',
+        'services.hero.word1': 'SOLUSI',
+        'services.hero.word2': 'TERINTEGRASI',
+        'services.hero.word3': 'DIGITAL',
+        'services.hero.word4': 'IMAGING',
+        'services.hero.description': 'Di tengah pesatnya perkembangan industri kreatif dan kebutuhan visual, peralatan berkualitas tinggi saja tidak lagi cukup. Diperlukan sebuah ekosistem yang menyeluruh untuk memastikan setiap visi kreatif dapat tereksekusi dengan sempurna. PT Wijaya International hadir sebagai mitra strategis Anda, menyediakan solusi end-to-end yang tidak hanya berfokus pada penyediaan perangkat keras, tetapi juga mencakup pengelolaan brand, kelengkapan aksesori, hingga jaminan purna jual yang dapat diandalkan.',
+        'services.hero.intro': 'Kami merancang struktur layanan ini agar dapat beradaptasi dengan berbagai skala kebutuhan, mulai dari penggemar fotografi dan videografi, pekerja kreatif profesional, hingga korporasi besar. Melalui empat pilar layanan utama kami, kami memastikan bahwa setiap aspek dari perjalanan visual Anda terdukung oleh standar profesionalisme dan keandalan industri yang telah teruji oleh waktu.',
+
+        // Services Nav
+        'services.nav.brand': 'Brand Management',
+        'services.nav.imaging': 'Imaging Solution',
+        'services.nav.camera': 'Camera Support',
+        'services.nav.technical': 'Technical Service & Repair',
+
+        // Brand Management page
+        'services.brand.pageTitle': 'Brand Management',
+        'services.brand.pageDescription': 'PT Wijaya International menyediakan layanan Brand Management untuk membangun presensi dan relevansi brand yang kuat di pasar visual Indonesia.',
+        'services.brand.heroTitle': 'MEMBANGUN PRESENSI & RELEVANSI BRAND YANG KUAT DI PASAR VISUAL',
+        'services.brand.introTitle': 'Brand Management',
+        'services.brand.introP1': 'Keberhasilan sebuah produk digital imaging di pasaran tidak hanya ditentukan oleh spesifikasi teknisnya, melainkan juga oleh bagaimana brand tersebut <strong>dikomunikasikan</strong>, <strong>diterima</strong>, dan <strong>dihidupi</strong> oleh penggunanya.',
+        'services.brand.introP2': 'Di PT Wijaya International, layanan Brand Management kami didedikasikan untuk mengambil alih kerumitan tersebut melalui pendekatan end-to-end yang strategis dan terukur.',
+        'services.brand.introP3': 'Kami tidak hanya bertindak sebagai distributor, tetapi sebagai perpanjangan tangan dari prinsipal brand untuk memastikan visi produk diterjemahkan menjadi eksekusi pemasaran yang berdampak nyata di lapangan.',
+        'services.brand.campaignLabel': 'CAMPAIGN ACTIVATION',
+        'services.brand.campaignTitle': 'Campaign Activation',
+        'services.brand.campaignP1': 'Proses manajemen brand kami dimulai dari fase perencanaan awal hingga evaluasi purna jual. Kami mengawali perjalanan sebuah produk melalui <strong>campaign activation</strong> yang dirancang secara spesifik untuk menangkap perhatian pasar pada momen yang paling tepat.',
+        'services.brand.campaignP2': 'Kami memahami bahwa perkenalan awal harus meninggalkan kesan yang kuat, karenanya setiap kampanye disusun dengan mempertimbangkan profil konsumen lokal dan tren industri terkini. Namun, sebuah peluncuran hanyalah langkah pertama. Untuk menjaga agar produk tetap menjadi top of mind, kami menerapkan strategi pemasaran berkelanjutan yang menjaga atensi terhadap brand Anda terus berjalan di berbagai kanal komunikasi.',
+        'services.brand.eventLabel': 'EVENT & COMMUNITY',
+        'services.brand.eventTitle': 'Event & Community',
+        'services.brand.eventP1': 'Selain pemasaran reguler, kami juga secara aktif merancang dan mengeksekusi event tematik yang disesuaikan dengan berbagai season atau perayaan tertentu. Acara-acara ini berfungsi sebagai ruang interaksi langsung antara produk dan konsumen potensial, memberikan pengalaman hands-on yang tidak bisa digantikan oleh sekadar iklan digital.',
+        'services.brand.eventP2': 'Lebih jauh lagi, kekuatan sejati dari sebuah brand kamera terletak pada penggunanya. Oleh karena itu, kami memberikan fokus yang besar pada aktivasi komunitas. Dengan merangkul komunitas fotografer, kreator konten, dan videografer, kami mengubah pengguna menjadi partner brand yang loyal.',
+        'services.brand.portfolioLabel': 'PORTFOLIO EXPERIENCE',
+        'services.brand.portfolioTitle': 'Portfolio Experience',
+        'services.brand.portfolioP1': 'Pengalaman kami dalam mengelola portofolio brand telah teruji oleh waktu dan hasil. Sebagai pengelola penuh untuk brand ternama seperti Kodak Pixpro, kami telah membuktikan kapasitas kami dalam menavigasi tantangan pasar kamera digital.',
+        'services.brand.portfolioP2': 'Kami memastikan setiap brand yang berada di bawah naungan manajemen kami mendapatkan sorotan yang layak, strategi yang tajam, dan pertumbuhan pangsa pasar yang berkesinambungan. Memilih layanan Brand Management kami berarti memilih kepastian bahwa identitas dan potensi bisnis brand Anda berada di tangan yang memahami industri ini.',
+
+        // Imaging Solution page
+        'services.imaging.pageTitle': 'Imaging Solution',
+        'services.imaging.pageDescription': 'PT Wijaya International menyediakan solusi menyeluruh untuk setiap kebutuhan pencitraan digital Anda, dari perangkat hingga pendampingan teknis.',
+        'services.imaging.heroTitle': 'SOLUSI MENYELURUH UNTUK SETIAP KEBUTUHAN PENCITRAAN DIGITAL ANDA',
+        'services.imaging.introP1': 'Dunia pencitraan digital adalah lanskap yang luas dan terus berkembang, di mana setiap individu dan entitas bisnis memiliki tantangan visualnya masing-masing. Layanan Imaging Solution dari PT Wijaya International dirancang untuk menjadi jawaban tunggal yang komprehensif bagi seluruh spektrum kebutuhan tersebut.',
+        'services.imaging.introP2': 'Kami tidak sekadar memindahkan kotak berisi produk; kami menghadirkan sebuah solusi end-to-end yang dikurasi dengan cermat untuk memastikan bahwa hasil akhir visual Anda, baik itu berupa foto diam maupun produksi video resolusi tinggi, mencapai standar yang Anda harapkan.',
+        'services.imaging.section1Label': 'PROFESSIONAL & BUSINESS SCALE',
+        'services.imaging.section1P1': 'Layanan ini mencakup penyediaan lini perangkat yang luas, yang siap melayani tuntutan dari berbagai tingkatan pengguna. Bagi para profesional yang menggantungkan reputasi pada ketajaman dan keandalan alat, kami menyediakan perangkat keras dengan spesifikasi tertinggi yang mampu bekerja optimal di bawah tekanan operasional yang intens.',
+        'services.imaging.section1P2': 'Di sisi lain, bagi skala bisnis, agensi, maupun rumah produksi yang membutuhkan standarisasi perangkat dengan efisiensi biaya, kami mampu memformulasikan paket solusi pencitraan yang paling tepat guna, mengoptimalkan setiap aspek operasional visual perusahaan Anda tanpa mengorbankan kualitas.',
+        'services.imaging.section2Label': 'PORTFOLIO DIVERSITY',
+        'services.imaging.section2P1': 'Di dalam payung Imaging Solution ini, Anda akan menemukan akses langsung ke portofolio produk kamera unggulan yang kami distribusikan secara resmi. Jajaran produk kami sangat bervariasi untuk menyesuaikan dengan berbagai identitas kreator. Mulai dari kamera dengan performa klasik dan keandalan teknis yang telah teruji seperti lini Kodak Pixpro yang siap menangani kebutuhan fundamental fotografi, hingga SBOX, sebuah brand kamera digital alternatif yang menawarkan pengalaman memotret yang lebih fun, trendi, dan menyenangkan.',
+        'services.imaging.section2P2': 'Keberagaman portofolio ini mencerminkan komitmen kami bahwa apapun gaya visual yang ingin Anda capai, baik itu dokumentasi komersial yang serius maupun penciptaan konten gaya hidup yang kasual, kami memiliki perangkat yang tepat untuk mewujudkannya.',
+        'services.imaging.section3Label': 'CONSULTATIVE APPROACH',
+        'services.imaging.section3P1': 'Dengan memilih Imaging Solution dari PT Wijaya International, Anda mendapatkan lebih dari sekadar transaksi jual beli. Anda mendapatkan akses ke keahlian konsultatif dari tim kami yang akan membantu memetakan kebutuhan Anda, mencocokkannya dengan portofolio produk kami, dan memastikan Anda berinvestasi pada sistem kamera yang tepat.',
+        'services.imaging.section3P2': 'Pendekatan berbasis solusi ini memastikan bahwa Anda selalu siap menangkap setiap momen, merespons setiap brief klien, dan menghasilkan karya visual yang berbicara lebih dari sekadar kata-kata.',
+
+        // Brand Management Section
+        'services.brand.label': 'Brand Management',
+        'services.brand.p1': 'Kami merancang struktur layanan ini agar dapat beradaptasi dengan berbagai skala kebutuhan, mulai dari penggemar <strong>fotografi</strong> dan <strong>videografi</strong>, <strong>pekerja kreatif profesional</strong>, hingga <strong>korporasi besar</strong>.',
+        'services.brand.p2': 'Melalui empat pilar layanan utama kami, kami memastikan bahwa setiap aspek dari perjalanan visual Anda terdukung oleh standar profesionalisme dan keandalan industri yang telah teruji oleh waktu.',
+        'services.brand.cta': 'Pelajari Selengkapnya',
+
+        // Imaging Solution Section
+        'services.imaging.label': 'Imaging Solution',
+        'services.imaging.p1': 'Kebutuhan akan kualitas visual terus meningkat di berbagai sektor. Oleh karena itu, layanan Imaging Solution kami hadir untuk memberikan jawaban tuntas bagi kebutuhan fotografi dan videografi Anda. Kami menyediakan solusi menyeluruh yang menjembatani kebutuhan perangkat dari tingkat pemula, profesional, hingga skala bisnis dan industrial.',
+        'services.imaging.p2': 'Melalui layanan ini, kami menampilkan portofolio produk kamera terbaik yang kami distribusikan, memastikan setiap klien menemukan spesifikasi perangkat yang paling sesuai dengan tantangan lapangan yang mereka hadapi. Kami memahami bahwa setiap proyek memiliki tuntutan teknisnya masing-masing, dan tim kami siap memberikan panduan produk untuk hasil pencitraan digital yang maksimal.',
+        'services.imaging.cta': 'Pelajari Selengkapnya',
+
+        // Camera Support Section
+        'services.camera.label': 'Camera Support & Accessories',
+        'services.camera.p1': 'Sebuah kamera yang tangguh membutuhkan dukungan aksesori keras yang tak kalah andal untuk menghasilkan karya yang luar biasa. Layanan Camera Support kami didedikasikan untuk melengkapi perangkat utama Anda dengan ekosistem alat bantu yang komprehensif.',
+        'services.camera.p2': 'Kami menyajikan jajaran produk pendukung berkualitas, mulai dari sistem tata cahaya (lighting) yang presisi, perangkat audio jernih, hingga perlengkapan stabilisasi seperti grip dan tripod.',
+        'services.camera.p3': 'Seluruh aksesori yang kami sediakan dikurasi secara ketat untuk menjamin kompatibilitas dan durabilitas, membebaskan Anda dari kendala teknis dan memungkinkan Anda untuk sepenuhnya fokus pada proses kreatif.',
+        'services.camera.cta': 'Pelajari Selengkapnya',
+
+        // Camera Support page
+        'services.camera.pageTitle': 'Camera Support',
+        'services.camera.pageDescription': 'PT Wijaya International menyediakan layanan Camera Support untuk melengkapi perangkat utama Anda dengan ekosistem aksesori yang komprehensif.',
+        'services.camera.heroTitle': 'MENYEMPURNAKAN KUALITAS KARYA VISUAL DENGAN EKOSISTEM AKSESORI TERLENGKAP',
+        'services.camera.introP1': 'Dalam industri fotografi dan videografi modern, memiliki kamera dan lensa yang sesuai kebutuhan, merupakan setengah dari perjalanan kreatif Anda. Setengah lainnya sangat bergantung pada ekosistem perangkat pendukung yang digunakan. Di sinilah layanan Camera Support hadir sebagai bagian tak terpisahkan dari identitas PT Wijaya International.',
+        'services.camera.introP2': 'Kami menyediakan rangkaian lengkap aksesori kamera yang dirancang khusus untuk membebaskan Anda dari batasan teknis, memberikan kontrol penuh atas visi kreatif, dan pada akhirnya, menyempurnakan setiap frame dari karya visual yang Anda hasilkan.',
+        'services.camera.section1P1': 'Kelengkapan aksesori yang kami tawarkan mencakup seluruh elemen vital pendukung produksi. Pada aspek visual, kami menyediakan jajaran solusi tata cahaya (lighting) profesional, mulai dari lampu studio berdaya tinggi untuk shooting komersial, hingga lighting ringkas dan portabel yang esensial bagi para content creator.',
+        'services.camera.section1P2': 'Pada aspek audio, yang seringkali menjadi penentu kualitas sebuah produksi video, kami menawarkan lini perangkat perekaman suara yang menjamin kejernihan audio dalam berbagai kondisi.',
+        'services.camera.section2P1': 'Lebih dari itu, kami menyadari bahwa stabilitas dan ergonomi adalah kunci dari produktivitas. Oleh karena itu, portofolio produk Camera Support kami turut diisi oleh berbagai jenis tripod, monopod, gimbal, dan grip yang presisi.',
+        'services.camera.section2P2': 'Rangkaian produk penyangga ini dirancang untuk menahan beban perlengkapan Anda dengan aman, memberikan pergerakan yang mulus, serta mengurangi tantangan fisik saat beroperasi dalam durasi panjang di lokasi shooting. Selain itu, kami juga menyediakan beragam aksesori penunjang esensial lainnya yang mungkin tampak kecil namun krusial bagi kelancaran operasional harian Anda.',
+        'services.camera.section3P1': 'Seluruh portofolio produk pendukung ini dikurasi dengan satu tujuan utama: sebagai pelengkap mutlak bagi kebutuhan fotografi dan videografi Anda. Kami hanya bekerja sama dengan produsen yang telah terbukti mampu memberikan tingkat durabilitas tinggi dan material premium, sehingga setiap aksesori yang Anda peroleh dari kami dapat bertahan menghadapi kerasnya medan produksi.',
+        'services.camera.section3P2': 'Dengan dukungan lini aksesori dari PT Wijaya International, Anda tidak perlu lagi berkompromi dengan kondisi cahaya yang buruk, suara yang bising, atau sudut pengambilan gambar yang sulit. Anda memiliki kebebasan penuh untuk mewujudkan imajinasi kreatif Anda.',
+
+        // Technical Service page
+        'services.technical.pageTitle': 'Technical Service & Repair',
+        'services.technical.pageDescription': 'PT Wijaya International menyediakan layanan Technical Service & Repair untuk perawatan dan perbaikan perangkat kamera serta aksesori pendukung produksi visual Anda.',
+        'services.technical.heroTitle': 'MENYEMPURNAKAN KUALITAS KARYA VISUAL DENGAN EKOSISTEM AKSESORI TERLENGKAP',
+        'services.technical.introP1': 'Dalam industri fotografi dan videografi modern, memiliki kamera dan lensa yang sesuai kebutuhan, merupakan setengah dari perjalanan kreatif Anda. Setengah lainnya sangat bergantung pada ekosistem perangkat pendukung yang digunakan.',
+        'services.technical.introP2': 'Di sinilah layanan Camera Support hadir sebagai bagian tak terpisahkan dari identitas PT Wijaya International. Kami menyediakan rangkaian lengkap aksesori kamera yang dirancang khusus untuk membebaskan Anda dari batasan teknis, memberikan kontrol penuh atas visi kreatif, dan pada akhirnya, menyempurnakan setiap frame dari karya visual yang Anda hasilkan.',
+        'services.technical.section1P1': 'Kelengkapan aksesori yang kami tawarkan mencakup seluruh elemen vital pendukung produksi. Pada aspek visual, kami menyediakan jajaran solusi tata cahaya (lighting) profesional, mulai dari lampu studio berdaya tinggi untuk shooting komersial, hingga lighting ringkas dan portabel yang esensial bagi para content creator.',
+        'services.technical.section1P2': 'Pada aspek audio, yang seringkali menjadi penentu kualitas sebuah produksi video, kami menawarkan lini perangkat perekaman suara yang menjamin kejernihan audio dalam berbagai kondisi.',
+        'services.technical.section2P1': 'Lebih dari itu, kami menyadari bahwa stabilitas dan ergonomi adalah kunci dari produktivitas. Oleh karena itu, portofolio produk Camera Support kami turut diisi oleh berbagai jenis tripod, monopod, gimbal, dan grip yang presisi.',
+        'services.technical.section2P2': 'Rangkaian produk penyangga ini dirancang untuk menahan beban perlengkapan Anda dengan aman, memberikan pergerakan yang mulus, serta mengurangi tantangan fisik saat beroperasi dalam durasi panjang di lokasi shooting. Selain itu, kami juga menyediakan beragam aksesori penunjang esensial lainnya yang mungkin tampak kecil namun krusial bagi kelancaran operasional harian Anda.',
+        'services.technical.section3P1': 'Seluruh portofolio produk pendukung ini dikurasi dengan satu tujuan utama: sebagai pelengkap mutlak bagi kebutuhan fotografi dan videografi Anda. Kami hanya bekerja sama dengan produsen yang telah terbukti mampu memberikan tingkat durabilitas tinggi dan material premium, sehingga setiap aksesori yang Anda peroleh dari kami dapat bertahan menghadapi kerasnya medan produksi.',
+        'services.technical.section3P2': 'Dengan dukungan lini aksesori dari PT Wijaya International, Anda tidak perlu lagi berkompromi dengan kondisi cahaya yang buruk, suara yang bising, atau sudut pengambilan gambar yang sulit. Anda memiliki kebebasan penuh untuk mewujudkan imajinasi kreatif Anda.',
+
+        // Technical Service Section
+        'services.technical.label': 'Technical Services & Repair',
+        'services.technical.p1': 'Kami menyadari bahwa peralatan fotografi dan videografi merupakan investasi penting bagi karir maupun bisnis Anda. Untuk melindungi investasi tersebut, PT Wijaya International mengoperasikan pusat layanan servis (service center) independen yang dilengkapi dengan standar perbaikan terkini.',
+        'services.technical.p2': 'Layanan perbaikan dan teknis kami dirancang untuk memberikan penanganan yang cepat, presisi, dan transparan. Dukungan after-sales yang kami miliki bukan sekadar fasilitas tambahan, melainkan komitmen jangka panjang kami terhadap kepuasan dan ketenangan pikiran pelanggan.',
+        'services.technical.p3': 'Tim teknisi kami yang berpengalaman siap memastikan setiap perangkat Anda kembali berfungsi optimal, mengedepankan profesionalitas di setiap tahap perbaikan.',
+        'services.technical.cta': 'Pelajari Selengkapnya',
 
         // Contact page
         'contact.page.title': 'Kontak',
@@ -464,9 +567,112 @@ export const translations = {
         'projects.back': 'Back to Projects',
         'projects.noDescription': 'No description available.',
 
-        // Services page
+        // Services page Hero
         'services.page.title': 'Our Services',
         'services.page.subtitle': 'A comprehensive service ecosystem supporting your business growth.',
+        'services.page.description': 'PT Wijaya International provides end-to-end solutions for your digital imaging ecosystem, covering brand management, accessories, and reliable after-sales support.',
+        'services.hero.label': 'SERVICES',
+        'services.hero.word1': 'INTEGRATED',
+        'services.hero.word2': 'DIGITAL',
+        'services.hero.word3': 'IMAGING',
+        'services.hero.word4': 'SOLUTIONS',
+        'services.hero.description': 'In the midst of the rapid growth of the creative industry and visual needs, high-quality equipment alone is no longer enough. A comprehensive ecosystem is needed to ensure every creative vision can be executed perfectly. PT Wijaya International is here as your strategic partner, providing end-to-end solutions that not only focus on providing hardware but also include brand management, complete accessories, and reliable after-sales guarantees.',
+        'services.hero.intro': 'We design this service structure to adapt to various scales of needs, from photography and videography enthusiasts, professional creative workers, to large corporations. Through our four main service pillars, we ensure that every aspect of your visual journey is supported by professional standards and industry reliability that have been tested over time.',
+
+        // Services Nav
+        'services.nav.brand': 'Brand Management',
+        'services.nav.imaging': 'Imaging Solution',
+        'services.nav.camera': 'Camera Support',
+        'services.nav.technical': 'Technical Service & Repair',
+
+        // Brand Management page
+        'services.brand.pageTitle': 'Brand Management',
+        'services.brand.pageDescription': 'PT Wijaya International provides Brand Management services to build strong brand presence and relevance in the Indonesian visual market.',
+        'services.brand.heroTitle': 'BUILDING STRONG BRAND PRESENCE & RELEVANCE IN THE VISUAL MARKET',
+        'services.brand.introTitle': 'Brand Management',
+        'services.brand.introP1': 'The success of a digital imaging product in the market is determined not only by its technical specifications, but also by how the brand is <strong>communicated</strong>, <strong>received</strong>, and <strong>brought to life</strong> by its users.',
+        'services.brand.introP2': 'At PT Wijaya International, our Brand Management service is dedicated to taking over that complexity through a strategic and measurable end-to-end approach.',
+        'services.brand.introP3': 'We act not just as a distributor, but as an extension of the brand principal to ensure product vision is translated into marketing execution that creates real impact in the field.',
+        'services.brand.campaignLabel': 'CAMPAIGN ACTIVATION',
+        'services.brand.campaignTitle': 'Campaign Activation',
+        'services.brand.campaignP1': 'Our brand management process begins from the initial planning phase to after-sales evaluation. We start a product\'s journey through <strong>campaign activation</strong> specifically designed to capture market attention at the most opportune moment.',
+        'services.brand.campaignP2': 'We understand that the initial introduction must leave a strong impression, therefore each campaign is crafted considering local consumer profiles and current industry trends. However, a launch is only the first step. To keep the product top of mind, we implement sustainable marketing strategies that maintain attention on your brand across various communication channels.',
+        'services.brand.eventLabel': 'EVENT & COMMUNITY',
+        'services.brand.eventTitle': 'Event & Community',
+        'services.brand.eventP1': 'In addition to regular marketing, we actively design and execute thematic events tailored to various seasons or celebrations. These events serve as a space for direct interaction between products and potential consumers, providing hands-on experiences that cannot be replaced by digital advertising alone.',
+        'services.brand.eventP2': 'Furthermore, the true strength of a camera brand lies in its users. Therefore, we place great focus on community activation. By embracing communities of photographers, content creators, and videographers, we turn users into loyal brand partners.',
+        'services.brand.portfolioLabel': 'PORTFOLIO EXPERIENCE',
+        'services.brand.portfolioTitle': 'Portfolio Experience',
+        'services.brand.portfolioP1': 'Our experience in managing brand portfolios has been proven over time. As the full manager for renowned brands like Kodak Pixpro, we have demonstrated our capacity to navigate the challenges of the digital camera market.',
+        'services.brand.portfolioP2': 'We ensure every brand under our management receives the spotlight it deserves, sharp strategies, and sustainable market share growth. Choosing our Brand Management service means choosing certainty that your brand\'s identity and business potential are in hands that understand this industry.',
+
+        // Imaging Solution page
+        'services.imaging.pageTitle': 'Imaging Solution',
+        'services.imaging.pageDescription': 'PT Wijaya International provides comprehensive solutions for all your digital imaging needs, from equipment to technical guidance.',
+        'services.imaging.heroTitle': 'COMPREHENSIVE SOLUTIONS FOR EVERY DIGITAL IMAGING NEED',
+        'services.imaging.introP1': 'The world of digital imaging is a vast and ever-evolving landscape, where every individual and business entity has their own visual challenges. PT Wijaya International\'s Imaging Solution service is designed to be a single comprehensive answer for the entire spectrum of these needs.',
+        'services.imaging.introP2': 'We do not simply move boxes of products; we present a carefully curated end-to-end solution to ensure that your final visual output, whether still photos or high-resolution video production, meets the standards you expect.',
+        'services.imaging.section1Label': 'PROFESSIONAL & BUSINESS SCALE',
+        'services.imaging.section1P1': 'This service covers a wide range of device lines, ready to serve demands from various user levels. For professionals who stake their reputation on sharpness and reliability, we provide hardware with the highest specifications capable of working optimally under intense operational pressure.',
+        'services.imaging.section1P2': 'On the other hand, for businesses, agencies, and production houses that need device standardization with cost efficiency, we can formulate the most appropriate imaging solution packages, optimizing every aspect of your company\'s visual operations without sacrificing quality.',
+        'services.imaging.section2Label': 'PORTFOLIO DIVERSITY',
+        'services.imaging.section2P1': 'Under this Imaging Solution umbrella, you will find direct access to the portfolio of superior camera products that we officially distribute. Our product range is highly varied to suit different creator identities. From cameras with classic performance and proven technical reliability like the Kodak Pixpro line ready to handle fundamental photography needs, to SBOX, an alternative digital camera brand offering a more fun, trendy, and enjoyable shooting experience.',
+        'services.imaging.section2P2': 'This portfolio diversity reflects our commitment that whatever visual style you want to achieve, whether serious commercial documentation or casual lifestyle content creation, we have the right tools to make it happen.',
+        'services.imaging.section3Label': 'CONSULTATIVE APPROACH',
+        'services.imaging.section3P1': 'By choosing Imaging Solution from PT Wijaya International, you get more than just a purchase transaction. You gain access to the consultative expertise of our team who will help map your needs, match them with our product portfolio, and ensure you invest in the right camera system.',
+        'services.imaging.section3P2': 'This solution-based approach ensures you are always ready to capture every moment, respond to every client brief, and produce visual work that speaks louder than words.',
+
+        // Brand Management Section
+        'services.brand.label': 'Brand Management',
+        'services.brand.p1': 'We design this service structure to adapt to various scales of needs, from <strong>photography</strong> and <strong>videography enthusiasts</strong>, <strong>professional creative workers</strong>, to <strong>large corporations</strong>.',
+        'services.brand.p2': 'Through our four main service pillars, we ensure that every aspect of your visual journey is supported by professional standards and industry reliability that have been tested over time.',
+        'services.brand.cta': 'Learn More',
+
+        // Imaging Solution Section
+        'services.imaging.label': 'Imaging Solution',
+        'services.imaging.p1': 'The need for visual quality continues to increase across various sectors. Therefore, our Imaging Solution service is here to provide complete answers for your photography and videography needs. We provide comprehensive solutions that bridge device needs from beginner, professional, to business and industrial scales.',
+        'services.imaging.p2': 'Through this service, we showcase the best camera product portfolio we distribute, ensuring every client finds the device specifications most suitable for the field challenges they face. We understand that each project has its own technical demands, and our team is ready to provide product guidance for maximum digital imaging results.',
+        'services.imaging.cta': 'Learn More',
+
+        // Camera Support Section
+        'services.camera.label': 'Camera Support & Accessories',
+        'services.camera.p1': 'A robust camera requires equally reliable accessory support to produce outstanding work. Our Camera Support service is dedicated to complementing your main device with a comprehensive ecosystem of supporting tools.',
+        'services.camera.p2': 'We present quality supporting products, ranging from precision lighting systems, crystal-clear audio devices, to stabilization equipment such as grips and tripods.',
+        'services.camera.p3': 'All accessories we provide are strictly curated to ensure compatibility and durability, freeing you from technical constraints and allowing you to fully focus on the creative process.',
+        'services.camera.cta': 'Learn More',
+
+        // Camera Support page
+        'services.camera.pageTitle': 'Camera Support',
+        'services.camera.pageDescription': 'PT Wijaya International provides Camera Support service to complement your main device with a comprehensive ecosystem of accessories.',
+        'services.camera.heroTitle': 'PERFECTING VISUAL WORK QUALITY WITH THE MOST COMPLETE ACCESSORY ECOSYSTEM',
+        'services.camera.introP1': 'In the modern photography and videography industry, having the right camera and lens is only half of your creative journey. The other half heavily depends on the ecosystem of supporting devices used. This is where Camera Support service comes as an inseparable part of PT Wijaya International\'s identity.',
+        'services.camera.introP2': 'We provide a complete range of camera accessories specifically designed to free you from technical limitations, giving you full control over your creative vision, and ultimately, perfecting every frame of the visual work you produce.',
+        'services.camera.section1P1': 'The range of accessories we offer covers all vital production support elements. On the visual aspect, we provide professional lighting solutions, from high-power studio lights for commercial shoots to compact and portable lighting essential for content creators.',
+        'services.camera.section1P2': 'On the audio aspect, which often determines the quality of a video production, we offer a line of sound recording devices that guarantee audio clarity in various conditions.',
+        'services.camera.section2P1': 'Furthermore, we realize that stability and ergonomics are the keys to productivity. Therefore, our Camera Support product portfolio also includes various precision tripods, monopods, gimbals, and grips.',
+        'services.camera.section2P2': 'This range of support products is designed to safely hold your equipment, provide smooth movement, and reduce physical challenges during long-duration operation at shooting locations. Additionally, we also provide various other essential supporting accessories that may seem small but are crucial for your daily operational smoothness.',
+        'services.camera.section3P1': 'All of these supporting product portfolios are curated with one main goal: as an absolute complement to your photography and videography needs. We only partner with manufacturers who have proven their ability to provide high durability and premium materials, so every accessory you obtain from us can withstand the rigors of production environments.',
+        'services.camera.section3P2': 'With the support of PT Wijaya International\'s accessory line, you no longer need to compromise with poor lighting conditions, noisy audio, or difficult shooting angles. You have full freedom to realize your creative imagination.',
+
+        // Technical Service page
+        'services.technical.pageTitle': 'Technical Service & Repair',
+        'services.technical.pageDescription': 'PT Wijaya International provides Technical Service & Repair for maintenance and repair of camera devices and visual production supporting accessories.',
+        'services.technical.heroTitle': 'PERFECTING VISUAL WORK QUALITY WITH THE MOST COMPLETE ACCESSORY ECOSYSTEM',
+        'services.technical.introP1': 'In the modern photography and videography industry, having the right camera and lens is only half of your creative journey. The other half heavily depends on the ecosystem of supporting devices used.',
+        'services.technical.introP2': 'This is where Camera Support service comes as an inseparable part of PT Wijaya International\'s identity. We provide a complete range of camera accessories specifically designed to free you from technical limitations, giving you full control over your creative vision, and ultimately, perfecting every frame of the visual work you produce.',
+        'services.technical.section1P1': 'The range of accessories we offer covers all vital production support elements. On the visual aspect, we provide professional lighting solutions, from high-power studio lights for commercial shoots to compact and portable lighting essential for content creators.',
+        'services.technical.section1P2': 'On the audio aspect, which often determines the quality of a video production, we offer a line of sound recording devices that guarantee audio clarity in various conditions.',
+        'services.technical.section2P1': 'Furthermore, we realize that stability and ergonomics are the keys to productivity. Therefore, our Camera Support product portfolio also includes various precision tripods, monopods, gimbals, and grips.',
+        'services.technical.section2P2': 'This range of support products is designed to safely hold your equipment, provide smooth movement, and reduce physical challenges during long-duration operation at shooting locations. Additionally, we also provide various other essential supporting accessories that may seem small but are crucial for your daily operational smoothness.',
+        'services.technical.section3P1': 'All of these supporting product portfolios are curated with one main goal: as an absolute complement to your photography and videography needs. We only partner with manufacturers who have proven their ability to provide high durability and premium materials, so every accessory you obtain from us can withstand the rigors of production environments.',
+        'services.technical.section3P2': 'With the support of PT Wijaya International\'s accessory line, you no longer need to compromise with poor lighting conditions, noisy audio, or difficult shooting angles. You have full freedom to realize your creative imagination.',
+
+        // Technical Service Section
+        'services.technical.label': 'Technical Services & Repair',
+        'services.technical.p1': 'We realize that photography and videography equipment is an important investment for your career or business. To protect this investment, PT Wijaya International operates an independent service center equipped with the latest repair standards.',
+        'services.technical.p2': 'Our repair and technical services are designed to provide fast, precise, and transparent handling. Our after-sales support is not just an additional facility, but our long-term commitment to customer satisfaction and peace of mind.',
+        'services.technical.p3': 'Our experienced technician team is ready to ensure every device returns to optimal function, prioritizing professionalism at every stage of repair.',
+        'services.technical.cta': 'Learn More',
 
         // Contact page
         'contact.page.title': 'Contact',

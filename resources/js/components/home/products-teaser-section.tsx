@@ -6,7 +6,14 @@ import { useLanguage } from '@/lib/language-context';
 import { products } from '@/routes';
 import { EASE, fadeUp, staggerFast, staggerSlow } from './motion-variants';
 import type { ProductCategoryData } from './types';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+
+const serviceRoutes: Record<string, string> = {
+    brand: '/services/brand-management',
+    imaging: '/services/imaging-solution',
+    camera: '/services/camera-support',
+    technical: '/services/technical-service-repair',
+};
 
 interface ProductsTeaserSectionProps {
     productCategories: ProductCategoryData[];
@@ -17,6 +24,11 @@ function ProductCard({ cat, lang }: { cat: { key: string; title: string; body: s
     const [isMobile, setIsMobile] = useState(false);
 
     const { t } = useLanguage();
+
+    const navigateToService = useCallback(() => {
+        const route = serviceRoutes[cat.key] ?? products().url;
+        router.visit(route);
+    }, [cat.key]);
 
     useEffect(() => {
         const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -55,7 +67,7 @@ function ProductCard({ cat, lang }: { cat: { key: string; title: string; body: s
                 if (isMobile) {
                     setIsActive((prev) => !prev);
                 } else {
-                    router.visit(products().url);
+                    navigateToService();
                 }
             }}
         >
@@ -112,7 +124,7 @@ function ProductCard({ cat, lang }: { cat: { key: string; title: string; body: s
                     } ${!active ? 'group-hover:translate-y-0 group-hover:opacity-100' : ''}`}
                     onClick={(e) => {
                         e.stopPropagation();
-                        router.visit(products().url);
+                        navigateToService();
                     }}
                 >
                     {t('about.cta')}

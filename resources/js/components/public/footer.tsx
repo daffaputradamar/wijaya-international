@@ -40,10 +40,10 @@ export default function Footer() {
           ];
 
     const serviceLinks = [
-        { label: 'Brand Management', href: `${home().url}#about` },
-        { label: 'Imaging Solution', href: `${home().url}#services` },
-        { label: 'Camera Support', href: `${home().url}#services` },
-        { label: 'Technical Services & Repairs', href: `${home().url}#services` },
+        { label: 'Brand Management', href: '/services/brand-management' },
+        { label: 'Imaging Solution', href: '/services/imaging-solution' },
+        { label: 'Camera Support', href: '/services/camera-support' },
+        { label: 'Technical Services & Repairs', href: '/services/technical-service-repair' },
     ];
 
     const companyLinks = [

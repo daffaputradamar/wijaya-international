@@ -93,6 +93,26 @@ class PublicController extends Controller
         ]);
     }
 
+    public function brandManagement(): Response
+    {
+        return Inertia::render('services/brand-management');
+    }
+
+    public function imagingSolution(): Response
+    {
+        return Inertia::render('services/imaging-solution');
+    }
+
+    public function cameraSupport(): Response
+    {
+        return Inertia::render('services/camera-support');
+    }
+
+    public function technicalServiceRepair(): Response
+    {
+        return Inertia::render('services/technical-service-repair');
+    }
+
     private function getProducts(): array
     {
         return [
@@ -125,24 +145,31 @@ class PublicController extends Controller
         return [
             [
                 'id' => 1,
-                'key' => 'distribution',
-                'title' => 'Distribution Network',
-                'description' => 'services.distribution_desc',
-                'image' => '/images/wijaya/road-landscape.jpg',
+                'key' => 'brand',
+                'title' => 'services.brand.label',
+                'description' => 'services.brand.p1',
+                'image' => '/images/wijaya/brand-management.png',
             ],
             [
                 'id' => 2,
-                'key' => 'logistics',
-                'title' => 'Logistics Solutions',
-                'description' => 'services.logistics_desc',
-                'image' => '/images/wijaya/wijayalocations.avif',
+                'key' => 'imaging',
+                'title' => 'services.imaging.label',
+                'description' => 'services.imaging.p1',
+                'image' => '/images/wijaya/imaging-solution.png',
             ],
             [
                 'id' => 3,
-                'key' => 'after_sales',
-                'title' => 'After Sales Support',
-                'description' => 'services.after_sales_desc',
-                'image' => '/images/wijaya/logo/wijaya_white.png',
+                'key' => 'camera',
+                'title' => 'services.camera.label',
+                'description' => 'services.camera.p1',
+                'image' => '/images/wijaya/camera-support.png',
+            ],
+            [
+                'id' => 4,
+                'key' => 'technical',
+                'title' => 'services.technical.label',
+                'description' => 'services.technical.p1',
+                'image' => '/images/wijaya/technical-service.png',
             ],
         ];
     }

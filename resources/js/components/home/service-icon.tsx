@@ -1,4 +1,4 @@
-import { LuCamera, LuChartBar, LuPackage, LuSmartphone } from 'react-icons/lu';
+import { LuCamera, LuChartBar, LuPackage, LuSmartphone, LuBuilding2, LuWrench, LuHeadphones } from 'react-icons/lu';
 
 interface ServiceIconProps {
     iconKey: string;
@@ -28,7 +28,10 @@ export default function ServiceIcon({ iconKey, className = 'w-16 h-16' }: Servic
     }
 
     const iconMap: Record<string, React.ReactNode> = {
+        brand: <LuBuilding2 className={className} />,
         imaging: <LuCamera className={className} />,
+        camera: <LuCamera className={className} />,
+        technical: <LuWrench className={className} />,
         marketing: <LuChartBar className={className} />,
         accessories: <LuSmartphone className={className} />,
     };

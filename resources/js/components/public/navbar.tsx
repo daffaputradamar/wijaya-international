@@ -113,10 +113,10 @@ export default function Navbar() {
             href: servicesHref,
             kind: 'links',
             children: [
-                { label: t('service.brand.title'), href: servicesHref },
-                { label: t('service.imaging.title'), href: servicesHref },
-                { label: t('service.camera.title'), href: servicesHref },
-                { label: t('products.technical.title'), href: servicesHref },
+                { label: t('service.brand.title'), href: '/services/brand-management' },
+                { label: t('service.imaging.title'), href: '/services/imaging-solution' },
+                { label: t('service.camera.title'), href: '/services/camera-support' },
+                { label: t('products.technical.title'), href: '/services/technical-service-repair' },
                 { label: t('nav.moreServices'), href: servicesHref, highlight: true },
             ],
         },
@@ -196,7 +196,7 @@ export default function Navbar() {
 
     const containerBase = 'fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out';
     const containerPosition = isHeroState
-        ? 'top-0 px-6 py-6 lg:px-12'
+        ? 'top-0 w-full px-6 py-6 lg:px-12'
         : 'top-4 w-full max-w-full px-4 lg:px-8';
     const containerTransform = isVisible ? 'translate-y-0 opacity-100' : '-translate-y-[150%] opacity-0';
 

@@ -1,88 +1,124 @@
 import { Head } from '@inertiajs/react';
-import GuestLayout from '@/layouts/guest-layout';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '@/lib/language-context';
+import ContactSection from '@/components/home/contact-section';
+import Footer from '@/components/public/footer';
+import GuestLayout from '@/layouts/guest-layout';
+import ServicesHeroSection from '@/components/services/services-hero-section';
+import BrandManagementSection from '@/components/services/brand-management-section';
+import ImagingSolutionSection from '@/components/services/imaging-solution-section';
+import CameraSupportSection from '@/components/services/camera-support-section';
+import TechnicalServiceSection from '@/components/services/technical-service-section';
+import ServiceIcon from '@/components/home/service-icon';
+import { ArrowUpIcon } from 'lucide-react';
+import QuoteServiceSection from '@/components/services/quote-service-section';
 
-interface Service {
-    id: number;
-    key: string;
-    title: string;
-    description: string;
-    image: string;
+const navSections = [
+    { id: 'brand', labelKey: 'services.nav.brand', iconKey: 'brand' },
+    { id: 'imaging', labelKey: 'services.nav.imaging', iconKey: 'imaging' },
+    { id: 'camera', labelKey: 'services.nav.camera', iconKey: 'camera' },
+    { id: 'technical', labelKey: 'services.nav.technical', iconKey: 'technical' },
+] as const;
+
+function scrollTo(id: string) {
+    const el = document.getElementById(id);
+    if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top, behavior: 'smooth' });
+    }
 }
 
-interface ServicesProps {
-    services: Service[];
-}
+const sectionIds = navSections.map((s) => s.id);
 
-export default function Services({ services }: ServicesProps) {
+export default function Services() {
     const { t } = useLanguage();
+    const [activeSection, setActiveSection] = useState('brand');
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                }
+            },
+            { threshold: 0.3 },
+        );
+
+        for (const id of sectionIds) {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
-        <GuestLayout>
-            <Head title="Services">
-                <meta head-key="description" name="description" content="Layanan distribusi nasional, dukungan purna jual, dan kemitraan bisnis dari PT Wijaya International untuk seluruh wilayah Indonesia." />
-                <meta head-key="og:title" property="og:title" content="Services | PT Wijaya International" />
-                <meta head-key="og:description" property="og:description" content="Layanan distribusi nasional, dukungan purna jual, dan kemitraan bisnis dari PT Wijaya International." />
+        <GuestLayout hideFooter>
+            <Head title={t('services.page.title')}>
+                <meta
+                    head-key="description"
+                    name="description"
+                    content={t('services.page.description')}
+                />
+                <meta
+                    head-key="og:title"
+                    property="og:title"
+                    content={t('services.page.title')}
+                />
+                <meta
+                    head-key="og:description"
+                    property="og:description"
+                    content={t('services.page.subtitle')}
+                />
+                <meta
+                    head-key="twitter:title"
+                    name="twitter:title"
+                    content={t('services.page.title')}
+                />
+                <meta
+                    head-key="twitter:description"
+                    name="twitter:description"
+                    content={t('services.page.subtitle')}
+                />
             </Head>
 
-            {/* Page Hero */}
-            <section className="pt-32 pb-20 px-6 lg:px-12 bg-[#0a0a0a]">
-                <div className="max-w-7xl mx-auto">
-                    <p className="text-white/30 text-xs tracking-[0.4em] uppercase font-medium mb-6">
-                        {t('nav.services', 'Services')}
-                    </p>
-                    <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-                        {t('services.page.title', 'Comprehensive Solutions')}
-                    </h1>
-                    <p className="text-white/50 text-lg max-w-xl">
-                        {t('services.page.subtitle', 'End-to-end services tailored for your business growth.')}
-                    </p>
-                </div>
-            </section>
+            <div className="fixed right-0 bottom-0 left-0 z-50 mb-6 hidden md:flex justify-between gap-4 bg-[#000168] py-3 px-5 backdrop-blur-md w-[calc(100%-2rem)] mx-auto rounded-xl">
+                {navSections.map(({ id, labelKey, iconKey }) => (
+                    <button
+                        key={id}
+                        onClick={() => scrollTo(id)}
+                        className={`flex flex-1 items-center rounded-full px-8 py-3 text-white ${
+                            activeSection === id ? 'border' : ''
+                        }`}
+                    >
+                        <ServiceIcon iconKey={iconKey} className="mr-2 size-8" />
+                        <span className='font-medium text-lg'>{t(labelKey)}</span>
+                    </button>
+                ))}
+                <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="flex items-center justify-center rounded-full bg-white/20 text-white aspect-square size-[52px] shrink-0"
+                >
+                    <ArrowUpIcon className="size-6 text-white" />
+                </button>
+            </div>
 
-            {/* Service list */}
-            <section className="px-6 lg:px-12 pb-24 bg-[#0a0a0a]">
-                <div className="max-w-7xl mx-auto flex flex-col gap-0 border border-white/10 rounded-2xl overflow-hidden">
-                    {services.map((service, index) => (
-                        <div
-                            key={service.id}
-                            className={`group relative flex flex-col md:flex-row items-stretch ${
-                                index < services.length - 1 ? 'border-b border-white/10' : ''
-                            } ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
-                        >
-                            {/* Image Background for Mobile / Side for Desktop */}
-                            <div className="md:w-2/5 min-h-[300px] overflow-hidden relative">
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                                <img
-                                    src={service.image}
-                                    alt={service.title}
-                                    className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                />
-                            </div>
-
-                            {/* Content */}
-                            <div className="md:w-3/5 flex flex-col justify-center px-8 py-12 lg:px-16 bg-[#0f0f0f] relative z-20">
-                                <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-blue-500/0 via-blue-500/50 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                                <p className="text-white/30 text-xs tracking-[0.4em] uppercase font-medium mb-4">
-                                    0{index + 1} — Service
-                                </p>
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 group-hover:text-blue-400 transition-colors duration-300">
-                                    {service.title}
-                                </h2>
-                                <p className="text-white/50 text-lg leading-relaxed max-w-xl">
-                                    {/* Try to translate if it's a key, otherwise display text.
-                                        Since t() usually returns the key if strict or translation missing,
-                                        we might ideally check. But for now we assume it behaves gracefully.
-                                        If description is 'services.distribution_desc', t() should translate it.
-                                    */}
-                                    {service.description.includes('.') ? t(service.description) : service.description}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+            <ServicesHeroSection />
+            <QuoteServiceSection/>
+            <div className="relative z-0">
+                <BrandManagementSection />
+                <ImagingSolutionSection />
+                <CameraSupportSection />
+                <TechnicalServiceSection />
+            </div>
+            <div className="relative z-0">
+                <ContactSection />
+            </div>
+            <div className="relative z-50 -mt-[100vh]">
+                <Footer />
+            </div>
         </GuestLayout>
     );
 }
