@@ -194,7 +194,7 @@ export default function Navbar() {
 
     const isHeroState = isAtTop && isHome;
 
-    const containerBase = 'fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out';
+    const containerBase = 'fixed left-0 right-0 z-[100] transition-all duration-500 ease-in-out';
     const containerPosition = isHeroState
         ? 'top-0 w-full px-6 py-6 lg:px-12'
         : 'top-4 w-full max-w-full px-4 lg:px-8';
@@ -234,7 +234,7 @@ export default function Navbar() {
             const cta = item.children?.[0];
 
             return (
-                <div className="pointer-events-none invisible absolute top-full left-1/2 z-50 w-152 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100">
+                <div className="pointer-events-none invisible absolute top-full left-1/2 z-[110] w-152 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100">
                     <div className="rounded-4xl border border-gray-200 bg-white p-6 shadow-2xl shadow-[#1833a0]/10">
                         <div className="mb-4 flex items-center justify-between">
                             <div>
@@ -269,7 +269,7 @@ export default function Navbar() {
         }
 
         return (
-            <div className="pointer-events-none invisible absolute top-full left-1/2 z-50 w-80 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100">
+            <div className="pointer-events-none invisible absolute top-full left-1/2 z-[110] w-80 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100">
                 <div className="rounded-4xl border border-gray-200 bg-white p-3 shadow-2xl shadow-[#1833a0]/10">
                     {item.children.map((child) => (
                         <a
