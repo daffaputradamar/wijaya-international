@@ -11,6 +11,7 @@ import {
 import ServiceIcon from './service-icon';
 import type { ServiceCardData } from './types';
 import { useState, useEffect } from 'react';
+import { profile } from '@/routes';
 
 interface WhatWeDoSectionProps {
     serviceCards: ServiceCardData[];
@@ -119,7 +120,7 @@ function ServiceCard({
                 } ${!active ? 'group-hover:opacity-100' : ''}`}
             >
                 <a
-                    href="#"
+                    href={`${profile().url}#${card.key}`}
                     className="inline-flex items-center gap-2 font-semibold text-red-500 transition-colors hover:text-red-400"
                     onClick={(e) => e.stopPropagation()}
                 >

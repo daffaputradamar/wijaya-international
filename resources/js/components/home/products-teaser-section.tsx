@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { LuArrowRight } from 'react-icons/lu';
 import { SplitIconButton } from '@/components/ui/split-icon-button';
 import { useLanguage } from '@/lib/language-context';
-import { products } from '@/routes';
+import { products, services } from '@/routes';
 import { EASE, fadeUp, staggerFast, staggerSlow } from './motion-variants';
 import type { ProductCategoryData } from './types';
 import { useState, useEffect, useCallback } from 'react';
@@ -202,7 +202,7 @@ export default function ProductsTeaserSection({ productCategories: categories }:
                             icon={<LuArrowRight className="h-5 w-5" />}
                             variant="red"
                             size="lg"
-                            onClick={() => router.visit(products().url)}
+                            onClick={() => router.visit(services().url)}
                         />
                     </motion.div>
                 </div>

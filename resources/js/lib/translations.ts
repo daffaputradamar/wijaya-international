@@ -12,8 +12,8 @@ export const translations = {
         'nav.moreServices': 'Layanan Selengkapnya',
         'nav.moreProducts': 'Produk Selengkapnya',
         'nav.dealer': 'Dealer',
-        'nav.news': 'Berita',
         'nav.contact': 'Kontak',
+        'nav.news': 'News & Updates',
         'nav.getInTouch': 'Hubungi Kami',
 
         // Hero Section
@@ -396,8 +396,8 @@ export const translations = {
         'nav.moreServices': 'More Services',
         'nav.moreProducts': 'More Products',
         'nav.dealer': 'Dealers',
-        'nav.news': 'News',
         'nav.contact': 'Contact',
+        'nav.news': 'News & Updates',
         'nav.getInTouch': 'Get In Touch',
 
         // Hero Section

@@ -127,7 +127,7 @@ export default function Navbar() {
             children: [{ label: t('nav.moreProducts'), href: productsHref, highlight: true }],
         },
         { label: t('nav.dealer'), href: `${homeHref}#dealer`, sectionId: 'dealer' },
-        { label: t('nav.contact'), href: `${homeHref}#contact`, sectionId: 'contact' },
+        { label: t('nav.news'), href: `#` },
     ];
 
     const navigateToItem = (href: string, sectionId?: string | null) => {

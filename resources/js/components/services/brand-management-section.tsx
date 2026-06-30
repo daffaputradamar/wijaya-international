@@ -10,11 +10,11 @@ export default function BrandManagementSection() {
     return (
         <section id="brand" className="sticky top-0 z-10 h-screen px-6 py-12 lg:px-12">
             <motion.div
-                className="relative mx-auto h-[calc(100vh-12rem)] w-full max-w-screen overflow-hidden rounded-4xl"
+                className="relative mx-auto h-[calc(100vh-12rem)] w-full max-w-screen overflow-hidden rounded-4xl object-cover bg-no-repeat"
                 style={{
                     backgroundImage: 'url(/assets/images/brand-management.png)',
                     backgroundPosition: 'left center',
-                    backgroundSize: '130%',
+                    backgroundSize: 'cover',
                 }}
                 variants={staggerSlow}
                 initial="hidden"
@@ -31,7 +31,7 @@ export default function BrandManagementSection() {
                 />
 
                 <motion.div
-                    className="absolute bottom-0 left-0 flex flex-col justify-between h-full max-w-3xl p-8 md:p-16"
+                    className="absolute bottom-0 left-0 flex flex-col justify-between h-full max-w-3xl overflow-y-auto p-6 md:p-16"
                     variants={fadeUp}
                 >
                     <div />

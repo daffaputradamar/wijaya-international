@@ -22,7 +22,8 @@ export default function TechnicalServiceSection() {
                     style={{
                         backgroundImage: 'url(/assets/images/technical-service.png)',
                         backgroundPosition: 'right center',
-                        backgroundSize: '130%',
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
                     }}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
@@ -35,7 +36,7 @@ export default function TechnicalServiceSection() {
                 />
 
                 <motion.div
-                    className="absolute bottom-0 right-0 flex flex-col justify-between h-full max-w-3xl p-8 md:p-16"
+                    className="absolute bottom-0 right-0 flex flex-col justify-between h-full max-w-3xl overflow-y-auto p-6 md:p-16"
                     variants={fadeUp}
                 >
                     <h2 className="mb-6 text-5xl font-bold tracking-tighter text-white md:text-7xl">
