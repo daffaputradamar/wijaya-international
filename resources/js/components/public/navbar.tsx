@@ -103,7 +103,7 @@ export default function Navbar() {
             kind: 'links',
             children: [
                 { label: t('nav.aboutUs'), href: `${homeHref}#about`, sectionId: 'about' },
-                { label: t('nav.mainBusiness'), href: `${homeHref}#services`, sectionId: 'services' },
+                { label: t('nav.mainBusiness'), href: profileHref },
                 { label: t('nav.ownerProfile'), href: '#' },
                 { label: t('nav.fullProfile'), href: profileHref, highlight: true },
             ],
