@@ -6,7 +6,7 @@ interface SplitIconButtonProps {
     icon: React.ReactNode;
     onClick?: () => void;
     className?: string;
-    variant?: 'default' | 'secondary' | 'red';
+    variant?: 'default' | 'secondary' | 'red' | 'blue';
     size?: 'sm' | 'md' | 'lg';
     type?: 'button' | 'submit' | 'reset';
     iconPosition?: 'left' | 'right';
@@ -42,6 +42,10 @@ export function SplitIconButton({
         red: {
             text: 'bg-red-500 text-white shadow-lg',
             icon: 'bg-red-500 text-white shadow-lg',
+        },
+        blue: {
+            text: 'bg-white text-[#1833a0] ring-1 ring-inset ring-[#1833a0]/25 dark:bg-white/10 dark:text-white dark:ring-white/20',
+            icon: 'ring-1 ring-inset ring-[#1833a0]/25 text-[#1833a0]',
         },
     };
 

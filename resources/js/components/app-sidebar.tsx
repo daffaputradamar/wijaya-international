@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, FolderOpen, Images, LayoutGrid, Layers, MapPin, MessageCircle, Newspaper, Package, Phone, Star } from 'lucide-react';
+import { BookOpen, Folder, FolderOpen, Images, LayoutGrid, Layers, MapPin, MessageCircle, Newspaper, Package, Phone, Star, Tag } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -32,6 +32,16 @@ const showcaseItems: NavItem[] = [
         title: 'Projects',
         href: '/admin/projects',
         icon: Images,
+    },
+    {
+        title: 'Brands',
+        href: '/admin/brands',
+        icon: Tag,
+    },
+    {
+        title: 'Products',
+        href: '/admin/products',
+        icon: Package,
     },
 ];
 

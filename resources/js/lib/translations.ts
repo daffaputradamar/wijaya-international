@@ -177,6 +177,20 @@ export const translations = {
         // Products page
         'products.page.title': 'Produk Kami',
         'products.page.subtitle': 'Solusi imaging terlengkap untuk kebutuhan Anda.',
+        'products.hero.title': 'Produk',
+        'products.hero.p1':
+            'Sebagai mitra resmi tepercaya bagi berbagai brand global teknologi visual yang terkemuka, PT Wijaya International mengkurasi jajaran produk berkualitas tinggi yang dirancang untuk menjawab setiap skala kebutuhan kreatif. Bagi Anda para pemula hingga tim produksi kelas profesional, semua pilihan tersedia.',
+        'products.hero.p2':
+            'Jelajahi koleksi kamera untuk kebutuhan studio atau hobi Anda, solusi tata cahaya yang sinematik, perangkat audio yang penuh detil, hingga aksesoris pendukung yang presisi, semua dari brand-brand pilihan Anda. Di mana setiap unit yang kami hadirkan dijamin 100% orisinal dan didukung penuh oleh layanan purna jual yang andal.',
+        'products.brands': 'Brands',
+        'products.all': 'Semua',
+        'products.highlight': 'Highlight Product',
+        'products.more': 'Product Selengkapnya',
+        'products.discover': 'Discover',
+        'products.techspec': 'Technical Specification',
+        'products.specification': 'Spesifikasi',
+        'products.availableColors': 'Pilihan Warna',
+        'products.empty': 'Belum ada produk untuk brand ini.',
 
         // Projects page
         'projects.page.subtitle': 'Dokumentasi kampanye nasional, event peluncuran, dan aktivasi brand kami.',
@@ -561,6 +575,20 @@ export const translations = {
         // Products page
         'products.page.title': 'Our Products',
         'products.page.subtitle': 'The most complete imaging solutions for your needs.',
+        'products.hero.title': 'Products',
+        'products.hero.p1':
+            'As a trusted official partner of leading global visual-technology brands, PT Wijaya International curates a range of high-quality products designed to answer every scale of creative need. From beginners to professional production teams, every option is available.',
+        'products.hero.p2':
+            'Explore camera collections for your studio or hobby needs, cinematic lighting solutions, detail-rich audio devices, and precision supporting accessories, all from your favorite brands. Every unit we deliver is guaranteed 100% original and fully backed by reliable after-sales service.',
+        'products.brands': 'Brands',
+        'products.all': 'All',
+        'products.highlight': 'Highlight Product',
+        'products.more': 'More Products',
+        'products.discover': 'Discover',
+        'products.techspec': 'Technical Specification',
+        'products.specification': 'Specification',
+        'products.availableColors': 'Available Colors',
+        'products.empty': 'No products for this brand yet.',
 
         // Projects page
         'projects.page.subtitle': 'A showcase of our nationwide campaigns, launch events, and brand activations.',

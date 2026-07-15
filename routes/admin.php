@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ContactInfoController;
 use App\Http\Controllers\Admin\DealerController;
 use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\NewsCategoryController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SocialLinkController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +17,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 
     Route::resource('projects', ProjectController::class)->except(['show']);
     Route::post('projects/reorder', [ProjectController::class, 'reorder'])->name('projects.reorder');
+
+    Route::resource('brands', BrandController::class)->except(['show', 'create', 'edit']);
+    Route::post('brands/reorder', [BrandController::class, 'reorder'])->name('brands.reorder');
+
+    Route::resource('products', ProductController::class)->except(['show']);
+    Route::post('products/reorder', [ProductController::class, 'reorder'])->name('products.reorder');
 
     Route::get('contact', [ContactInfoController::class, 'index'])->name('contact.index');
     Route::put('contact', [ContactInfoController::class, 'update'])->name('contact.update');

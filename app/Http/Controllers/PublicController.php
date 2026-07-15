@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\ContactInfo;
 use App\Models\ContactSubmission;
 use App\Models\News;
 use App\Models\NewsCategory;
+use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\Project;
 use App\Models\SocialLink;
 use Illuminate\Http\RedirectResponse;
@@ -51,10 +54,33 @@ class PublicController extends Controller
         return Inertia::render('profile');
     }
 
-    public function products(): Response
+    public function products(Request $request): Response
     {
+        $brands = Brand::active()->ordered()->get();
+
+        $brandId = $request->integer('brand') ?: null;
+        if ($brandId !== null && ! $brands->contains('id', $brandId)) {
+            $brandId = null;
+        }
+
         return Inertia::render('products', [
-            'products' => $this->getProducts(),
+            'brands' => $brands->map(fn (Brand $brand) => [
+                'id' => $brand->id,
+                'name' => $brand->name,
+                'logo_url' => $brand->logo_url,
+            ]),
+            'filters' => ['brand' => $brandId],
+            'products' => Product::active()->ordered()->with('images')->get()->map(fn (Product $product) => [
+                'id' => $product->id,
+                'brand_id' => $product->brand_id,
+                'name' => $product->name,
+                'category' => $product->category,
+                'key_specs' => $product->key_specs ?? [],
+                'specifications' => $product->specifications ?? [],
+                'colors' => $product->colors ?? [],
+                'is_highlight' => $product->is_highlight,
+                'images' => $product->images->map(fn (ProductImage $image) => $image->image_url),
+            ]),
         ]);
     }
 
@@ -111,33 +137,6 @@ class PublicController extends Controller
     public function technicalServiceRepair(): Response
     {
         return Inertia::render('services/technical-service-repair');
-    }
-
-    private function getProducts(): array
-    {
-        return [
-            [
-                'id' => 1,
-                'key' => 'consumer_electronics',
-                'title' => 'Consumer Electronics',
-                'description' => 'products.consumer_electronics_desc',
-                'image' => '/images/wijaya/consumer-electronics.jpg',
-            ],
-            [
-                'id' => 2,
-                'key' => 'accessories',
-                'title' => 'Accessories',
-                'description' => 'products.accessories_desc',
-                'image' => '/images/wijaya/about.avif',
-            ],
-            [
-                'id' => 3,
-                'key' => 'home_appliances',
-                'title' => 'Home Appliances',
-                'description' => 'products.home_appliances_desc',
-                'image' => '/images/wijaya/hero-bg.jpg',
-            ],
-        ];
     }
 
     private function getServices(): array

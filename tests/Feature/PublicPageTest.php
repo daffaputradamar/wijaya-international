@@ -7,9 +7,31 @@ test('home page returns 200', function () {
 });
 
 test('products page returns 200', function () {
+    $brand = \App\Models\Brand::factory()->create();
+    \App\Models\Product::factory()->for($brand)->highlight()->create();
+    \App\Models\Product::factory()->inactive()->create();
+
     $response = $this->get(route('products'));
     $response->assertOk();
-    $response->assertInertia(fn ($page) => $page->component('products'));
+    $response->assertInertia(fn ($page) => $page->component('products')
+        ->has('brands')
+        ->has('products', 1)
+        ->where('filters.brand', null));
+});
+
+test('products page exposes the requested brand as a filter', function () {
+    $brand = \App\Models\Brand::factory()->create();
+    \App\Models\Product::factory()->for($brand)->create();
+
+    $this->get(route('products', ['brand' => $brand->id]))
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page->component('products')->where('filters.brand', $brand->id));
+});
+
+test('products page ignores an unknown brand filter', function () {
+    $this->get(route('products', ['brand' => 9999]))
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page->where('filters.brand', null));
 });
 
 test('projects page returns 200', function () {
