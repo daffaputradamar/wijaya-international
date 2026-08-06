@@ -126,7 +126,9 @@ function ServiceCard({
                 >
                     {lang === 'id'
                         ? 'Pelajari Selengkapnya'
-                        : 'Learn More'}
+                        : lang === 'zh'
+                          ? '了解更多'
+                          : 'Learn More'}
 
                     <LuArrowRight className="h-5 w-5" />
                 </a>

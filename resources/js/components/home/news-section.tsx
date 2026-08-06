@@ -34,18 +34,18 @@ export default function NewsSectionHome({ latestNews }: NewsSectionHomeProps) {
                             variants={clipReveal}
                             className="mb-4 text-xs font-medium tracking-[0.4em] text-red-500 uppercase"
                         >
-                            {lang === 'id' ? 'Berita & Update' : 'News & Updates'}
+                            {lang === 'id' ? 'Berita & Update' : lang === 'zh' ? '新闻与动态' : 'News & Updates'}
                         </motion.p>
                         <motion.h2
                             variants={fadeUp}
                             className="text-4xl leading-tight font-bold text-[#000168] md:text-5xl lg:text-6xl"
                         >
-                            {lang === 'id' ? 'Berita Terbaru' : 'Latest News'}
+                            {lang === 'id' ? 'Berita Terbaru' : lang === 'zh' ? '最新动态' : 'Latest News'}
                         </motion.h2>
                     </div>
                     <motion.div variants={fadeUp}>
                         <SplitIconButton
-                            text={lang === 'id' ? 'Lihat Semua Berita' : 'See All News'}
+                            text={lang === 'id' ? 'Lihat Semua Berita' : lang === 'zh' ? '查看所有新闻' : 'See All News'}
                             icon={<LuArrowRight className="h-5 w-5" />}
                             variant="red"
                             size="lg"
@@ -71,7 +71,7 @@ export default function NewsSectionHome({ latestNews }: NewsSectionHomeProps) {
                             : null;
                         const date = item.published_at
                             ? new Date(item.published_at).toLocaleDateString(
-                                  lang === 'id' ? 'id-ID' : 'en-GB',
+                                  lang === 'id' ? 'id-ID' : lang === 'zh' ? 'zh-CN' : 'en-GB',
                                   { day: '2-digit', month: 'short', year: 'numeric' },
                               )
                             : null;

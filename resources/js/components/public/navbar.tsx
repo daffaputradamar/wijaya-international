@@ -343,16 +343,21 @@ export default function Navbar() {
                     </a>
 
                     <button
-                        onClick={() => setLang(lang === 'id' ? 'en' : 'id')}
+                        onClick={() => setLang(lang === 'id' ? 'en' : lang === 'en' ? 'zh' : 'id')}
                         className={`flex items-center gap-1 text-[10px] sm:text-xs font-medium transition-colors border rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 ${
                             isHeroState
                                 ? 'text-white/70 hover:text-white border-white/30'
                                 : 'text-gray-600 hover:text-gray-900 border-gray-300'
                         }`}
                     >
-                        <span className={isHeroState ? (lang === 'id' ? 'text-white font-semibold' : 'opacity-50') : (lang === 'id' ? 'text-gray-900 font-semibold' : 'opacity-50')}>ID</span>
-                        <span className="opacity-30">/</span>
-                        <span className={isHeroState ? (lang === 'en' ? 'text-white font-semibold' : 'opacity-50') : (lang === 'en' ? 'text-gray-900 font-semibold' : 'opacity-50')}>EN</span>
+                        {(['id', 'en', 'zh'] as const).map((code, i) => (
+                            <span key={code} className="flex items-center">
+                                {i > 0 && <span className="opacity-30">/</span>}
+                                <span className={isHeroState ? (lang === code ? 'text-white font-semibold' : 'opacity-50') : (lang === code ? 'text-gray-900 font-semibold' : 'opacity-50')}>
+                                    {code === 'zh' ? '中' : code.toUpperCase()}
+                                </span>
+                            </span>
+                        ))}
                     </button>
 
                     <button

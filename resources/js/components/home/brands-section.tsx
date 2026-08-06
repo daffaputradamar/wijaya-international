@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Autoplay from 'embla-carousel-autoplay';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { useLanguage } from '@/lib/language-context';
 import { EASE, fadeUp, staggerSlow } from './motion-variants';
 import type { BrandData } from './types';
 
@@ -9,6 +10,7 @@ interface BrandsSectionProps {
 }
 
 export default function BrandsSection({ brands: brandData }: BrandsSectionProps) {
+    const { t } = useLanguage();
     const row1Brands =
         brandData.length > 0
             ? brandData.slice(0, Math.ceil(brandData.length / 2)).map((b) => ({ name: b.name, image: b.logo_url }))
@@ -54,7 +56,7 @@ export default function BrandsSection({ brands: brandData }: BrandsSectionProps)
                     variants={fadeUp}
                     className="text-4xl leading-tight font-bold text-[#1833a0] md:text-6xl"
                 >
-                    Brand Partners
+                    {t('brands.label')}
                 </motion.h2>
             </motion.div>
 

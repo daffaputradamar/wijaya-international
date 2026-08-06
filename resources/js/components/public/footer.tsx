@@ -40,10 +40,10 @@ export default function Footer() {
           ];
 
     const serviceLinks = [
-        { label: 'Brand Management', href: '/services/brand-management' },
-        { label: 'Imaging Solution', href: '/services/imaging-solution' },
-        { label: 'Camera Support', href: '/services/camera-support' },
-        { label: 'Technical Services & Repairs', href: '/services/technical-service-repair' },
+        { label: t('service.brand.title'), href: '/services/brand-management' },
+        { label: t('service.imaging.title'), href: '/services/imaging-solution' },
+        { label: t('service.camera.title'), href: '/services/camera-support' },
+        { label: t('products.technical.title'), href: '/services/technical-service-repair' },
     ];
 
     const companyLinks = [
@@ -110,7 +110,7 @@ export default function Footer() {
                     {/* Layanan */}
                     <div>
                         <h3 className="mb-6 text-lg text-red-500">
-                            Layanan
+                            {t('footer.services')}
                         </h3>
                         <ul className="space-y-3">
                             {serviceLinks.map((link) => (
@@ -151,7 +151,7 @@ export default function Footer() {
                     {/* Perusahaan */}
                     <div>
                         <h3 className="mb-6 text-lg text-red-500">
-                            Perusahaan
+                            {t('footer.company')}
                         </h3>
                         <ul className="space-y-3">
                             {companyLinks.map((link) => (
@@ -170,7 +170,7 @@ export default function Footer() {
                     {/* Narahubung */}
                     <div>
                         <h3 className="mb-6 text-lg font-bold text-red-500">
-                            Narahubung
+                            {t('footer.contact')}
                         </h3>
                         <div className="space-y-4">
                             <div className="flex items-center">

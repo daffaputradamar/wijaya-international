@@ -81,7 +81,7 @@ export default function NewsShow({ news }: Props) {
     const body = lang === 'id' ? news.body_id : news.body_en;
     const categoryName = news.category ? (lang === 'id' ? news.category.name_id : news.category.name_en) : null;
     const date = news.published_at
-        ? new Date(news.published_at).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-GB', { day: '2-digit', month: 'long', year: 'numeric' })
+        ? new Date(news.published_at).toLocaleDateString(lang === 'id' ? 'id-ID' : lang === 'zh' ? 'zh-CN' : 'en-GB', { day: '2-digit', month: 'long', year: 'numeric' })
         : null;
 
     return (
@@ -157,7 +157,7 @@ export default function NewsShow({ news }: Props) {
                             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm font-medium tracking-wide uppercase transition-colors duration-300 group"
                         >
                             <LuArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
-                            {lang === 'id' ? 'Kembali ke Berita' : 'Back to News'}
+                            {lang === 'id' ? 'Kembali ke Berita' : lang === 'zh' ? '返回新闻' : 'Back to News'}
                         </Link>
                     </motion.div>
 
@@ -182,7 +182,7 @@ export default function NewsShow({ news }: Props) {
                             transition={{ delay: 0.15 }}
                             className="text-muted-foreground text-lg"
                         >
-                            {lang === 'id' ? 'Konten tidak tersedia.' : 'Content not available.'}
+                            {lang === 'id' ? 'Konten tidak tersedia.' : lang === 'zh' ? '内容不可用。' : 'Content not available.'}
                         </motion.p>
                     )}
                 </div>

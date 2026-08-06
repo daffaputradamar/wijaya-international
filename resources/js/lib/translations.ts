@@ -17,6 +17,7 @@ export const translations = {
         'nav.getInTouch': 'Hubungi Kami',
 
         // Hero Section
+        'hero.welcome': 'Selamat Datang di PT Wijaya International',
         'hero.word1': 'EMPOWERING',
         'hero.word2': 'IMAGING INNOVATION',
         'hero.word3': 'ACROSS INDONESIA',
@@ -34,7 +35,7 @@ export const translations = {
         'about.stat2.value': '300+',
         'about.stat2.label': 'Dealer Network',
         'about.stat3.value': '150+',
-        'about.stat3.label': 'Integritas & Profesionalisme',
+        'about.stat3.label': 'Brand Tersedia',
         'about.cta': 'Pelajari Selengkapnya',
         // What We Do Section
         'whatwedo.label': 'Bisnis Utama',
@@ -156,6 +157,9 @@ export const translations = {
         'contact.ecommerce.label': 'E-Commerce',
 
         // Footer
+        'footer.services': 'Layanan',
+        'footer.company': 'Perusahaan',
+        'footer.contact': 'Narahubung',
         'footer.description':
             'PT Wijaya International adalah perusahaan distribusi B2B terpercaya di Indonesia. Menyediakan solusi pasok produk otomotif, elektronik, dan teknologi dengan efisiensi dan keandalan tinggi.',
         'footer.copyright': '© 2026 PT Wijaya International All rights reserved',
@@ -196,6 +200,8 @@ export const translations = {
         'projects.page.subtitle': 'Dokumentasi kampanye nasional, event peluncuran, dan aktivasi brand kami.',
         'projects.back': 'Kembali ke Proyek',
         'projects.noDescription': 'Deskripsi tidak tersedia.',
+        'projects.explore': 'Jelajahi',
+        'projects.caseStudy': 'Lihat Studi Kasus',
 
         // Services page Hero
         'services.page.title': 'Layanan Kami',
@@ -415,6 +421,7 @@ export const translations = {
         'nav.getInTouch': 'Get In Touch',
 
         // Hero Section
+        'hero.welcome': 'Welcome to PT Wijaya International',
         'hero.word1': 'EMPOWERING',
         'hero.word2': 'IMAGING INNOVATION',
         'hero.word3': 'ACROSS INDONESIA',
@@ -432,7 +439,7 @@ export const translations = {
         'about.stat2.value': '300+',
         'about.stat2.label': 'Dealer Network',
         'about.stat3.value': '150+',
-        'about.stat3.label': 'Integrity & Professionalism',
+        'about.stat3.label': 'Brand Partners',
         'about.cta': 'Learn More',
         // What We Do Section
         'whatwedo.label': 'Main Business',
@@ -554,6 +561,9 @@ export const translations = {
         'contact.ecommerce.label': 'E-Commerce',
 
         // Footer
+        'footer.services': 'Services',
+        'footer.company': 'Company',
+        'footer.contact': 'Contact',
         'footer.description':
             'PT Wijaya International is a trusted B2B distribution company in Indonesia. Providing product supply solutions for automotive, electronics, and technology with high efficiency and reliability.',
         'footer.copyright': '© 2026 PT Wijaya International All rights reserved',
@@ -594,6 +604,8 @@ export const translations = {
         'projects.page.subtitle': 'A showcase of our nationwide campaigns, launch events, and brand activations.',
         'projects.back': 'Back to Projects',
         'projects.noDescription': 'No description available.',
+        'projects.explore': 'Explore',
+        'projects.caseStudy': 'View Case Study',
 
         // Services page Hero
         'services.page.title': 'Our Services',
@@ -794,5 +806,409 @@ export const translations = {
             'The presence of SBOX as an original brand under PT Wijaya International proves our capacity to manage the end-to-end cycle of a product, from concept, design, production, to marketing and distribution strategies. This is tangible evidence of our business independence and commitment to continuously enrich choices for consumers in Indonesia.',
         'profile.manufacture.row2.p2':
             'SBOX is not just a camera; it is a symbol of limitless creativity that we dedicate to the world of digital imaging. By choosing our manufactured products, you not only get a moment-capturing device, but also support sustainable innovation born from a deep understanding of today\'s creative market needs.',
+    },
+    zh: {
+        // Navigation
+        'nav.home': '首页',
+        'nav.profile': '关于我们',
+        'nav.aboutUs': '关于我们',
+        'nav.mainBusiness': '主营业务',
+        'nav.ownerProfile': '创始人简介',
+        'nav.fullProfile': '完整简介',
+        'nav.products': '产品',
+        'nav.services': '业务',
+        'nav.moreServices': '更多业务',
+        'nav.moreProducts': '更多产品',
+        'nav.dealer': '合作商家',
+        'nav.contact': '联系我们',
+        'nav.news': '新闻与动态',
+        'nav.getInTouch': '联系我们',
+
+        // Hero Section
+        'hero.welcome': '欢迎莅临 PT Wijaya International',
+        'hero.word1': '赋能',
+        'hero.word2': '影像创新',
+        'hero.word3': '遍及印度尼西亚',
+        'hero.scroll': '滚动',
+
+        // About Section
+        'about.label': '关于我们',
+        'about.title': '不止是分销商，\n更是连接者。',
+        'about.body':
+            '自2004年成立以来，我们深信高效分销的力量。PT Wijaya International 已由此发展成为一家充满活力的公司，专注于分销与零售门店。',
+        'about.body2':
+            '不止于交付产品，更在制造商与消费者之间搭建桥梁，提供贴合市场需求的创新方案。以诚信为基础，秉持结果导向的理念，我们作为战略合作伙伴，致力于将承诺变为现实。',
+        'about.stat1.value': '20+',
+        'about.stat1.label': '年经验',
+        'about.stat2.value': '300+',
+        'about.stat2.label': '合作商家网络',
+        'about.stat3.value': '150+',
+        'about.stat3.label': '品牌合作伙伴',
+        'about.cta': '了解更多',
+        // What We Do Section
+        'whatwedo.label': '主营业务',
+        'whatwedo.subtitle': 'PT Wijaya International 的核心使命，',
+        'whatwedo.headline': '赋能印度尼西亚的视觉产业',
+        'whatwedo.body':
+            '我们将前沿技术与强大的分销网络相融合，确保每一件创新产品都能触达印度尼西亚各地的创作者。',
+
+        // Services Cards
+        'service.distribution.title': '分销',
+        'service.distribution.body':
+            '通过高效的管理与全国性的覆盖范围，我们确保为印度尼西亚全国300余家合作商家提供稳定、及时的产品供应。',
+        'service.imaging.title': '影像解决方案',
+        'service.imaging.body':
+            '从值得信赖的全球品牌带来创新的相机产品与光学设备。满足市场对优质产品的需求，从爱好者到专业领域。',
+        'service.marketing.title': '数字营销支持',
+        'service.marketing.body':
+            '不仅分销产品，更打造品牌。我们通过数字策略、创意素材与社交媒体营销，帮助合作商家提升销售与品牌知名度。',
+        'service.accessories.title': '相机配件',
+        'service.accessories.body':
+            '以从存储、电源到其他辅助设备的高品质配件，满足客户的照片与视频需求，实现最佳性能与体验。',
+        'service.retail.title': '零售',
+        'service.retail.body':
+            '通过遍布印度尼西亚的零售门店网络，直接触达终端消费者，确保获得最佳的购物体验。',
+        'service.manufacture.title': '制造',
+        'service.manufacture.body':
+            '开发与制造符合行业标准的高品质产品，从设计流程直至市场分销。',
+        'service.brand.title': '品牌管理',
+        'service.brand.body':
+            '通过整合营销策略与高品质内容，在印度尼西亚视觉市场中打造强大的品牌影响力与关联度。',
+        'service.camera.title': '相机支援',
+        'service.camera.body':
+            '为创作者与专业人士提供领先相机品牌的官方技术支援、售后服务与原装备件。',
+        'service.services.title': '业务',
+        'service.services.body':
+            'PT Wijaya International 打造全方位的服务生态系统，从分销管理到售后支持，确保您的业务以最高效率运行。',
+
+        // Products Section
+        'products.label': '产品',
+        'products.photography.title': '摄影与光学',
+        'products.photography.body':
+            '来自全球领先品牌的相机、镜头与光学设备，满足从爱好者到专业人士的需求。',
+        'products.electronics.title': '消费电子',
+        'products.electronics.body':
+            '采用最新技术的高品质消费电子产品，融入日常生活。',
+        'products.technical.title': '技术支持与维修',
+        'products.technical.body':
+            '由经验丰富的专业人员提供影像设备的技术服务与维修，使用官装备件。',
+
+        // Brands Section
+        'brands.label': '品牌合作伙伴',
+        'brands.title': '全国300余家合作商家信赖之选',
+        'brands.body':
+            '受信赖地将最佳技术带给印度尼西亚消费者，我们已与多家知名品牌合作，正式引进各类优质产品，绝不妥协。',
+
+        // Dealer Network
+        'dealer.label': '合作商家网络',
+        'dealer.trusted': '全国300余家合作商家信赖之选',
+        'dealer.trustedBody': '致力于将最佳技术带给印度尼西亚消费者，我们已与多家领先品牌合作，正式引进各类优质产品，绝不妥协。',
+        'dealer.title': '合作商家网络',
+        'dealer.body':
+            '凭借稳固的基础设施，我们的产品与服务已覆盖印度尼西亚各大战略区域，与数百家合作伙伴携手，并将持续扩展。',
+        'dealer.cta': '加入合作商家网络',
+        'dealer.searchPlaceholder': '搜索地点、地址或联系电话...',
+        'dealer.contact': '联系方式',
+        'dealer.emptyState': '未找到匹配的商家。',
+        'dealer.openNow': '营业中',
+        'dealer.closed': '已打烊',
+        'dealer.viewOnMap': '在地图上查看',
+        'dealer.popupDirections': '路线',
+
+        // Projects Showcase
+        'projects.label': '作品集',
+        'projects.title': '从概念到全国执行。',
+        'projects.stat1.value': '80',
+        'projects.stat1.label': '发布活动',
+        'projects.stat2.value': '10',
+        'projects.stat2.label': '年经验',
+        'projects.stat3.value': '40',
+        'projects.stat3.label': '已完成项目',
+        'projects.view_all': '查看全部项目',
+        'projects.1.title': '摄影与光学',
+        'projects.2.title': 'Ones Residence',
+        'projects.3.title': 'Gameroom Offices',
+
+        // Why Choose Us Section
+        'why.label': '为何选择我们',
+        'why.title': '为何选择 PT Wijaya International？',
+        'why.body': '我们致力于在每一次客户交易中创造更多价值。作为数字影像解决方案的领导者，以下是我们为您提供的保障：',
+        'why.distributor.title': '授权分销商',
+        'why.distributor.body': '作为领先国际品牌的战略合作伙伴与主要分销渠道，我们保证您收到的每一件产品均 100% 正品，并符合最高质量标准。',
+        'why.jaringan.title': '全国合作商家网络',
+        'why.jaringan.body': '我们的合作商家网络遍布印度尼西亚各地，让您随时随地都能轻松获取我们的优质产品。',
+        'why.garansi.title': '官方保修',
+        'why.garansi.body': '所有产品均享有官方保修，让您的每一次购买都安心无忧。',
+        'why.layanan.title': '内部服务中心',
+        'why.layanan.body': '我们的内部服务中心为所有产品提供可靠的技术支持与维修服务。',
+        'why.pengiriman.title': '全国快速配送',
+        'why.pengiriman.body': '我们的物流系统确保产品快速、安全地送达印度尼西亚的每一个角落。',
+        'why.legalitas.title': '合法合规保障',
+        'why.legalitas.body': '凭借完整的官方许可与法律文件运营，确保每笔交易的信任与安全。',
+        'why.marketing.title': '营销与品牌支持',
+        'why.marketing.body': '在营销策略与品牌发展方面提供全力支持，巩固并强化市场地位。',
+
+        // Contact Section
+        'contact.label': '联系我们',
+        'contact.title': '携手合作，\n机遇正待。',
+        'contact.body':
+            '我们相信，牢固的伙伴关系源于良好的沟通。如有服务咨询或商业合作需求，请联系我们。',
+        'contact.cta': '提交反馈',
+        'contact.form.name': '您的姓名 / 公司名称',
+        'contact.form.email': '您的邮箱',
+        'contact.form.needs': '您的需求',
+        'contact.success': '感谢您！您的信息已发送，我们会尽快与您联系。',
+        'contact.phone.label': '电话',
+        'contact.email.label': '邮箱',
+        'contact.address.label': '总部',
+        'contact.social.label': '关注社交媒体',
+        'contact.ecommerce.label': '线上商城',
+
+        // Footer
+        'footer.services': '业务',
+        'footer.company': '公司',
+        'footer.contact': '联系',
+        'footer.description':
+            'PT Wijaya International 是印度尼西亚值得信赖的分销公司与零售商。提供涵盖相机、摄影及配件的广泛供应解决方案，具有广泛的覆盖范围、高效性与强可靠性。',
+        'footer.copyright': '© 2026 PT Wijaya International 版权所有',
+        'footer.privacy': '隐私政策',
+        'footer.terms': '服务条款',
+        'footer.cookie': 'Cookie 设置',
+
+        // Cookie Banner
+        'cookie.message': '我们使用 Cookie 来个性化内容、投放广告并分析流量。',
+        'cookie.accept': '接受',
+        'cookie.reject': '拒绝',
+
+        // Newsletter
+        'newsletter.title': '保持灵感与信息同步',
+        'newsletter.subtitle': '将最新设计趋势、专家技巧与独家更新直接发送到您的收件箱！',
+        'newsletter.placeholder': '您的邮箱地址',
+        'newsletter.submit': '提交',
+
+        // Products page
+        'products.page.title': '我们的产品',
+        'products.page.subtitle': '满足您需求的最全影像解决方案。',
+        'products.hero.title': '产品',
+        'products.hero.p1':
+            '作为全球领先视觉科技品牌的可靠官方合作伙伴，PT Wijaya International 精选一系列高品质产品，满足每一种规模的创意需求。从初学者到专业制作团队，各种选择应有尽有。',
+        'products.hero.p2':
+            '探索适合您工作室或爱好的相机系列、电影级灯光解决方案、细节丰富的音频设备以及精准的辅助配件，全部来自您喜爱的品牌。我们交付的每一件产品均保证 100% 正品，并享有可靠的售后服务支持。',
+        'products.brands': '品牌',
+        'products.all': '全部',
+        'products.highlight': '主打产品',
+        'products.more': '更多产品',
+        'products.discover': '探索',
+        'products.techspec': '技术规格',
+        'products.specification': '规格',
+        'products.availableColors': '可选颜色',
+        'products.empty': '该品牌暂无产品。',
+
+        // Projects page
+        'projects.page.subtitle': '我们全国性活动、发布活动与品牌活化项目的展示。',
+        'projects.back': '返回项目',
+        'projects.noDescription': '暂无描述。',
+        'projects.explore': '探索',
+        'projects.caseStudy': '查看案例研究',
+
+        // Services page Hero
+        'services.page.title': '我们的服务',
+        'services.page.subtitle': '全面服务生态系统，助力您的业务增长。',
+        'services.page.description': 'PT Wijaya International 为您的数字影像生态系统提供端到端解决方案，涵盖品牌管理、配件以及可靠的售后服务支持。',
+        'services.hero.label': '服务',
+        'services.hero.word1': '一体化',
+        'services.hero.word2': '数字',
+        'services.hero.word3': '影像',
+        'services.hero.word4': '解决方案',
+        'services.hero.description': '在创意产业与视觉需求快速发展的当下，仅靠高品质设备已远远不够，需要一个全面的生态系统，才能确保每一个创意愿景得以完美实现。PT Wijaya International 作为您的战略合作伙伴，提供端到端解决方案，不仅聚焦于硬件供应，还涵盖品牌管理、完整配件以及可靠的售后服务保障。',
+        'services.hero.intro': '我们设计这套服务体系，以适配各种规模的需求，从摄影与摄像爱好者、专业创意工作者，到大型企业。通过四大核心服务支柱，我们确保您视觉之旅的每一个环节，都获得经过时间检验的专业标准与行业可靠性的支持。',
+
+        // Services Nav
+        'services.nav.brand': '品牌管理',
+        'services.nav.imaging': '影像解决方案',
+        'services.nav.camera': '相机支援',
+        'services.nav.technical': '技术服务与维修',
+
+        // Brand Management page
+        'services.brand.pageTitle': '品牌管理',
+        'services.brand.pageDescription': 'PT Wijaya International 提供品牌管理服务，助力在印度尼西亚视觉市场中建立强大的品牌影响力与关联度。',
+        'services.brand.heroTitle': '在视觉市场中建立强大的品牌影响力与关联度',
+        'services.brand.introTitle': '品牌管理',
+        'services.brand.introP1': '一款数字影像产品能否在市场取得成功，不仅取决于其技术规格，还取决于该品牌如何被用户<strong>传播</strong>、<strong>接受</strong>并<strong>赋予生命力</strong>。',
+        'services.brand.introP2': '在 PT Wijaya International，我们的品牌管理服务致力于通过战略性的、可衡量的端到端方式，为您接管这一切复杂性。',
+        'services.brand.introP3': '我们不仅扮演分销商的角色，更作为品牌方的延伸，确保产品愿景被转化为能真正落地并产生实际影响的市场营销执行。',
+        'services.brand.campaignLabel': '活动执行',
+        'services.brand.campaignTitle': '活动执行',
+        'services.brand.campaignP1': '我们的品牌管理流程从初期规划阶段一直延续到售后评估。我们通过<strong>活动执行</strong>开启一款产品的旅程，这些活动经过专门设计，在最恰当的时机抓住市场注意力。',
+        'services.brand.campaignP2': '我们深知，首次亮相必须留下深刻印象，因此每一次活动都充分考量本地消费者特征与最新行业趋势。然而，发布仅仅是第一步。为使产品始终处于用户心智的前沿，我们实施可持续的营销策略，在各类传播渠道中持续维持对您品牌的关注。',
+        'services.brand.eventLabel': '活动与社群',
+        'services.brand.eventTitle': '活动与社群',
+        'services.brand.eventP1': '除常规营销外，我们还会针对不同季节或节庆，主动策划并执行主题活动。这些活动为产品与潜在消费者提供了直接互动的空间，带来纯数字广告无法替代的亲身体验。',
+        'services.brand.eventP2': '更进一步，相机品牌的真正力量在于其用户。因此，我们非常重视社群激活。通过凝聚摄影师、内容创作者与摄像师社群，我们将用户转化为忠实的品牌伙伴。',
+        'services.brand.portfolioLabel': '作品组合经验',
+        'services.brand.portfolioTitle': '作品组合经验',
+        'services.brand.portfolioP1': '我们在品牌组合管理方面的经验已经过时间的检验。作为 Kodak Pixpro 等知名品牌的全面管理者，我们已证明有能力驾驭数字相机市场的种种挑战。',
+        'services.brand.portfolioP2': '我们确保旗下每一个品牌都获得应有的关注、精准的策略以及可持续的市场份额增长。选择我们的品牌管理服务，意味着选择一份确定——您的品牌身份与商业潜力，交到了真正懂这个行业的人手中。',
+
+        // Imaging Solution page
+        'services.imaging.pageTitle': '影像解决方案',
+        'services.imaging.pageDescription': 'PT Wijaya International 为您所有的数字影像需求提供全面解决方案，从设备到技术指导。',
+        'services.imaging.heroTitle': '满足您每一项数字影像需求的全面解决方案',
+        'services.imaging.introP1': '数字影像世界是一个广阔且不断演进的空间，每一位个人与企业实体都面临各自的视觉挑战。PT Wijaya International 的影像解决方案服务，旨在为所有这些需求的完整谱系提供一个全面的一站式答案。',
+        'services.imaging.introP2': '我们不只是搬运装满产品的箱子；我们提供经过精心策划的端到端解决方案，确保您的最终视觉成果——无论是静态照片还是高分辨率视频制作——都能达到您期望的标准。',
+        'services.imaging.section1Label': '专业与商业规模',
+        'services.imaging.section1P1': '该服务涵盖广泛的设备系列，能够应对不同层级用户的需求。对于将声誉寄托于设备的锐利与可靠的专业人士，我们提供拥有最高规格、能在高强度作业压力下稳定运行的硬件。',
+        'services.imaging.section1P2': '另一方面，对于需要兼顾成本效益与设备标准化的企业、代理商与制作公司，我们能够制定最合适的影像解决方案套件，在不牺牲质量的前提下，优化贵公司视觉运营的每一个环节。',
+        'services.imaging.section2Label': '产品组合多样性',
+        'services.imaging.section2P1': '在影像解决方案的框架下，您可以直接接触我们正式分销的优质相机产品组合。我们的产品系列非常丰富，以适应不同创作者的个性。从性能经典、技术可靠性久经考验、可从容应对基础摄影需求的 Kodak Pixpro 系列，到提供更有趣、更时尚、更愉悦拍摄体验的替代性数字相机品牌 SBOX。',
+        'services.imaging.section2P2': '这种多元化的产品组合，体现了我们的承诺——无论您想实现何种视觉风格，无论是严肃的商业记录还是随性的生活方式内容创作，我们都拥有合适的工具助您达成。',
+        'services.imaging.section3Label': '顾问式方法',
+        'services.imaging.section3P1': '选择 PT Wijaya International 的影像解决方案，您获得的不仅仅是买卖交易。您还将获得我们团队的专业顾问式指导，他们会帮助您梳理需求、与我们的产品组合精准匹配，并确保您在正确的相机系统上投资。',
+        'services.imaging.section3P2': '这种基于解决方案的方法，确保您时刻准备好捕捉每一个瞬间、回应每一份客户简报，并创作出比言语更有说服力的视觉作品。',
+
+        // Brand Management Section
+        'services.brand.label': '品牌管理',
+        'services.brand.p1': '我们设计这套服务体系，以适配各种规模的需求，从<strong>摄影</strong>与<strong>摄像爱好者</strong>、<strong>专业创意工作者</strong>，到<strong>大型企业</strong>。',
+        'services.brand.p2': '通过四大核心服务支柱，我们确保您视觉之旅的每一个环节，都获得经过时间检验的专业标准与行业可靠性的支持。',
+        'services.brand.cta': '了解更多',
+
+        // Imaging Solution Section
+        'services.imaging.label': '影像解决方案',
+        'services.imaging.p1': '各行业对视觉品质的需求持续增长。因此，我们的影像解决方案服务旨在为您的摄影与摄像需求提供完整的答案。我们提供全面的解决方案，衔接从初学者、专业人士到企业与工业规模的设备需求。',
+        'services.imaging.p2': '通过这项服务，我们展示所分销的最佳相机产品组合，确保每位客户都能找到最契合其现场挑战的设备规格。我们深知每个项目都有其独特的技术要求，我们的团队随时准备提供产品指导，以实现最佳的数字影像成果。',
+        'services.imaging.cta': '了解更多',
+
+        // Camera Support Section
+        'services.camera.label': '相机支援与配件',
+        'services.camera.p1': '一台强劲的相机，需要同样可靠的配件支持，才能创作出非凡的作品。我们的相机支援服务致力于以全面的辅助工具生态系统，完善您的主要设备。',
+        'services.camera.p2': '我们提供高品质的辅助产品，从精准的灯光系统、清晰无瑕的音频设备，到稳定器（如手柄与三脚架）等设备。',
+        'services.camera.p3': '我们提供的所有配件都经过严格甄选，以确保兼容性与耐用性，让您摆脱技术束缚，将全部精力投入创作过程。',
+        'services.camera.cta': '了解更多',
+
+        // Camera Support page
+        'services.camera.pageTitle': '相机支援',
+        'services.camera.pageDescription': 'PT Wijaya International 提供相机支援服务，以全面的配件生态系统完善您的主要设备。',
+        'services.camera.heroTitle': '以最完整的配件生态系统，完善视觉作品品质',
+        'services.camera.introP1': '在现代摄影与摄像行业，拥有合适的相机与镜头，只是您创作旅程的一半。另一半在很大程度上取决于所使用辅助设备的生态系统。这正是相机支援服务作为 PT Wijaya International 身份不可分割的一部分存在的原因。',
+        'services.camera.introP2': '我们提供一整套专为让您摆脱技术限制而设计的相机配件，让您对创意愿景拥有完全掌控，并最终完善您所创作视觉作品的每一个画面。',
+        'services.camera.section1P1': '我们提供的配件涵盖了所有关键的制作支撑要素。在视觉层面，我们提供专业的灯光解决方案，从用于商业拍摄的高功率影室灯，到对内容创作者至关重要的紧凑便携灯。',
+        'services.camera.section1P2': '在音频层面——这一环节往往决定视频制作的品质——我们提供一系列声音录制设备，确保在各种条件下都能获得清晰的音质。',
+        'services.camera.section2P1': '更重要的是，我们深知稳定与人体工学是生产力的关键。因此，我们的相机支援产品组合还包含各类精准的三脚架、独脚架、稳定器与手柄。',
+        'services.camera.section2P2': '这一系列支撑产品旨在安全承载您的设备、提供顺滑的运动，并减轻在拍摄现场长时间作业时的体力挑战。此外，我们还提供各种看似微小却对您日常顺利运作至关重要的辅助配件。',
+        'services.camera.section3P1': '所有这些辅助产品组合都围绕一个核心目标进行甄选：作为您摄影与摄像需求的绝对补充。我们只与那些证明自身能提供高耐用性与优质材料的制造商合作，确保您从我们这里获得的每一件配件，都能经受住严苛拍摄环境的考验。',
+        'services.camera.section3P2': '有了 PT Wijaya International 的配件系列支持，您再无需在糟糕的灯光条件、嘈杂的音频或困难的拍摄角度之间妥协。您可以完全自由地实现您的创意想象。',
+
+        // Technical Service page
+        'services.technical.pageTitle': '技术服务与维修',
+        'services.technical.pageDescription': 'PT Wijaya International 提供技术服务与维修，对您的相机设备与视觉制作辅助配件进行维护与修理。',
+        'services.technical.heroTitle': '以最完整的配件生态系统，完善视觉作品品质',
+        'services.technical.introP1': '在现代摄影与摄像行业，拥有合适的相机与镜头，只是您创作旅程的一半。另一半在很大程度上取决于所使用辅助设备的生态系统。',
+        'services.technical.introP2': '这正是相机支援服务作为 PT Wijaya International 身份不可分割的一部分存在的原因。我们提供一整套专为让您摆脱技术限制而设计的相机配件，让您对创意愿景拥有完全掌控，并最终完善您所创作视觉作品的每一个画面。',
+        'services.technical.section1P1': '我们提供的配件涵盖了所有关键的制作支撑要素。在视觉层面，我们提供专业的灯光解决方案，从用于商业拍摄的高功率影室灯，到对内容创作者至关重要的紧凑便携灯。',
+        'services.technical.section1P2': '在音频层面——这一环节往往决定视频制作的品质——我们提供一系列声音录制设备，确保在各种条件下都能获得清晰的音质。',
+        'services.technical.section2P1': '更重要的是，我们深知稳定与人体工学是生产力的关键。因此，我们的相机支援产品组合还包含各类精准的三脚架、独脚架、稳定器与手柄。',
+        'services.technical.section2P2': '这一系列支撑产品旨在安全承载您的设备、提供顺滑的运动，并减轻在拍摄现场长时间作业时的体力挑战。此外，我们还提供各种看似微小却对您日常顺利运作至关重要的辅助配件。',
+        'services.technical.section3P1': '所有这些辅助产品组合都围绕一个核心目标进行甄选：作为您摄影与摄像需求的绝对补充。我们只与那些证明自身能提供高耐用性与优质材料的制造商合作，确保您从我们这里获得的每一件配件，都能经受住严苛拍摄环境的考验。',
+        'services.technical.section3P2': '有了 PT Wijaya International 的配件系列支持，您再无需在糟糕的灯光条件、嘈杂的音频或困难的拍摄角度之间妥协。您可以完全自由地实现您的创意想象。',
+
+        // Technical Service Section
+        'services.technical.label': '技术支持与维修',
+        'services.technical.p1': '我们深知，摄影与摄像设备是您职业或事业的重要投资。为保护这笔投资，PT Wijaya International 运营着一个配备最新维修标准的独立服务中心。',
+        'services.technical.p2': '我们的维修与技术服务旨在提供快速、精准且透明的处理。我们的售后支持不仅仅是一项附加设施，更是我们对客户满意度与安心承诺的长期体现。',
+        'services.technical.p3': '我们经验丰富的技术团队随时准备确保您的每一台设备恢复最佳功能，在维修的每一个阶段都坚持专业精神。',
+        'services.technical.cta': '了解更多',
+
+        // Contact page
+        'contact.page.title': '联系我们',
+        'contact.page.phone': '+62 21 1234 5678',
+        'contact.page.email': 'info@wijayainternational.co.id',
+        'contact.page.address': '印度尼西亚，雅加达',
+
+        // Profile page
+        'profile.page.title': '全国性分销公司',
+        'profile.page.description':
+            'PT Wijaya International 是印度尼西亚领先相机、电子与科技产品的官方分销商。信赖品牌：Sony、Canon、DJI、Feiyutech、Kodak 等。',
+        'profile.page.ogTitle': 'PT Wijaya International | 电子与相机分销',
+        'profile.page.ogDescription':
+            '印度尼西亚相机、电子与科技产品的官方分销商。',
+        'profile.nav.distribution': '分销',
+        'profile.nav.retail': '零售',
+        'profile.nav.manufacture': '制造',
+
+        // Profile Hero
+        'profile.hero.label': '核心业务',
+        'profile.hero.word1': '赋能',
+        'profile.hero.word2': '视觉',
+        'profile.hero.word3': '产业',
+        'profile.hero.word4': '印度尼西亚',
+        'profile.hero.description':
+            '我们将前沿技术与强大的分销网络相融合，确保每一件创新产品都能触达印度尼西亚各地的创作者。',
+
+        // Distribution Section
+        'profile.distribution.label': '分销',
+        'profile.distribution.title':
+            '连接全球创新与印度尼西亚的数字影像市场',
+        'profile.distribution.description':
+            '作为 PT Wijaya International 商业模式的核心支柱，分销是我们成为战略桥梁的焦点，连接全球数字影像技术创新与印度尼西亚的创意市场需求。我们深知，分销不仅仅是把产品从一处运往另一处。对我们而言，分销关乎建立信任、确保供应，以及在供应链的每一个环节维护品牌完整性。凭借多年的经验，我们始终致力于成为国内最可靠的数字影像设备分销商。',
+        'profile.distribution.cta': '了解更多关于我们的授权商家',
+        'profile.distribution.row0.imageAlt': '门店内部',
+        'profile.distribution.row0.p1':
+            '我们分销服务的核心优势，在于我们广泛且组织严密的全国性商家网络。我们与遍布印度尼西亚各地的数百家零售门店、创意代理商与商业伙伴携手合作。',
+        'profile.distribution.row0.p2':
+            '这一庞大的网络，使我们所管理的 <strong>Sony</strong>、<strong>Canon</strong>、<strong>Kodak Pixpro</strong> 等国际品牌，能够以统一的服务标准触达各地的消费者。我们确保每一位合作商家都获得全面支持，从稳定的货源、产品知识培训，到有效的营销素材。',
+        'profile.distribution.row1.imageAlt': '仓库内部',
+        'profile.distribution.row1.p1':
+            '运营效率是分销业务的命脉。PT Wijaya International 在现代供应链管理与仓储系统上投入了大量资源。',
+        'profile.distribution.row1.p2':
+            '这确保每一份市场需求都能得到快速、准确的响应。我们希望在新品全球发布时，消费者就能立即购得。在瞬息万变的科技行业，这一时效性至关重要——产品供应的延迟，可能意味着视觉创作者错失良机。',
+        'profile.distribution.row2.imageAlt': '团队协作',
+        'profile.distribution.row2.p1':
+            '不仅仅是货源的提供者，我们更是合作伙伴的战略顾问。我们定期进行市场分析，以了解需求趋势，并提供最具针对性的产品建议。',
+        'profile.distribution.row2.p2':
+            '凭借透明与专业的方式，我们与商家建立在共同成长基础上的长期合作关系。选择 PT Wijaya International 作为分销合作伙伴，意味着加入一个崇尚专业精神、物流可靠，并致力于全面推动印度尼西亚数字影像产业发展的生态系统。',
+
+        // Retail Section
+        'profile.retail.label': '零售',
+        'profile.retail.title':
+            '在印度尼西亚各地打造个性化购物体验',
+        'profile.retail.description':
+            '尽管数字技术改变了我们的互动方式，PT Wijaya International 始终坚信，亲身体验与感受相机的过程无可替代。通过零售事业部，我们借助遍布印度尼西亚各战略地点的实体相机门店网络，与消费者走得更近。我们的零售门店不仅是交易场所，更是全国摄影与摄像爱好者学习与互动的中心。',
+        'profile.retail.row0.imageAlt': '零售门店陈列',
+        'profile.retail.row0.p1':
+            '我们每一家零售门店都旨在提供舒适、现代且信息丰富的购物体验。我们深知，选择相机或辅助配件是一项需要慎重考虑的重要决定。因此，在每一家门店，消费者都可以亲手试用自己的设备。',
+        'profile.retail.row0.p2':
+            '为完善这一体验，我们还引入 Sony、Canon 等全球领先品牌的官方销售代表与推广人员，直接驻店服务。他们专门为您提供协助，进行互动式的技术讲解，并分享每一款产品使用体验的深入见解。',
+        'profile.retail.row1.imageAlt': '员工协助顾客',
+        'profile.retail.row1.p1':
+            'PT Wijaya International 零售网络的核心竞争优势之一，是我们的人力资源品质。门店员工不只是销售员，更是对数字影像生态系统有深刻理解的技术顾问。',
+        'profile.retail.row1.p2':
+            '他们接受过倾听每位客户具体需求的训练——无论是寻找日常相机的初学者，还是需要高级技术规格的专业人士——并能在不做硬性推销的前提下，提供最恰到好处的建议。我们以诚实为先，提供真实的信息，让每一位客户都对所做出的投资感到满意。',
+        'profile.retail.row2.imageAlt': '相机陈列架',
+        'profile.retail.row2.p1':
+            '我们的零售门店广泛分布于印度尼西亚各大城市，也充当便捷的服务网点。这种实体存在为顾客带来额外的安心感，因为他们知道如需进一步咨询或售后服务，该去哪里。',
+        'profile.retail.row2.p2':
+            '我们将持续扩张，覆盖更多地区，确保每一个人都能以高标准服务获得优质设备。在 PT Wijaya International，我们以最佳的可及性与触及每一次创意之旅个人层面的服务，来庆祝您的视觉热情。',
+
+        // Manufacture Section
+        'profile.manufacture.label': '制造',
+        'profile.manufacture.title':
+            '通过 SBOX 品牌，以全球标准创造本土创新',
+        'profile.manufacture.description':
+            'PT Wijaya International 不仅承担分销全球产品的角色，更积极投身于自身的创新创造。通过制造事业部，我们更进一步，推出了自己的数字相机品牌 SBOX。这一举措体现我们的愿景——不仅做国内市场的参与者，更要成为理解这个充满活力与色彩的现代时代里相机用户独特特质的创造者。',
+        'profile.manufacture.row0.imageAlt': 'SBOX 产品合集',
+        'profile.manufacture.row0.p1':
+            'SBOX 诞生于我们对数字影像世界趋势变迁的深刻观察。我们看到市场需要这样的相机设备：它不应刻板而技术化，而是能成为生活方式与自我表达一部分的设备。',
+        'profile.manufacture.row0.p2':
+            '因此，SBOX 被定位为一个秉持乐趣、随性与创意精神的替代性数字相机品牌。与那些常让初学者感到望而生畏的传统相机品牌不同，SBOX 旨在提供愉悦、易用，同时仍能产出有趣且值得分享画面的拍摄体验。',
+        'profile.manufacture.row1.imageAlt': '黑色盒中的相机',
+        'profile.manufacture.row1.p1':
+            'SBOX 品牌的制造与开发过程，均在 PT Wijaya International 的监督下执行严格的质量控制。我们将本土市场调研与全球组件标准相结合，确保每一件 SBOX 产品都具备良好的耐用性与可靠的性能。',
+        'profile.manufacture.row1.p2':
+            '我们赋予 SBOX 的创新，聚焦于易用功能、时尚设计，以及契合当今创意一代生活方式的实用性。SBOX 正是那些寻求独特、与众不同、能以更鲜活笔触捕捉日常瞬间的相机替代品的答案。',
+        'profile.manufacture.row2.imageAlt': '技术蓝图',
+        'profile.manufacture.row2.p1':
+            'SBOX 作为 PT Wijaya International 旗下的原创品牌，证明了我们管理一款产品端到端全周期（从概念、设计、生产，到营销与分销策略）的能力。这是我们商业独立性的切实证明，也是我们持续为印度尼西亚消费者丰富选择承诺的体现。',
+        'profile.manufacture.row2.p2':
+            'SBOX 不仅是一台相机，更是我们献给数字影像世界的无限创造力的象征。选择我们的制造产品，您不仅获得了一台记录瞬间的设备，更支持了源于对当下创意市场需求深刻理解的可持续创新。',
     },
 } as const;

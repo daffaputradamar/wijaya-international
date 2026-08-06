@@ -151,7 +151,7 @@ export default function Projects({ projects }: ProjectsProps) {
                     transition={{ delay: 1.5, duration: 0.8, ease: EASE }}
                     className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4"
                 >
-                    <span className="text-white/30 text-[10px] tracking-[0.4em] uppercase">explore</span>
+                    <span className="text-white/30 text-[10px] tracking-[0.4em] uppercase">{t('projects.explore')}</span>
                     <motion.div
                         animate={{ y: [0, 8, 0] }}
                         transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
@@ -246,7 +246,7 @@ export default function Projects({ projects }: ProjectsProps) {
                                         </h3>
                                         <div className="mt-4 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                                             <div className="h-0.5 w-8 bg-red-600" />
-                                            <span className="text-red-500 text-[10px] font-bold uppercase tracking-[0.2em]">View Case Study</span>
+                                            <span className="text-red-500 text-[10px] font-bold uppercase tracking-[0.2em]">{t('projects.caseStudy')}</span>
                                         </div>
                                     </div>
                                 </div>

@@ -1,7 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLanguage } from '@/lib/language-context';
 import { EASE } from './motion-variants';
 
 export default function HeroSection() {
+    const { t } = useLanguage();
     const { scrollY } = useScroll();
     const yVideo = useTransform(scrollY, [0, 800], [0, 340]);
     const scaleVideo = useTransform(scrollY, [0, 800], [1, 1.25]);
@@ -10,7 +12,7 @@ export default function HeroSection() {
     const opacityText = useTransform(scrollY, [0, 400], [1, 0]);
     const scaleText = useTransform(scrollY, [0, 400], [1, 0.88]);
 
-    const heroWords = ['Empowering', 'Imaging', 'Innovation', 'Across', 'Indonesia'];
+    const heroWords = [t('hero.word1'), t('hero.word2'), t('hero.word3')];
 
     return (
         <section className="relative z-20 flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#041023]">
@@ -53,7 +55,7 @@ export default function HeroSection() {
                         transition={{ duration: 1, ease: EASE, delay: 0.1 }}
                         className="mb-6 text-xs font-medium tracking-[0.4em] text-white/50 uppercase"
                     >
-                        Welcome to Wijaya International
+                        {t('hero.welcome')}
                     </motion.p>
                     <h1 className="w-full overflow-hidden text-left text-[clamp(2rem,6vw,6rem)] leading-none font-extrabold tracking-tighter text-white uppercase break-words">
                         {heroWords.map((word, i) => (
@@ -90,7 +92,7 @@ export default function HeroSection() {
                 className="absolute right-6 bottom-8 z-10 flex flex-col items-center gap-2 md:right-8"
             >
                 <span className="mb-4 origin-center rotate-90 text-[10px] tracking-[0.3em] text-white/40 uppercase">
-                    Scroll
+                    {t('hero.scroll')}
                 </span>
                 <motion.div
                     animate={{ y: [0, 12, 0] }}

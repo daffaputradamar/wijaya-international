@@ -2,7 +2,7 @@ import { Head, Link, router } from '@inertiajs/react';
 import { motion, type Variants } from 'framer-motion';
 import { LuArrowRight, LuCalendar, LuTag } from 'react-icons/lu';
 import GuestLayout from '@/layouts/guest-layout';
-import { useLanguage } from '@/lib/language-context';
+import { useLanguage, type Language } from '@/lib/language-context';
 
 interface NewsCategory {
     name_id: string;
@@ -64,11 +64,11 @@ const cardVariants: Variants = {
 };
 
 // ─── News Card ────────────────────────────────────────────────────────────────
-function NewsCard({ item, lang }: { item: NewsItem; lang: 'id' | 'en' }) {
+function NewsCard({ item, lang }: { item: NewsItem; lang: Language }) {
     const title = lang === 'id' ? item.title_id : item.title_en;
     const categoryName = item.category ? (lang === 'id' ? item.category.name_id : item.category.name_en) : null;
     const date = item.published_at
-        ? new Date(item.published_at).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-GB', { day: '2-digit', month: 'long', year: 'numeric' })
+        ? new Date(item.published_at).toLocaleDateString(lang === 'id' ? 'id-ID' : lang === 'zh' ? 'zh-CN' : 'en-GB', { day: '2-digit', month: 'long', year: 'numeric' })
         : null;
 
     return (
@@ -108,7 +108,7 @@ function NewsCard({ item, lang }: { item: NewsItem; lang: 'id' | 'en' }) {
                     {title}
                 </h3>
                 <div className="mt-auto pt-3 flex items-center gap-1.5 text-sm font-medium text-[#000168] group-hover:gap-3 transition-all duration-300">
-                    Read More
+                    {lang === 'id' ? 'Baca Selengkapnya' : lang === 'zh' ? '阅读更多' : 'Read More'}
                     <LuArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
             </div>
@@ -130,7 +130,7 @@ export default function NewsPage({ news, categories, filters }: NewsPageProps) {
 
     return (
         <GuestLayout>
-            <Head title={lang === 'id' ? 'Berita' : 'News'}>
+            <Head title={lang === 'id' ? 'Berita' : lang === 'zh' ? '新闻' : 'News'}>
                 <meta head-key="description" name="description" content="Berita terbaru dari PT Wijaya International — peluncuran produk, event, dan kabar perusahaan." />
                 <meta head-key="og:title" property="og:title" content="News | PT Wijaya International" />
             </Head>
@@ -149,7 +149,7 @@ export default function NewsPage({ news, categories, filters }: NewsPageProps) {
                         animate="visible"
                         className="text-red-400 text-xs tracking-[0.4em] uppercase font-semibold mb-6"
                     >
-                        {lang === 'id' ? 'Berita & Update' : 'News & Updates'}
+                        {lang === 'id' ? 'Berita & Update' : lang === 'zh' ? '新闻与动态' : 'News & Updates'}
                     </motion.p>
                     <motion.h1
                         variants={fadeUp}
@@ -157,7 +157,7 @@ export default function NewsPage({ news, categories, filters }: NewsPageProps) {
                         animate="visible"
                         className="text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tighter uppercase mb-6"
                     >
-                        {lang === 'id' ? 'Berita' : 'Latest\nNews'}
+                        {lang === 'id' ? 'Berita' : lang === 'zh' ? '最新新闻' : 'Latest\nNews'}
                     </motion.h1>
                     <motion.p
                         variants={fadeUp}
@@ -168,7 +168,9 @@ export default function NewsPage({ news, categories, filters }: NewsPageProps) {
                     >
                         {lang === 'id'
                             ? 'Temukan berita terbaru, peluncuran produk, dan kisah di balik PT Wijaya International.'
-                            : 'Discover the latest news, product launches, and stories from PT Wijaya International.'}
+                            : lang === 'zh'
+                              ? '了解 PT Wijaya International 的最新动态、产品发布与背后故事。'
+                              : 'Discover the latest news, product launches, and stories from PT Wijaya International.'}
                     </motion.p>
                 </div>
             </section>
@@ -182,7 +184,7 @@ export default function NewsPage({ news, categories, filters }: NewsPageProps) {
                             onClick={() => setFilter('category', null)}
                             className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${!filters.category ? 'bg-[#000168] text-white shadow-md' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}
                         >
-                            {lang === 'id' ? 'Semua' : 'All'}
+                            {lang === 'id' ? 'Semua' : lang === 'zh' ? '全部' : 'All'}
                         </button>
                         {categories.map((cat) => (
                             <button
@@ -201,13 +203,13 @@ export default function NewsPage({ news, categories, filters }: NewsPageProps) {
                             onClick={() => setFilter('sort', 'latest')}
                             className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${filters.sort !== 'oldest' ? 'bg-background shadow text-foreground' : 'text-muted-foreground'}`}
                         >
-                            {lang === 'id' ? 'Terbaru' : 'Latest'}
+                            {lang === 'id' ? 'Terbaru' : lang === 'zh' ? '最新' : 'Latest'}
                         </button>
                         <button
                             onClick={() => setFilter('sort', 'oldest')}
                             className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${filters.sort === 'oldest' ? 'bg-background shadow text-foreground' : 'text-muted-foreground'}`}
                         >
-                            {lang === 'id' ? 'Terlama' : 'Oldest'}
+                            {lang === 'id' ? 'Terlama' : lang === 'zh' ? '最旧' : 'Oldest'}
                         </button>
                     </div>
                 </div>
@@ -225,7 +227,7 @@ export default function NewsPage({ news, categories, filters }: NewsPageProps) {
                             animate="visible"
                         >
                             {news.data.map((item) => (
-                                <NewsCard key={item.id} item={item} lang={lang as 'id' | 'en'} />
+                                <NewsCard key={item.id} item={item} lang={lang} />
                             ))}
                         </motion.div>
                     ) : (
@@ -235,8 +237,8 @@ export default function NewsPage({ news, categories, filters }: NewsPageProps) {
                             animate="visible"
                             className="text-center py-24 text-muted-foreground"
                         >
-                            <p className="text-xl font-medium mb-2">{lang === 'id' ? 'Belum ada berita.' : 'No news yet.'}</p>
-                            <p className="text-sm">{lang === 'id' ? 'Coba kategori lain.' : 'Try a different category.'}</p>
+                            <p className="text-xl font-medium mb-2">{lang === 'id' ? 'Belum ada berita.' : lang === 'zh' ? '暂无新闻。' : 'No news yet.'}</p>
+                            <p className="text-sm">{lang === 'id' ? 'Coba kategori lain.' : lang === 'zh' ? '请尝试其他分类。' : 'Try a different category.'}</p>
                         </motion.div>
                     )}
 
