@@ -3,6 +3,7 @@ import { LuArrowRight } from 'react-icons/lu';
 import { useLanguage } from '@/lib/language-context';
 import { fadeUp, staggerSlow } from '@/components/home/motion-variants';
 import { SplitIconButton } from '../ui/split-icon-button';
+import { services } from '@/routes';
 
 export default function BrandManagementSection() {
     const { t } = useLanguage();
@@ -50,7 +51,7 @@ export default function BrandManagementSection() {
                                 }}
                             ></span>
                         </p>
-                        <motion.a href="#">
+                        <motion.a href={`${services().url}/brand-management`}>
                             <SplitIconButton
                                 icon={<LuArrowRight className="h-4 w-4" />}
                                 text={t('services.brand.cta')}

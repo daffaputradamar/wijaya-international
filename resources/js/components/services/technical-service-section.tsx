@@ -3,6 +3,7 @@ import { LuArrowRight } from 'react-icons/lu';
 import { useLanguage } from '@/lib/language-context';
 import { fadeUp, staggerSlow } from '@/components/home/motion-variants';
 import { SplitIconButton } from '@/components/ui/split-icon-button';
+import { services } from '@/actions/App/Http/Controllers/PublicController';
 
 export default function TechnicalServiceSection() {
     const { t } = useLanguage();
@@ -64,7 +65,7 @@ export default function TechnicalServiceSection() {
                                 }}
                             ></span>
                         </p>
-                        <motion.a href="#" className="flex justify-end">
+                        <motion.a href={`${services().url}/technical-service-repair`} className="flex justify-end">
                             <SplitIconButton
                                 icon={<LuArrowRight className="h-4 w-4" />}
                                 text={t('services.technical.cta')}

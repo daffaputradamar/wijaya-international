@@ -3,6 +3,7 @@ import { LuArrowRight } from 'react-icons/lu';
 import { useLanguage } from '@/lib/language-context';
 import { fadeUp, staggerSlow } from '@/components/home/motion-variants';
 import { SplitIconButton } from '@/components/ui/split-icon-button';
+import { services } from '@/routes';
 
 export default function CameraSupportSection() {
     const { t } = useLanguage();
@@ -60,7 +61,7 @@ export default function CameraSupportSection() {
                                 }}
                             ></span>
                         </p>
-                        <motion.a href="#">
+                        <motion.a href={`${services().url}/camera-support`}>
                             <SplitIconButton
                                 icon={<LuArrowRight className="h-4 w-4" />}
                                 text={t('services.camera.cta')}

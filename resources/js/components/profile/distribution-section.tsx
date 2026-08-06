@@ -4,6 +4,7 @@ import { useLanguage } from '@/lib/language-context';
 import { clipReveal, EASE, fadeLeft, fadeRight, fadeUp, staggerSlow } from '@/components/home/motion-variants';
 import ServiceIcon from '../home/service-icon';
 import { SplitIconButton } from '../ui/split-icon-button';
+import { home } from '@/routes';
 
 interface ContentRowProps {
     image: string;
@@ -15,6 +16,7 @@ interface ContentRowProps {
 
 function ContentRow({ image, imageAlt, paragraphs, cta, variant }: ContentRowProps) {
     const isImageLeft = variant === 'imageLeft';
+    const homeHref = home().url;
     const imageContent = (
         <motion.div
             variants={isImageLeft ? fadeLeft : fadeRight}
@@ -38,7 +40,7 @@ function ContentRow({ image, imageAlt, paragraphs, cta, variant }: ContentRowPro
             ))}
             {cta && (
                 <motion.a
-                    href="#"
+                    href={`${homeHref}#dealer`}
                 >
                     <SplitIconButton icon={<LuArrowRight className="h-4 w-4" />} text={cta} variant="red" />
                 </motion.a>
